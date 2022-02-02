@@ -1,7 +1,8 @@
 package main
 
 import (
-	"backend/Database"
+	Database "backend/Database"
+	Service "backend/Services"
 )
 
 func main() {
@@ -45,6 +46,8 @@ func main() {
 	//Database.StructTx()
 	//Database.RawQueryField()
 	//Database.RawQueryAllField()
-
+	//Service.GetOne()
+	//Service.AddUser()
+	Service.UpdateUser()
 	defer Database.Db.Close()
 }
