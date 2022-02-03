@@ -14,4 +14,5 @@ We will develop an IMDB Clone system with functionalities, such as movie recomme
   * As a movie fan who likes watching a pecific types of movies, I want to sign up a personal account and set up my movie genre's preference, so that I can keep my personal information and get related recommendation of movies.
   * Acceptance Criteria: Given the page of typing username and password, When the personal account is sign-up, the web page would jump into logged account, Then the web page would ask users to fill-out their personal information and preference of movie genre. Our web app would provide recommended movies for log-in users. 
 
+### IMDB_Clone Mind Map
 <img src="/IMDB_Clone_Min_Map.jpg" alt="IMDB_Clone Mind Map"/>
