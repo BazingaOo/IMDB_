@@ -7,16 +7,12 @@ import (
 )
 
 //add data
-func AddUser() *Models.User {
-	var user1 = new(Models.User)
-	user := Models.User{Id: 111, User_name: "hahahha", Age: "20"}
-
+func AddUser(user Models.User) {
 	result := Database.Db.Create(&user) // pass pointer of data to Create
+	fmt.Println(user.User_id)           // returns inserted data's primary key
+	fmt.Println(result.Error)           // returns error
+	fmt.Println(result.RowsAffected)    // returns inserted records count
 
-	fmt.Println(user.Id)             // returns inserted data's primary key
-	fmt.Println(result.Error)        // returns error
-	fmt.Println(result.RowsAffected) // returns inserted records count
-	return user1
 }
 
 //delete
@@ -31,10 +27,10 @@ func UpdateUser() {
 }
 
 // 查询单条数据
-func GetOne() *Models.User {
+func Signin() *Models.User {
 	var user = new(Models.User)
-	Database.Db.Where("id = ?", "1").Preload("User").First(&user)
-	fmt.Println(user.User_name)
+	Database.Db.Where("user_id = ?", "1").Preload("user").First(&user)
+	fmt.Println("sadfdas:" + user.Username)
 	return user
 }
 
