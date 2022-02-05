@@ -1,4 +1,4 @@
-As a guest, I want to register and login/logout
+As a guest, I want to register and login/logout</br>
 As a guest, I want to search movies by their names
 As a guest, I want to view top movies ranked by their ratings.
 As a guest, I would like to view movies information including director, casting and release date etc.. 
