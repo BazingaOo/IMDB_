@@ -3,25 +3,20 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+//引入axios  by zhengkai.blog.csdn.net
 import axios from 'axios'
-import VueAxios from 'vue-axios'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '@/assets/css/main.css'
+//import '@/styles/index.scss'
+//import router from './router'
 import ElementUI from 'element-ui'
-import locale from 'element-ui/lib/locale/lang/en'
-import 'element-ui/lib/theme-chalk/index.css'
-//import ECharts from 'vue-echarts'
-//Vue.prototype.$echarts = echarts
-import 'echarts/lib/component/tooltip'
-import 'echarts/lib/component/title'
-import 'echarts/lib/component/legend'
-
-
-Vue.prototype.$ajax = axios
+import qs from 'qs'
 Vue.prototype.$axios = axios
+Vue.prototype.$qs = qs
+axios.defaults.baseURL = '/api'  //自动附加在所有axios请求前面，则可以省略/api，直接写'/xxxx/xxx'。否则需要设置'/api/xxxx/xxx'
 
-Vue.use(ElementUI, {locale})
 Vue.config.productionTip = false
-Vue.use(VueAxios, axios)
-
+Vue.use(ElementUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

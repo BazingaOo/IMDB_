@@ -27,11 +27,17 @@ func UpdateUser() {
 }
 
 // 查询单条数据
-func Signin() *Models.User {
+func Signin(iUser Models.User) int {
 	var user = new(Models.User)
-	Database.Db.Where("user_id = ?", "1").Preload("user").First(&user)
-	fmt.Println("sadfdas:" + user.Username)
-	return user
+	Database.Db.Where("username = ? AND password = ?", iUser.Username, iUser.Password).Find(&user)
+	var a = 0
+	if user.Username == "" {
+		a = 0
+	} else {
+		a = 1
+	}
+	fmt.Println(a)
+	return a
 }
 
 // 查询列表数据

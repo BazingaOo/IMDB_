@@ -11,7 +11,7 @@ func Main() {
 	// Simple group: v1
 	v1 := router.Group("/v1")
 	{
-		v1.GET("/signin", userController.SignIn)
+		v1.POST("/signin", userController.SignIn)
 		v1.POST("/signup", userController.SignUp)
 		//v1.POST("/read", readEndpoint)
 	}
@@ -27,5 +27,5 @@ func Main() {
 	//	v2.POST("/read", readEndpoint)
 	//}
 
-	router.Run(":8080")
+	router.Run(":8000")
 }
