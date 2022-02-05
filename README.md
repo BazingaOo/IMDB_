@@ -51,6 +51,9 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+### What we complished in Sprint 1
+We just build up the sign-up, login, forgot password page and build up the database in Sprint 1.
+
 ## User Stories
 1. Sign-up User's Personal Account Functionality
   * Priority: 3 stars/5 stars; Estimate: Not too hard, 30 points/100 points.
