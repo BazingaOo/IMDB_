@@ -8,8 +8,17 @@ We will develop an IMDB Clone system with functionalities, such as movie recomme
 3. The front-end of our web app would be developed on Vue.js frame. And in our first milestone, we would show a web page with the main page of the IMDB clone system and build up the connection between the front-end and the back-end. <br />
 4. The back-end of our web app would be developed on GoLang platform to build up our users' personal information module when they sign in their account in our first milestone.
 
-## Front-end User Interface
-We use Bootstrap css based UI framework, Vue.js javascript framework, and Vue CLI globally installed npm package to build up our web app's user interface. 
+## Backend stack:
+1. Language: GoLang
+2. Framework: Gin-gonic
+3. ORM: Gorm
+4. Database: MySql
+5. Authentication method: jwt
+
+## Frontend stack:
+1. Language: JavaScript
+2. Framework: Vue
+3. UI: element-UI
 
 ## Project Set-up and Installation of Environment
 To run our web app user interface, you need to go to Node.js website, (https://nodejs.org/en/), to install Node.js javascript runtime engine.
@@ -52,13 +61,9 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### What we complished in Sprint 1
-We just build up the sign-up, login, forgot password page and build up the database in Sprint 1.
+We connect frontend to backend, build up the sign-up, login, forgot password page and backend API, build up the database and JSON Web Token（JWT).</br>
+Please see Sprint1.md for details
 
-## User Stories
-1. Sign-up User's Personal Account Functionality
-  * Priority: 3 stars/5 stars; Estimate: Not too hard, 30 points/100 points.
-  * As a movie fan who likes watching a pecific types of movies, I want to sign up a personal account and set up my movie genre's preference, so that I can keep my personal information and get related recommendation of movies.
-  * Acceptance Criteria: Given the page of typing username and password, When the personal account is sign-up, the web page would jump into logged account, Then the web page would ask users to fill-out their personal information and preference of movie genre. Our web app would provide recommended movies for log-in users. 
 
 ## IMDB_Clone Mind Map
 <img src="/IMDB_Clone_Min_Map.jpg" alt="IMDB_Clone Mind Map"/>
