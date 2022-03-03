@@ -27,6 +27,10 @@ const router = new Router({
     {
       path: '/UserPage',
       component: () => import('../views/user/UserPage.vue')
+    },
+    {
+      path: 'tops',
+      component: () => import('../views/user/TopMovies')
     }
   ]
 });
