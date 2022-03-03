@@ -5,6 +5,10 @@ Vue.use(Router)
 const router = new Router({
   routes: [
     {
+      path: '*',
+      redirect: '/HomePage'
+    },
+    {
       path: '/UserLogIn',
       component: () => import('../views/user/UserLogIn.vue')
     },
@@ -33,16 +37,17 @@ const router = new Router({
 
 // 导航守卫
 // 使用 router.beforeEach 注册一个全局前置守卫，判断用户是否登陆
-router.beforeEach(async (to, from, next) => {
-  if (to.path === '/HomePage') {
-    next();
-  } else {
-    let token = localStorage.getItem('token');
-    if (token === null || token === '') {
-      next('/HomePage');
-    } else {
-      next();
-    }
-  }
-});
+// router.beforeEach(async (to, from, next) => {
+//   if (to.path === '/HomePage') {
+//     next();
+//   }
+//   else {
+//     let token = localStorage.getItem('token');
+//     if (token === null || token === '') {
+//       next('/HomePage');
+//     } else {
+//       next();
+//     }
+//   }
+// });
 export default router;

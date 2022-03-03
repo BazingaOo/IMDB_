@@ -18,7 +18,8 @@
       </el-dropdown-menu>
     </el-dropdown>
     <el-row>
-      <el-button>Sign in</el-button>
+      <a href="http://localhost:8080/#/UserLogIn"><el-button>Sign in</el-button></a>
+
     </el-row>>
     <el-input v-model="input" placeholder="Search movie"></el-input>
       <div class="line"></div>
