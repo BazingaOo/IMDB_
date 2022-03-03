@@ -6,15 +6,15 @@ parameter  | discription
  code  | status code 
  
 ## AddNewMovies
-Administrators can add new movies in the system.
+Administrators can add new movies in the system.  
 **Method**:POST  
-**URL**:http://localhost:8000/movie/addMovie 
+**URL**:http://localhost:8000/movie/addMovie  
 **Auth required**: Need token  
 If add movies error   
 ```
 {
   "message": "add movies error",
-	"code":    -1,
+  "code":    -1,
 }
 ```  
 If add movies success
@@ -26,15 +26,15 @@ If add movies success
 ```    
 
 ## DeleteMovies
-Administrators can delete movies in the system.
+Administrators can delete movies in the system.  
 **Method**:POST  
-**URL**:http://localhost:8000/movie/deleteMovie 
+**URL**:http://localhost:8000/movie/deleteMovie  
 **Auth required**: Need token  
 If delete movies error   
 ```
 {
   "message": "delete movies error",
-	"code":    -1,
+  "code":    -1,
 }
 ```  
 If delete movies success
@@ -46,21 +46,43 @@ If delete movies success
 ```   
 
 ## UpdateMovies
-Administrators can update movies in the system.
-**Method**:POST  
-**URL**:http://localhost:8000/movie/updateMovie 
-**Auth required**: Need token  
+Administrators can update movies in the system.  
+**Method**:POST   
+**URL**:http://localhost:8000/movie/updateMovie  
+**Auth required**: Need token   
 If update movies error   
 ```
 {
   "message": "update movies error",
-	"code":    -1,
+  "code":    -1,
 }
 ```  
 If update movies success
 ```
 {
  "message": "update movies success",
+ "code":    200,
+}
+```   
+
+## SearchMovies
+All the users can search movies by name and a specific cast.
+### SearchMoviesByName
+All the users can search movies by name.  
+**Method**:POST   
+**URL**:http://localhost:8000/user/movie/searchMovieByName  
+**Auth required**: No token   
+If search movies error   
+```
+{
+  "message": "not found the movie",
+  "code":    -1,
+}
+```  
+If search movies success
+```
+{
+ "message": "search movies success",
  "code":    200,
 }
 ```   
