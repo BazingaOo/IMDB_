@@ -80,6 +80,7 @@
         </a>
       </li>
     </ul>
+    <el-button @click="Signout" icon="el-icon-error">SignOut</el-button>
   </div>
 </template>
 
@@ -89,6 +90,15 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods:{
+    Signout() {
+      let token = localStorage.getItem('token');
+      console.log("beforeremoveT:"+token)
+      localStorage.removeItem('token');
+      console.log("removeT:"+localStorage.getItem('token'))
+      this.$router.push('/UserLogIn');
     }
   }
 }
