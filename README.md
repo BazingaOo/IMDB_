@@ -72,4 +72,4 @@ Please see Sprint1.md for details
 
 
 ## IMDB_Clone Mind Map
-<img src="/IMDB_Clone_Min_Map.jpg" alt="IMDB_Clone Mind Map"/>
+<img src="/IMDB.jpg" alt="IMDB_Clone"/>
