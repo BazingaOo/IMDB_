@@ -21,6 +21,12 @@ func Main() {
 		customerGroup.DELETE("/delete", userController.LogIn) // when delete sth
 	}
 
+	movieGroup := router.Group("/movie")
+	{
+		movieGroup.POST("/addMovie", movieController.AddMovie)
+		movieGroup.POST("/deleteMovie", movieController.DeleteMovie)
+		movieGroup.POST("/UpdateMovie", movieController.UpdateMovie)
+	}
 	// User Router, put all customer router in this.
 	userGroup := router.Group("/user")
 	{
