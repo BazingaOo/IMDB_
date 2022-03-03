@@ -98,3 +98,11 @@ update error
   "user":    user,
 }
 ```
+
+upate success
+```
+{
+    "message": "update success",
+				"user":    user,
+}
+```
