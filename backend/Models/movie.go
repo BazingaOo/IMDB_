@@ -1,15 +1,62 @@
 package Models
 
+import "backend/Database"
+
 type Movie struct {
-	Movie_id   uint `gorm:"primary_key"`
+	Movie_id   int `gorm:"primary_key"`
 	Movie_name string
-	Year       uint
-	Rate       float64
+	Year       int
+	Grade      float64
 	Desciption string
 	//Genre_list []*Genre_list `gorm:"many2many:movie_genre;"`
 }
 
-// 表名默认为模型名称的复数，此处手动设置User的表名为`users`
-func (Movie) TableName() string {
-	return "movie"
+// AddMovie add movie but do not add the grade
+func AddMovie(movie Movie) int64 {
+	movie = Movie{
+		Movie_id:   movie.Movie_id,
+		Movie_name: movie.Movie_name,
+		Year:       movie.Year,
+		Desciption: movie.Desciption}
+	result := Database.DB.Create(&movie)
+	return result.RowsAffected
+}
+
+//update movie
+func UpdateMovie(movie Movie) int64 {
+	result := Database.DB.Model(&movie).Updates(movie)
+	return result.RowsAffected
+}
+
+//delete movie
+func DeleteMovie(movieId int) int64 {
+	result := Database.DB.Delete(&Movie{}, movieId)
+	return result.RowsAffected
+}
+
+//search movie by movie id
+func SearchMovieByMovieId(movieId int) Movie {
+	var movie Movie
+	Database.DB.First(&movie, movieId)
+	return movie
+}
+
+func SearchMovieByName(name string) []Movie {
+	var movies []Movie
+	Database.DB.Where("movie_name LIKE ?", "%"+name+"%").Find(&movies)
+	return movies
+}
+
+type Result struct {
+	MovieId   int
+	MovieName string
+	MovieYear int
+	CastName  string
+	CastId    int
+}
+
+func SearchMovieByCast(castName string) []Result {
+	var result []Result
+	Database.DB.Raw("SELECT movie.movie_id, movie.movie_name, movie.`year`, cast.cast_name,cast.cast_id FROM cast INNER JOIN movie_cast ON cast.cast_id = movie_cast.cast_id INNER JOIN movie ON movie_cast.movie_id = movie.movie_id WHERE cast.cast_name = ? ORDER BY cast.cast_id", castName).Scan(&result)
+	return result
 }
