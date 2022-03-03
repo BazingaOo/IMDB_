@@ -24,6 +24,10 @@ const router = new Router({
       path: '/hello',
       component: () => import('../views/HelloWorld.vue')
     },
+    {
+      path: '/UserPage',
+      component: () => import('../views/user/UserPage.vue')
+    }
   ]
 });
 
