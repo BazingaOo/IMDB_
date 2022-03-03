@@ -4,6 +4,8 @@ parameter  | discription
  ---- | ----- 
  msg  | hint message 
  code  | status code 
+ token | token content
+ res | result class
  
 ## AddNewMovies
 Administrators can add new movies in the system.  
@@ -24,6 +26,7 @@ If add movies success
  "code":    200,
 }
 ```    
+The result class will be same as the movie struct.
 
 ## DeleteMovies
 Administrators can delete movies in the system.  
@@ -44,6 +47,7 @@ If delete movies success
  "code":    200,
 }
 ```   
+The result class will be same as the movie struct.
 
 ## UpdateMovies
 Administrators can update movies in the system.  
@@ -71,7 +75,7 @@ All the users can search movies by name and a specific cast.
 All the users can search movies by name.  
 **Method**:POST   
 **URL**:http://localhost:8000/user/movie/searchMovieByName  
-**Auth required**: No token   
+**Auth required**: do not need token   
 If search movies error   
 ```
 {
@@ -85,4 +89,33 @@ If search movies success
  "message": "search movies success",
  "code":    200,
 }
-```   
+``` 
+The result class will be same as the movie struct.
+
+### SearchMoviesByCast
+All the users can search movies by a specific cast.  
+**Method**:POST   
+**URL**:http://localhost:8000/user/movie/searchMovieByCast  
+**Auth required**: do not need token   
+If search movies error   
+```
+{
+  "message": "not found the movie",
+  "code":    -1,
+}
+```  
+If search movies success
+```
+{
+ "message": "search movies success",
+ "code":    200,
+}
+``` 
+Result Class
+parameter  | discription
+ ---- | ----- 
+ MovieID  | movie id 
+ MovieName  | movie name 
+ MovieYear | the year of the movie
+ castName | the name of the cast that user search
+ castID | the id of the cast that user search
