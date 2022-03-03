@@ -106,3 +106,29 @@ upate success
     "user":    user,
 }
 ```
+
+## Delete User
+when user on their own profile page, could delete user
+
+**Method** GET  
+
+**URL**:http://localhost:8000/user/DeleteUser
+
+**Auth required**: Need token 
+
+delete error
+```
+{
+   "message": "delete error",
+			"userId":  userId,
+}
+```
+
+delete success
+```
+{
+   "message": "delete success",
+			"userId":  userId,
+}
+```
+

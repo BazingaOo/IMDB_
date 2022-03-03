@@ -104,7 +104,7 @@ func generateToken(c *gin.Context, user Models.User) {
 	//}
 	c.JSON(http.StatusOK, gin.H{
 		"status": 0,
-		"msg":    "登录成功！",
+		"msg":    "login success",
 		"user":   user,
 		"token":  token,
 	})
@@ -117,7 +117,7 @@ func GetDataByTime(c *gin.Context) {
 	if claims != nil {
 		c.JSON(http.StatusOK, gin.H{
 			"status": 0,
-			"msg":    "token有效",
+			"msg":    "valid token",
 			"data":   claims,
 		})
 	}
@@ -153,7 +153,7 @@ func UpdateUserProfile(c *gin.Context) {
 	} else {
 		c.JSON(http.StatusUnauthorized, gin.H{
 			"status": 0,
-			"msg":    "token无效",
+			"msg":    "invalid token",
 			"data":   claims,
 		})
 	}
@@ -179,7 +179,7 @@ func DeleteUser(c *gin.Context) {
 	} else {
 		c.JSON(http.StatusUnauthorized, gin.H{
 			"status": 0,
-			"msg":    "token无效",
+			"msg":    "invalid token",
 			"data":   claims,
 		})
 	}
