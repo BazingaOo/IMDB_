@@ -1,16 +1,79 @@
 <template>
   <div class="block">
     <el-image
-      style="width: 303px; height: 140px"
-      :src="require('@/assets/IMDB-CLone-Logo.png')"
-      :preview-src-list="require('@/assets/IMDB-CLone-Logo.png')">
+      style="width: 315px; height: 110px"
+      :src="require('@/assets/IMDB-CLone-FinalLogo.png')"
+      :preview-src-list="require('@/assets/IMDB-CLone-FinalLogo.png')">
     </el-image>
-    <span class="demonstration">Click 指示器触发</span>
-    <el-carousel trigger="click" height="150px">
-      <el-carousel-item v-for="item in 4" :key="item">
-        <h3 class="small">{{ item }}</h3>
+    <el-dropdown>
+      <el-button type="primary">
+        MENU<i class="el-icon-arrow-down el-icon--right"></i>
+      </el-button>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item></el-dropdown-item>
+        <el-dropdown-item>Top Movies</el-dropdown-item>
+        <el-dropdown-items>Top Cast</el-dropdown-items>
+        <el-dropdown-item>Genre</el-dropdown-item>
+        <el-dropdown-item>Awards</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
+    <el-row>
+      <el-button>Sign in</el-button>
+    </el-row>>
+    <el-input v-model="input" placeholder="Search movie"></el-input>
+      <div class="line"></div>
+      <el-menu
+        :default-active="activeIndex2"
+        class="el-menu-demo"
+        mode="horizontal"
+        @select="handleSelect"
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#ffd04b">
+        <el-menu-item index="1">Movie Ratings</el-menu-item>
+        <el-submenu index="2">
+          <template slot="title">Settings</template>
+          <el-menu-item index="2-1">Personal Information</el-menu-item>
+          <el-menu-item index="2-2">Language</el-menu-item>
+          <el-menu-item index="2-3">选项3</el-menu-item>
+          <el-submenu index="2-4">
+            <template slot="title">选项4</template>
+            <el-menu-item index="2-4-1">选项1</el-menu-item>
+            <el-menu-item index="2-4-2">选项2</el-menu-item>
+            <el-menu-item index="2-4-3">选项3</el-menu-item>
+          </el-submenu>
+        </el-submenu>
+        <el-menu-item index="3" disabled>Information Updates</el-menu-item>
+        <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">Watchlist</a></el-menu-item>
+      </el-menu>
+    <span class="demonstration">Click to Swtich Moive Poster</span>
+    <el-carousel :interval="4000" type="card" height="300px" >
+      <el-carousel-item>
+        <div class="item">
+          <div class="item__content">
+            The first page.
+          </div>
+          <img class="item__image" src="https://picsum.photos/300?random=1" style="width: 900px; height: 300px" alt="" />
+        </div>
+      </el-carousel-item>
+      <el-carousel-item>
+        <div class="item">
+          <div class="item__content">
+            Another text for slide 2
+          </div>
+          <img class="item__image" src="https://picsum.photos/300?random=2" style="width: 900px; height: 300px" alt="" />
+        </div>
+      </el-carousel-item>
+      <el-carousel-item>
+        <div class="item">
+          <div class="item__content">
+            Yet another for third image
+          </div>
+          <img class="item__image" src="https://picsum.photos/300?random=3" style="width: 900px; height: 300px" alt="" />
+        </div>
       </el-carousel-item>
     </el-carousel>
+
     <el-popover
       placement="top-start"
       title="标题"
@@ -57,13 +120,25 @@
 export default {
   data() {
     return {
-      url: "require('@/assets/IMDB-CLone-Logo.png')",
+
+      url: "require('@/assets/IMDB-CLone-FinalLogo.png')",
       srcList: [
-        "require('@/assets/IMDB-CLone-Logo.png')"
-      ]
+        "require('@/assets/IMDB-CLone-FinalLogo.png')"
+      ],
+      input: '',
+      activeIndex: '1',
+      activeIndex2: '1'
+    }
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClick() {
+      alert('button click');
     }
   }
-};
+}
 
 </script>
 
@@ -72,7 +147,8 @@ export default {
   color: #475669;
   font-size: 14px;
   opacity: 0.75;
-  line-height: 150px;
+  line-height: 300px;
+
   margin: 0;
 }
 
@@ -83,4 +159,16 @@ export default {
 .el-carousel__item:nth-child(2n+1) {
   background-color: #d3dce6;
 }
+
+.el-dropdown {
+  vertical-align: top;
+}
+.el-dropdown + .el-dropdown {
+  margin-left: 15px;
+}
+.el-icon-arrow-down {
+  font-size: 12px;
+}
+
+
 </style>
