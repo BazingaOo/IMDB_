@@ -17,6 +17,10 @@
         <el-dropdown-item>Awards</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
+    <el-row>
+      <a href="http://localhost:8080/#/UserLogIn"><el-button>Sign in</el-button></a>
+
+    </el-row>>
     <el-input v-model="input" placeholder="Search movie"></el-input>
       <div class="line"></div>
       <el-menu
@@ -27,11 +31,11 @@
         background-color="#545c64"
         text-color="#fff"
         active-text-color="#ffd04b">
-        <el-menu-item index="1">Dashboard</el-menu-item>
+        <el-menu-item index="1">Movie Ratings</el-menu-item>
         <el-submenu index="2">
           <template slot="title">Settings</template>
           <el-menu-item index="2-1">Personal Information</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
+          <el-menu-item index="2-2">Language</el-menu-item>
           <el-menu-item index="2-3">选项3</el-menu-item>
           <el-submenu index="2-4">
             <template slot="title">选项4</template>
@@ -40,25 +44,25 @@
             <el-menu-item index="2-4-3">选项3</el-menu-item>
           </el-submenu>
         </el-submenu>
-        <el-menu-item index="3" disabled>消息中心</el-menu-item>
-        <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+        <el-menu-item index="3" disabled>Information Updates</el-menu-item>
+        <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">Watchlist</a></el-menu-item>
       </el-menu>
     <span class="demonstration">Click to Swtich Moive Poster</span>
-    <el-carousel :interval="4000" type="card" height="300px">
-      <el-caro0usel-item>
+    <el-carousel :interval="4000" type="card" height="300px" >
+      <el-carousel-item>
         <div class="item">
           <div class="item__content">
-            Text for slide 1
+            The first page.
           </div>
-          <img class="item__image" src="https://picsum.photos/300?random=1" alt="" >
-        </div>0
-      </el-caro0usel-item>
+          <img class="item__image" src="https://picsum.photos/300?random=1" style="width: 900px; height: 300px" alt="" />
+        </div>
+      </el-carousel-item>
       <el-carousel-item>
         <div class="item">
           <div class="item__content">
             Another text for slide 2
           </div>
-          <img class="item__image" src="https://picsum.photos/300?random=2" alt="" />
+          <img class="item__image" src="https://picsum.photos/300?random=2" style="width: 900px; height: 300px" alt="" />
         </div>
       </el-carousel-item>
       <el-carousel-item>
@@ -66,7 +70,7 @@
           <div class="item__content">
             Yet another for third image
           </div>
-          <img class="item__image" src="https://picsum.photos/300?random=3" alt="" />
+          <img class="item__image" src="https://picsum.photos/300?random=3" style="width: 900px; height: 300px" alt="" />
         </div>
       </el-carousel-item>
     </el-carousel>
@@ -144,7 +148,8 @@ export default {
   color: #475669;
   font-size: 14px;
   opacity: 0.75;
-  line-height: 200px;
+  line-height: 300px;
+
   margin: 0;
 }
 
@@ -165,4 +170,6 @@ export default {
 .el-icon-arrow-down {
   font-size: 12px;
 }
+
+
 </style>
