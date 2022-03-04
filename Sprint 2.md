@@ -1,7 +1,7 @@
 # backend and frontend have been integrated
 the port of frontend: localhost:8080  
 the port of backend: localhost:8000  
-We start the backend server, then run the frontend server. When data is transmitted, the backend can recive data.
+We start the backend server, then run the frontend server. When data is transmitted, the backend can receive data.
 
 # Frontend
 ## what we done
