@@ -5,8 +5,8 @@ import "backend/Database"
 type Watched_list struct {
 	User_id  int
 	Movie_id int
-	User     User  `gorm:"ForeignKey:User_id"`  // 设置关联模型并指定UserId作为外键
-	Movie    Movie `gorm:"ForeignKey:Movie_id"` // 设置关联模型并指定UserId作为外键
+	//User     User  `gorm:"ForeignKey:User_id"`  // 设置关联模型并指定UserId作为外键
+	//Movie    Movie `gorm:"ForeignKey:Movie_id"` // 设置关联模型并指定UserId作为外键
 
 }
 
@@ -16,8 +16,9 @@ func AddWatched(watched_list Watched_list) int64 {
 	return affected
 }
 
-func DeleteWatched(user_id int, movie_id int) int64 {
-	result := Database.DB.Delete(&Watched_list{}, user_id, movie_id)
+func DeleteWatched(User_id int, Movie_id int) int64 {
+	result := Database.DB.Delete(&Watched_list{User_id, Movie_id})
+	//result := Database.DB.Delete(&Watched_list{}, User_id, Movie_id)
 	return result.RowsAffected
 }
 
