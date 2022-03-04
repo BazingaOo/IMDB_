@@ -19,10 +19,17 @@
     </el-dropdown>
     <el-row>
       <a href="http://localhost:8080/#/UserLogIn"><el-button>Sign in</el-button></a>
+    </el-row>
 
-    </el-row>>
-    <el-input v-model="input" placeholder="Search movie"></el-input>
-      <div class="line"></div>
+    <el-input
+      placeholder="Search movies"
+      v-model="input"
+      clearable>
+    </el-input>
+
+    <a href="http://localhost:8080/#/Movies"><el-button type="primary" icon="el-icon-search">Search</el-button></a>
+
+    <div class="line"></div>
       <el-menu
         :default-active="activeIndex2"
         class="el-menu-demo"
@@ -36,12 +43,12 @@
           <template slot="title">Settings</template>
           <el-menu-item index="2-1">Personal Information</el-menu-item>
           <el-menu-item index="2-2">Language</el-menu-item>
-          <el-menu-item index="2-3">选项3</el-menu-item>
+          <el-menu-item index="2-3">item3</el-menu-item>
           <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
+            <template slot="title">item4</template>
+            <el-menu-item index="2-4-1">subitem1</el-menu-item>
+            <el-menu-item index="2-4-2">subitem2</el-menu-item>
+            <el-menu-item index="2-4-3">subitem3</el-menu-item>
           </el-submenu>
         </el-submenu>
         <el-menu-item index="3" disabled>Information Updates</el-menu-item>
@@ -52,7 +59,7 @@
       <el-carousel-item>
         <div class="item">
           <div class="item__content">
-            The first page.
+            The first movie
           </div>
           <img class="item__image" src="https://picsum.photos/300?random=1" style="width: 900px; height: 300px" alt="" />
         </div>
@@ -60,7 +67,7 @@
       <el-carousel-item>
         <div class="item">
           <div class="item__content">
-            Another text for slide 2
+            The second movie
           </div>
           <img class="item__image" src="https://picsum.photos/300?random=2" style="width: 900px; height: 300px" alt="" />
         </div>
@@ -68,7 +75,7 @@
       <el-carousel-item>
         <div class="item">
           <div class="item__content">
-            Yet another for third image
+            Another one movie
           </div>
           <img class="item__image" src="https://picsum.photos/300?random=3" style="width: 900px; height: 300px" alt="" />
         </div>
@@ -81,7 +88,7 @@
       width="200"
       trigger="hover"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
-      <el-button slot="reference">hover 激活</el-button>
+      <el-button slot="reference">hover activate</el-button>
     </el-popover>
 
     <el-popover
@@ -90,7 +97,7 @@
       width="200"
       trigger="click"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
-      <el-button slot="reference">click 激活</el-button>
+      <el-button slot="reference">click activate</el-button>
     </el-popover>
 
     <el-popover
@@ -101,7 +108,7 @@
       trigger="focus"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">
     </el-popover>
-    <el-button v-popover:popover>focus 激活</el-button>
+    <el-button v-popover:popover>focus activate</el-button>
 
     <el-popover
       placement="bottom"
@@ -110,7 +117,7 @@
       trigger="manual"
       content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
       v-model="visible">
-      <el-button slot="reference" @click="visible = !visible">手动激活</el-button>
+      <el-button slot="reference" @click="visible = !visible">mannually activate</el-button>
     </el-popover>
 
   </div>
@@ -121,6 +128,9 @@
 export default {
   data() {
     return {
+      loginForm: {
+        username: 'Joker',
+      },
 
       url: "require('@/assets/IMDB-CLone-FinalLogo.png')",
       srcList: [
@@ -169,6 +179,14 @@ export default {
 }
 .el-icon-arrow-down {
   font-size: 12px;
+}
+
+.el-input {
+  vertical-align: baseline;
+}
+
+.el-input + .el-input{
+  margin-left: 15px;
 }
 
 

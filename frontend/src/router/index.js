@@ -31,7 +31,19 @@ const router = new Router({
     {
       path: '/UserPage',
       component: () => import('../views/user/UserPage.vue')
-    }
+    },
+    {
+      path: '/Movies',
+      component: () => import('../views/user/Movies.vue')
+    },
+    {
+      path: '/TopMovies',
+      component: () => import('../views/user/TopMovies.vue')
+    },
+    {
+      path: '/WishMovies',
+      component: () => import('../views/user/WishMovies.vue')
+    },
   ]
 });
 

@@ -16,6 +16,8 @@
           </template>
         </el-input>
       </el-form-item>
+
+
       <el-form-item prop="password">
         <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码" show-password>
           <template slot="prepend">
@@ -23,6 +25,9 @@
           </template>
         </el-input>
       </el-form-item>
+
+
+
       <el-link type="primary" class="register" href="http://localhost:8080/#/UserSignUp">Sign Up</el-link>
       <el-form-item style="width:100%;">
         <a href="http://localhost:8080/#/UserPage"><el-button type="primary" style="width:100%;" @click="checkLogin" :loading="load">Sign In</el-button></a>
@@ -46,8 +51,8 @@ export default {
         password: '123',
       },
       loginRules: {
-        username: [{required: true, message: '请输入用户名', trigger: 'blur'}],
-        password: [{required: true, message: '请输入密码', trigger: 'blur'}]
+        username: [{required: true, message: 'Please enter your username', trigger: 'blur'}],
+        password: [{required: true, message: 'Please enter your password', trigger: 'blur'}]
       },
       checked: false,
     }
