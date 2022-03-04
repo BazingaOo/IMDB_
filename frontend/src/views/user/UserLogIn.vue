@@ -25,7 +25,7 @@
       </el-form-item>
       <el-link type="primary" class="register" href="http://localhost:8080/#/UserSignUp">Sign Up</el-link>
       <el-form-item style="width:100%;">
-        <el-button type="primary" style="width:100%;" @click="checkLogin" :loading="load">Sign In</el-button>
+        <a href="http://localhost:8080/#/UserPage"><el-button type="primary" style="width:100%;" @click="checkLogin" :loading="load">Sign In</el-button></a>
       </el-form-item>
     </el-form>
 
