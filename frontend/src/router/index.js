@@ -29,7 +29,7 @@ const router = new Router({
       component: () => import('../views/user/UserPage.vue')
     },
     {
-      path: 'tops',
+      path: '/tops',
       component: () => import('../views/user/TopMovies')
     }
   ]
@@ -38,12 +38,12 @@ const router = new Router({
 // 导航守卫
 // 使用 router.beforeEach 注册一个全局前置守卫，判断用户是否登陆
 router.beforeEach(async (to, from, next) => {
-  if (to.path === '/HomePage') {
+  if (to.path === '/tops') {
     next();
   } else {
     let token = localStorage.getItem('token');
     if (token === null || token === '') {
-      next('/HomePage');
+      next('/tops');
     } else {
       next();
     }
