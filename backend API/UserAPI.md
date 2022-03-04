@@ -120,7 +120,7 @@ delete error
 ```
 {
    "message": "delete error",
-			"userId":  userId,
+   "userId":  userId,
 }
 ```
 
@@ -128,7 +128,7 @@ delete success
 ```
 {
    "message": "delete success",
-			"userId":  userId,
+   "userId":  userId,
 }
 ```
 
