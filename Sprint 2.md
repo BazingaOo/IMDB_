@@ -4,20 +4,26 @@ the port of backend: localhost:8000
 We start the backend server, then run the frontend server. When data is transmitted, the backend can receive data.
 
 # Frontend
-## what we done
+## what we have done
 ### We have implemented the functions that:  
 User Login  
 Sign up  
 Check Username if unique, when user sign up  
-Search Movie or Cast  
+Search Movie or Cast\
+Top rated movies page\
+Wish Movies page\
+Movie page
 ## Cypress + unit tests
 ### Test the function as follow:  
 User Login  
 Sign up  
 Check Username if unique, when user sign up  
-Search Movie or Cast  
+Search Movie or Cast\
+Top rated movies page\
+Wish Movies page\
+Movie page
 # Backend
-## what we done
+## what we have done
 We have implemented the functions that:  
 ### For User model:  
 login, signup and Username if unique, when user sign up  
