@@ -9,18 +9,18 @@ We start the backend server, then run the frontend server. When data is transmit
 User Login  
 Sign up  
 Check Username if unique, when user sign up  
-Search Movie or Cast
-Top rated movies page
-Wish Movies page
-Movie page
+Search Movie or Cast\
+Top rated movies page\
+Wish Movies page\
+Movie page\
 ## Cypress + unit tests
 ### Test the function as follow:  
 User Login  
 Sign up  
 Check Username if unique, when user sign up  
-Search Movie or Cast
-Top rated movies page
-Wish Movies page
+Search Movie or Cast\
+Top rated movies page\
+Wish Movies page\
 Movie page
 # Backend
 ## what we have done
