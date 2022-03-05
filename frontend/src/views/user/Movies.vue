@@ -10,7 +10,7 @@
       :key="tag.name"
       closable
       :type="tag.type">
-      {{tag.name}}
+      {{ tag.name }}
     </el-tag>
     <el-rate
       v-model="value"
@@ -19,7 +19,7 @@
       text-color="#ff9900"
       score-template="{value}">
     </el-rate>
-    <span class="demonstration">默认不区分颜色</span>
+    <span class="demonstration"></span>
     <el-rate v-model="value1"></el-rate>
 
     <span class="demonstration">区分颜色</span>
@@ -37,14 +37,19 @@ export default {
   data() {
     return {
       tags: [
-        { name: 'Action', type: '' },
-        { name: 'Comedy', type: 'success' },
-        { name: 'Drama', type: 'info' },
-        { name: 'Si-Fi', type: 'warning' },
-        { name: 'Romance', type: 'danger' }
-      ]
+        {name: 'Action', type: ''},
+        {name: 'Comedy', type: 'success'},
+        {name: 'Drama', type: 'info'},
+        {name: 'Si-Fi', type: 'warning'},
+        {name: 'Romance', type: 'danger'}
+      ],
     };
-  }
+
+  },
+  created() {
+    let movie1=this.$route.query.movie
+    console.log(movie1)
+  },
 }
 </script>
 
@@ -58,6 +63,3 @@ colors: ['#99A9BF', '#F7BA2A', '#FF9900']  // 等同于 { 2: '#99A9BF', 4: { val
 }
 }
 <style scoped>
-
-
-</style>
