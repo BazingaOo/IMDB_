@@ -20,7 +20,7 @@ Sign up
 Check Username if unique, when user sign up  
 Search Movie or Cast\
 Top rated movies page\
-Wish Movies page
+Wish Movies page\
 Movie page
 # Backend
 ## what we have done
