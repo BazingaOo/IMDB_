@@ -3,10 +3,9 @@ As a guest, I want to search movies by their name, genre, cast, year</br></br>
 
 
 As a signed-up user, I would like to fill out my personal information and my preference of movie genre, casting actors and directors in my logged-in account. </br>
-As a signed-up user, I want to add movies to my watch-list.</br>
+As a signed-up user, I want to add watched movies to my watch-list.</br>
 As a signed-up user, I want to be able to search movies by name, genre, cast, year.</br>
-As a signed-up user, I want to be able to rate movies, Meanwhile, add, edit, see, and delete my own reviews.</br>
-As a signed-up user, I want to be able to mark movies that I've watched and lable them by genres. </br></br>
+As a signed-up user, I want to be able to rate movies, Meanwhile, add, edit, see, and delete my own reviews.</br></br>
 
 
 As an administrator, I want to be able to update movie database</br>
