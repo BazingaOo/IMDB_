@@ -12,7 +12,7 @@ Check Username if unique, when user sign up
 Search Movie or Cast\
 Top rated movies page\
 Wish Movies page\
-Movie page
+Home page
 ## Cypress + unit tests
 ### Test the function as follow:  
 User Login  
