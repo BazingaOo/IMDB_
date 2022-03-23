@@ -1,5 +1,5 @@
 As a guest, I want to register and login/logout</br>
-As a guest, I want to search movies by their name, genre, cast, year</br>
+As a guest, I want to search movies by their name, genre, cast, year</br></br>
 
 
 As a signed-up user, I would like to fill out my personal information and my preference of movie genre, casting actors and directors in my logged-in account. </br>
