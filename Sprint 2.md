@@ -39,7 +39,6 @@ CURD for each review
 CURD for user watchedList  
 ## unit tests
 We tested all functions we implemented and all passed. The test files are in the "test" folder of the "backend" folder.  
-You have unit tests for the backend  
 ## the backend API developed
 the API documents are in the backendAPI folder.
 
