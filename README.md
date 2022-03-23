@@ -3,10 +3,13 @@
 We will develop an IMDB Clone system with functionalities, such as movie recommendation, movie ratings, movie genre searching, movie comments and criticization. 
 
 ## Group Members
+### front-end
+Yuxuan Wang, 7566-9009<br/>
 Shihuan Wang, 9715-8829<br/>
+### back-end
 Tao Zhang, 7636-6624<br/>
 Zihan Guo, 8615-3487<br/>
-Yuxuan Wang, 7566-9009<br/>
+
 
 ## Project Abstract
 1. We plan to develop an IMDB clone system for movies with several functionalities, movie recommendation, movie ratings, movie genre searching, and movie comments and criticization. <br />
