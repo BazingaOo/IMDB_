@@ -1,17 +1,12 @@
 As a guest, I want to register and login/logout</br>
-As a guest, I want to search movies by their names</br>
-As a guest, I want to view top movies ranked by their ratings.</br>
-As a guest, I would like to view movies information including director, casting and release date etc.. </br></br>
+As a guest, I want to search movies by their name, genre, cast, year</br>
 
 
-
-As a signed-up user, I would get recommendation based on my preference of movie genre. </br>
-As a signed-up user, I want to be able to rate and comment movies.</br>
-As a signed-up user, I want to be able to mark movies that I've watched and lable them by genres. </br>
 As a signed-up user, I would like to fill out my personal information and my preference of movie genre, casting actors and directors in my logged-in account. </br>
-As a signed-up user, I would like to able to follow other users and view their watched list.</br></br>
-
-
+As a signed-up user, I want to add movies to my watch-list.</br>
+As a signed-up user, I want to be able to search movies by name, genre, cast, year.</br>
+As a signed-up user, I want to be able to rate movies, Meanwhile, add, edit, see, and delete my own reviews.</br>
+As a signed-up user, I want to be able to mark movies that I've watched and lable them by genres. </br></br>
 
 
 As an administrator, I want to be able to update movie database</br>
