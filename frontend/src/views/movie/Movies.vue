@@ -2,7 +2,7 @@
   <div class="block">
     <el-image
       style="width: 259px; height: 375px"
-      :src="require('@/assets/joker.jpg')">
+      :src="require('@/assets/Joker.jpg')">
     </el-image>
   </div>
 

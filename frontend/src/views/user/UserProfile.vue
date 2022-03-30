@@ -136,18 +136,20 @@ export default {
     var validateUser = function (rule, value, callback) {
       if (!value) {
         return callback(new Error('用户名不能为空'));
-      } else {
+      } else if(value !== localStorage.getItem('username')){
         let params = {username: value}
-          that.$axios.post("/api/user/checkUsername", that.$qs.stringify(params)).then((res) => {
-            console.log(res.status)
-            if (res.status == 201) {
-              return callback(new Error('Username have been registered!!'));
-            } else {
-              return callback();
-            }
-          }).catch((error) => {
-            console.log(error)       //请求失败返回的数据
-          })
+        that.$axios.post("/api/user/checkUsername", that.$qs.stringify(params)).then((res) => {
+          console.log(res.status)
+          if (res.status === 201) {
+            return callback(new Error('Username have been registered!!'));
+          } else {
+            return callback();
+          }
+        }).catch((error) => {
+          console.log(error)       //请求失败返回的数据
+        })
+      } else {
+        callback();
       }
     };
     return {
@@ -217,7 +219,7 @@ export default {
           }
           this.$axios.post("/api/user/UpdateProfile", this.$qs.stringify(params))
             .then(res => {
-              console.log(res);
+              localStorage.setItem('username', this.tableData.Username)
               if (res.status === 200) {
                 this.$router.go(0)
                 this.$message({
@@ -244,33 +246,38 @@ export default {
       });
     },
     deleteAccount() {
-      this.$alert('Are you sure delete your account', 'Alert', {
+      this.$confirm('Are you sure delete your account', 'Alert', {
         confirmButtonText: 'Confirm',
-        callback: action => {
-          let params = {userId: localStorage.getItem('userId')}
-          this.$axios.post("/api/user/DeleteUser", this.$qs.stringify(params))
-            .then(res => {
-              console.log(res);
-              if (res.status === 200) {
-                this.$router.push('/UserLogIn')
-                this.$message({
-                  type: 'info',
-                  message: 'delete successful'
-                });
-              }
-            }).catch(error => {
-            console.log(error);
-            this.$message({//这里采用element ui的一个错误显示效果模板
-              title: '更新提示',
-              message: error.message,
-              center: true,
-              type: 'warning'
-            });
-          })
-
-        }
+        cancelButtonText: 'Cancel',
+        type: 'warning'
+      }).then(() => {
+        let params = {userId: localStorage.getItem('userId')}
+        this.$axios.post("/api/user/DeleteUser", this.$qs.stringify(params))
+          .then(res => {
+            console.log(res);
+            if (res.status === 200) {
+              this.$router.push('/UserLogIn')
+              this.$message({
+                type: 'info',
+                message: 'delete successful'
+              });
+            }
+          }).catch(error => {
+          console.log(error);
+          this.$message({//这里采用element ui的一个错误显示效果模板
+            title: '更新提示',
+            message: error.message,
+            center: true,
+            type: 'warning'
+          });
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        });
       });
-    },
+    }
   }
 }
 </script>

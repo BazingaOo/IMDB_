@@ -23,6 +23,14 @@
             </el-form>
           </template>
         </el-table-column>
+        <el-table-column label="Movie">
+          <template v-slot="props">
+          <div class="demo-image">
+            <el-image style="width: 100px; height: 150px"
+                      :src="require('@/assets/'+props.row.Image)"
+                      fit="cover"/>
+          </div> </template>
+        </el-table-column>
         <el-table-column
           label="Movie Name"
           prop="Movie_name">
@@ -65,12 +73,21 @@
           </template>
         </el-table-column>
         <el-table-column
-          label="Movie Name"
-          prop="MovieName">
+          label="Actor">
+          <template v-slot="props">
+            <div class="demo-image">
+              <el-image style="width: 100px; height: 150px"
+                        :src="require('@/assets/'+props.row.CastImage)"
+                        fit="cover"/>
+            </div> </template>
         </el-table-column>
         <el-table-column
           label="Actor Name"
           prop="CastName">
+        </el-table-column>
+        <el-table-column
+          label="Movie Name"
+          prop="MovieName">
         </el-table-column>
         <el-table-column
           label="Description"
@@ -88,7 +105,7 @@ export default {
     return {
       titleTableData: [],
       nameTableData: [],
-      searchInput: ''
+      searchInput: '',
     };
   },
   watch: {
@@ -100,6 +117,7 @@ export default {
     }
   },
   mounted() {
+
     this.fetchData()
     this.searchMovieByTitle()
     this.searchMovieByName()
@@ -160,7 +178,7 @@ export default {
               type: 'success'
             });
           } else {
-            this.nameTableData.movie=null
+            this.nameTableData.movie = null
             this.$message({
               title: '查询提示',
               message: '电影不存在',

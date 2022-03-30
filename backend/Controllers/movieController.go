@@ -14,7 +14,7 @@ func SearchMovieByName(c *gin.Context) {
 	res := Models.SearchMovieByName(movieName)
 	//movie= res
 	if len(res) == 0 {
-		c.JSON(http.StatusOK, gin.H{
+		c.JSON(http.StatusNotFound, gin.H{
 			"code":    404,
 			"message": "error",
 		})
@@ -30,7 +30,6 @@ func SearchMovieByName(c *gin.Context) {
 func SearchMovieByCast(c *gin.Context) {
 	var castName string
 	//user.Username = c.PostForm("username")
-
 	castName = c.PostForm("castName")
 	res := Models.SearchMovieByCast(castName)
 	if len(res) == 0 {

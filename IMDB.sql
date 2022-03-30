@@ -11,7 +11,7 @@
  Target Server Version : 80028
  File Encoding         : 65001
 
- Date: 29/03/2022 23:06:44
+ Date: 30/03/2022 17:26:37
 */
 
 SET NAMES utf8mb4;
@@ -25,6 +25,7 @@ CREATE TABLE `cast` (
   `cast_id` int NOT NULL AUTO_INCREMENT,
   `cast_name` varchar(50) DEFAULT NULL,
   `cast_description` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `cast_image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`cast_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
@@ -32,9 +33,9 @@ CREATE TABLE `cast` (
 -- Records of cast
 -- ----------------------------
 BEGIN;
-INSERT INTO `cast` (`cast_id`, `cast_name`, `cast_description`) VALUES (1, 'Tao', 'master of actor');
-INSERT INTO `cast` (`cast_id`, `cast_name`, `cast_description`) VALUES (2, 'Tao', 'PHD');
-INSERT INTO `cast` (`cast_id`, `cast_name`, `cast_description`) VALUES (3, '1', '1111');
+INSERT INTO `cast` (`cast_id`, `cast_name`, `cast_description`, `cast_image`) VALUES (1, 'Tao', 'master of actor', 'l');
+INSERT INTO `cast` (`cast_id`, `cast_name`, `cast_description`, `cast_image`) VALUES (2, 'Tao', 'PHD', NULL);
+INSERT INTO `cast` (`cast_id`, `cast_name`, `cast_description`, `cast_image`) VALUES (3, 'test', '1111', 'Tom.png');
 COMMIT;
 
 -- ----------------------------
@@ -62,7 +63,8 @@ CREATE TABLE `movie` (
   `movie_name` varchar(50) DEFAULT NULL,
   `year` int DEFAULT NULL,
   `grade` float DEFAULT NULL,
-  `description` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`movie_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 
@@ -70,11 +72,11 @@ CREATE TABLE `movie` (
 -- Records of movie
 -- ----------------------------
 BEGIN;
-INSERT INTO `movie` (`movie_id`, `movie_name`, `year`, `grade`, `description`) VALUES (1, '萨达', 2021, 90, '真的很不错');
-INSERT INTO `movie` (`movie_id`, `movie_name`, `year`, `grade`, `description`) VALUES (2, '大师傅', 2020, 97, '太强了');
-INSERT INTO `movie` (`movie_id`, `movie_name`, `year`, `grade`, `description`) VALUES (3, 'dafas', 2222, 96, 'cool');
-INSERT INTO `movie` (`movie_id`, `movie_name`, `year`, `grade`, `description`) VALUES (4, 'test', 2001, 0, 'awesome!');
-INSERT INTO `movie` (`movie_id`, `movie_name`, `year`, `grade`, `description`) VALUES (5, 'test1', 2222, 10, '111111');
+INSERT INTO `movie` (`movie_id`, `movie_name`, `year`, `grade`, `description`, `image`) VALUES (1, '萨达', 2021, 90, '真的很不错', 'Avengers-Endgame.jpg');
+INSERT INTO `movie` (`movie_id`, `movie_name`, `year`, `grade`, `description`, `image`) VALUES (2, '大师傅', 2020, 97, '太强了', NULL);
+INSERT INTO `movie` (`movie_id`, `movie_name`, `year`, `grade`, `description`, `image`) VALUES (3, 'dafas', 2222, 96, 'cool', NULL);
+INSERT INTO `movie` (`movie_id`, `movie_name`, `year`, `grade`, `description`, `image`) VALUES (4, 'test', 2001, 0, 'awesome!', 'logo.png');
+INSERT INTO `movie` (`movie_id`, `movie_name`, `year`, `grade`, `description`, `image`) VALUES (5, 'test1', 2222, 10, '111111', 'Avengers-Endgame.jpg');
 COMMIT;
 
 -- ----------------------------
@@ -96,7 +98,7 @@ CREATE TABLE `movie_cast` (
 BEGIN;
 INSERT INTO `movie_cast` (`cast_id`, `movie_id`) VALUES (1, 1);
 INSERT INTO `movie_cast` (`cast_id`, `movie_id`) VALUES (2, 2);
-INSERT INTO `movie_cast` (`cast_id`, `movie_id`) VALUES (3, 4);
+INSERT INTO `movie_cast` (`cast_id`, `movie_id`) VALUES (3, 5);
 COMMIT;
 
 -- ----------------------------
@@ -179,8 +181,8 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 BEGIN;
-INSERT INTO `user` (`user_id`, `username`, `password`, `user_type`, `gender`, `age`, `email`) VALUES (1, 'qwe1', '123456', 0, 'female', 12, 'qqqq@qwqe.com');
-INSERT INTO `user` (`user_id`, `username`, `password`, `user_type`, `gender`, `age`, `email`) VALUES (2, 'qwe', '123', NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`user_id`, `username`, `password`, `user_type`, `gender`, `age`, `email`) VALUES (1, 'qwe', '123', NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`user_id`, `username`, `password`, `user_type`, `gender`, `age`, `email`) VALUES (2, 'qwe2', '123456', NULL, 'female', 12, '123@qwe.com');
 COMMIT;
 
 -- ----------------------------

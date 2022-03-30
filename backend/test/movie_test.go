@@ -26,10 +26,10 @@ func TestSearchMovieByName(t *testing.T) {
 
 func TestAddMovie(t *testing.T) {
 	movie := Models.Movie{
-		Movie_id:   4,
-		Movie_name: "test",
-		Year:       1998,
-		Desciption: "awesome!"}
+		Movie_id:    4,
+		Movie_name:  "test",
+		Year:        1998,
+		Description: "awesome!"}
 	if Models.AddMovie(movie) == 0 {
 		t.Error("result is wrong!")
 	} else {
@@ -39,10 +39,10 @@ func TestAddMovie(t *testing.T) {
 
 func TestUpdateMovie(t *testing.T) {
 	movie := Models.Movie{
-		Movie_id:   4,
-		Movie_name: "test",
-		Year:       2001,
-		Desciption: "awesome!"}
+		Movie_id:    4,
+		Movie_name:  "test",
+		Year:        2001,
+		Description: "awesome!"}
 	if Models.UpdateMovie(movie) == 0 {
 		t.Error("result is wrong!")
 	} else {

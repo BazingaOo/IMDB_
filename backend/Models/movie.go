@@ -8,6 +8,7 @@ type Movie struct {
 	Year        int
 	Grade       float64
 	Description string
+	Image       string
 	//Genre_list []*Genre_list `gorm:"many2many:movie_genre;"`
 }
 
@@ -53,13 +54,15 @@ type Result struct {
 	Year            int
 	Grade           float64
 	Description     string
+	Image           string
 	CastName        string
 	CastId          int
 	CastDescription string
+	CastImage       string
 }
 
 func SearchMovieByCast(castName string) []Result {
 	var result []Result
-	Database.DB.Raw("SELECT movie.movie_id, movie.movie_name, movie.year, movie.grade, movie.description, cast.cast_name,cast.cast_id, cast.cast_description FROM cast INNER JOIN movie_cast ON cast.cast_id = movie_cast.cast_id INNER JOIN movie ON movie_cast.movie_id = movie.movie_id WHERE cast.cast_name = ? ORDER BY cast.cast_id", castName).Scan(&result)
+	Database.DB.Raw("SELECT movie.movie_id, movie.movie_name, movie.year, movie.grade, movie.description, movie.Image, cast.cast_name,cast.cast_id, cast.cast_description, cast.cast_image FROM cast INNER JOIN movie_cast ON cast.cast_id = movie_cast.cast_id INNER JOIN movie ON movie_cast.movie_id = movie.movie_id WHERE cast.cast_name = ? ORDER BY cast.cast_id", castName).Scan(&result)
 	return result
 }
