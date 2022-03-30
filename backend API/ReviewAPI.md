@@ -1,5 +1,5 @@
 
-# Movies
+# Review
 
 parameter  | discription
  ---- | ----- 
@@ -8,115 +8,64 @@ parameter  | discription
  token | token content
  res | result class
  
-## AddNewMovies
-Administrators can add new movies in the system.  
+## AddNewReview
+Users can add new reviews in any movies.  
 **Method**:POST  
-**URL**:http://localhost:8000/movie/addMovie  
+**URL**:http://localhost:8000/user/review/addReview  
 **Auth required**: Need token  
-If add movies error   
+If add reviews error   
 ```
 {
-  "message": "add movies error",
+  "message": "add reviews error",
   "code":    -1,
 }
 ```  
-If add movies success
+If add reviews success
 ```
 {
- "message": "add movies success",
+ "message": "add reviews success",
  "code":    200,
 }
 ```    
-The result class will be same as the movie struct.
+The result class will be same as the review struct.
 
-## DeleteMovies
-Administrators can delete movies in the system.  
+## DeleteReviews
+Users can delete reviews in the system.  
 **Method**:POST  
-**URL**:http://localhost:8000/movie/deleteMovie  
+**URL**:http://localhost:8000/movie/deleteReview  
 **Auth required**: Need token  
-If delete movies error   
+If delete reviews error   
 ```
 {
-  "message": "delete movies error",
+  "message": "delete reviews error",
   "code":    -1,
 }
 ```  
-If delete movies success
+If delete reviews success
 ```
 {
- "message": "delete movies success",
+ "message": "delete reviews success",
  "code":    200,
 }
 ```   
-The result class will be same as the movie struct.
+The result class will be same as the review struct.
 
-## UpdateMovies
-Administrators can update movies in the system.  
+## UpdateReviews
+Users can update thier own reviews in the system.  
 **Method**:POST   
-**URL**:http://localhost:8000/movie/updateMovie  
+**URL**:http://localhost:8000/movie/updateReview  
 **Auth required**: Need token   
-If update movies error   
+If update reviews error   
 ```
 {
-  "message": "update movies error",
+  "message": "update reviews error",
   "code":    -1,
 }
 ```  
-If update movies success
+If update reviews success
 ```
 {
- "message": "update movies success",
+ "message": "update reviews success",
  "code":    200,
 }
 ```   
-
-## SearchMovies
-All the users can search movies by name and a specific cast.
-### SearchMoviesByName
-All the users can search movies by name.  
-**Method**:POST   
-**URL**:http://localhost:8000/user/movie/searchMovieByName  
-**Auth required**: do not need token   
-If search movies error   
-```
-{
-  "message": "not found the movie",
-  "code":    -1,
-}
-```  
-If search movies success
-```
-{
- "message": "search movies success",
- "code":    200,
-}
-``` 
-The result class will be same as the movie struct.
-
-### SearchMoviesByCast
-All the users can search movies by a specific cast.  
-**Method**:POST   
-**URL**:http://localhost:8000/user/movie/searchMovieByCast  
-**Auth required**: do not need token   
-If search movies error   
-```
-{
-  "message": "not found the movie",
-  "code":    -1,
-}
-```  
-If search movies success
-```
-{
- "message": "search movies success",
- "code":    200,
-}
-``` 
-Result Class
-parameter  | discription
- ---- | ----- 
- MovieID  | movie id 
- MovieName  | movie name 
- MovieYear | the year of the movie
- castName | the name of the cast that user search
- castID | the id of the cast that user search
