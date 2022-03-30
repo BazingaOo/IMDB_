@@ -59,3 +59,11 @@ func TestSelectMovie(t *testing.T) {
 		t.Log("result is right")
 	}
 }
+
+func TestDeleteMovie(t *testing.T) {
+	if Models.DeleteMovie(1) == 0 {
+		t.Error("result is wrong!")
+	} else {
+		t.Log("result is right")
+	}
+}
