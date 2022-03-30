@@ -2,31 +2,8 @@
   <div class="block">
     <el-image
       style="width: 259px; height: 375px"
-      :src="require('@/assets/joker.jpg')"
-      :preview-src-list="require('@/assets/joker.jpg')">
+      :src="require('@/assets/joker.jpg')">
     </el-image>
-    <el-tag
-      v-for="tag in tags"
-      :key="tag.name"
-      closable
-      :type="tag.type">
-      {{ tag.name }}
-    </el-tag>
-    <el-rate
-      v-model="value"
-      disabled
-      show-score
-      text-color="#ff9900"
-      score-template="{value}">
-    </el-rate>
-    <span class="demonstration"></span>
-    <el-rate v-model="value1"></el-rate>
-
-    <span class="demonstration">区分颜色</span>
-    <el-rate
-      v-model="value2"
-      :colors="colors">
-    </el-rate>
   </div>
 
 
@@ -63,3 +40,6 @@ colors: ['#99A9BF', '#F7BA2A', '#FF9900']  // 等同于 { 2: '#99A9BF', 4: { val
 }
 }
 <style scoped>
+
+
+</style>

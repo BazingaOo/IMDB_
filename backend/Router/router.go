@@ -21,18 +21,22 @@ func Main() {
 		customerGroup.DELETE("/delete", userController.LogIn) // when delete sth
 	}
 
-	movieGroup := router.Group("/movie")
+	// Admin Router, put all customer router in this. // there is a Middleware that authentic admin
+	adminGroup := router.Group("/admin", gin.BasicAuth(gin.Accounts{"admin": "123"}))
 	{
-		movieGroup.POST("/addMovie", movieController.AddMovie)
-		movieGroup.POST("/deleteMovie", movieController.DeleteMovie)
-		movieGroup.POST("/UpdateMovie", movieController.UpdateMovie)
+		adminGroup.GET("/", userController.LogIn)
+		adminGroup.GET("/query", userController.LogIn)     // when query sth
+		adminGroup.PUT("/update", userController.LogIn)    // when update sth
+		adminGroup.DELETE("/delete", userController.LogIn) // when delete sth
 	}
+
 	// User Router, put all customer router in this.
 	userGroup := router.Group("/user")
 	{
 		userGroup.POST("/logIn", userController.LogIn)
-		userGroup.POST("/signUp", userController.SignUp) // when query sth
-		movieGroup := router.Group("user/movie")
+		userGroup.POST("/signUp", userController.SignUp)               // when query sth
+		userGroup.POST("/checkUsername", userController.CheckUsername) // when update sth
+		movieGroup := router.Group("/user/movie")
 		{
 			movieGroup.POST("/searchMovieByName", movieController.SearchMovieByName)
 			movieGroup.POST("/searchMovieByCast", movieController.SearchMovieByCast)
@@ -55,16 +59,8 @@ func Main() {
 	{
 		userGroup.GET("/jwt", userController.GetDataByTime)
 		userGroup.POST("/UpdateProfile", userController.UpdateUserProfile)
-		userGroup.GET("/DeleteUser", userController.DeleteUser)
-		userGroup.POST("/CheckUsername", userController.CheckUsername) // when update sth
-	}
-	// Admin Router, put all customer router in this. // there is a Middleware that authentic admin
-	adminGroup := router.Group("/admin", gin.BasicAuth(gin.Accounts{"admin": "123"}))
-	{
-		adminGroup.GET("/", userController.LogIn)
-		adminGroup.GET("/query", userController.LogIn)     // when query sth
-		adminGroup.PUT("/update", userController.LogIn)    // when update sth
-		adminGroup.DELETE("/delete", userController.LogIn) // when delete sth
+		userGroup.POST("/DeleteUser", userController.DeleteUser)
+		userGroup.POST("/queryUserInfoById", userController.QueryUserInfoById)
 	}
 
 	// if user input invalid address, it'll send below msg

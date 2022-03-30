@@ -12,18 +12,19 @@ type User struct {
 	User_type int
 	Gender    string
 	Age       int
+	Email     string
 }
 
 // LogIn Sign In
-func LogIn(user User) bool {
-	err := Database.DB.Where("username = ? AND password = ?", user.Username, user.Password).Find(&user).RecordNotFound()
-	fmt.Println(err)
-	return err
+func LogIn(user User) User {
+	Database.DB.Where("username = ? AND password = ?", user.Username, user.Password).Find(&user)
+	fmt.Println("user:%#v\n", user)
+	return user
 }
 
 //Signup
 func SignUp(user User) int64 {
-	user = User{Username: user.Username, Password: user.Password, User_type: 0, Gender: user.Gender, Age: user.Age}
+	user = User{Username: user.Username, Password: user.Password, User_type: 0, Gender: user.Gender, Age: user.Age, Email: user.Email}
 	result := Database.DB.Create(&user) // 通过数据的指针来创建
 	affected := result.RowsAffected     // 返回插入记录的条数
 	return affected
@@ -31,7 +32,7 @@ func SignUp(user User) int64 {
 
 // UpdateProfile UpdateUser Update
 func UpdateProfile(user User) int64 {
-	result := Database.DB.Model(&user).Updates(User{Username: user.Username, Password: user.Password, Gender: user.Gender, Age: user.Age})
+	result := Database.DB.Model(&user).Updates(User{Username: user.Username, Password: user.Password, Gender: user.Gender, Age: user.Age, Email: user.Email})
 	//result := Database.DB.Save(&user)
 	return result.RowsAffected
 }
@@ -48,4 +49,11 @@ func GetList(name string) []User {
 	Database.DB.Where("username = ?", name).Find(&users)
 	fmt.Printf("user:%#v\n", users)
 	return users
+}
+
+func QueryUserInfoByUserId(userId int) User {
+	var user User
+	Database.DB.Where("User_id = ?", userId).Find(&user)
+	fmt.Println("user:%#v\n", user)
+	return user
 }

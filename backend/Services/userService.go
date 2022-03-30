@@ -8,6 +8,6 @@ import (
 // Check unique username
 func CheckUsername(username string) bool {
 	user := Models.User{}
-	isFound := Database.DB.Where("username = ?", username).Find(&user).RecordNotFound()
-	return isFound
+	isNotFound := Database.DB.Where("username = ?", username).Find(&user).RecordNotFound()
+	return isNotFound
 }

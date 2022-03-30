@@ -27,10 +27,9 @@
       </el-form-item>
 
 
-
       <el-link type="primary" class="register" href="http://localhost:8080/#/UserSignUp">Sign Up</el-link>
       <el-form-item style="width:100%;">
-        <a href="http://localhost:8080/#/UserPage"><el-button type="primary" style="width:100%;" @click="checkLogin" :loading="load">Sign In</el-button></a>
+        <el-button type="primary" style="width:100%;" @click="checkLogin" :loading="load">Sign In</el-button>
       </el-form-item>
     </el-form>
 
@@ -39,6 +38,8 @@
 </template>
 
 <script>
+import jwtDecode from "jwt-decode";
+
 export default {
   name: 'loginForm',
   data() {
@@ -47,8 +48,8 @@ export default {
       load: false,
       token: '',
       loginForm: {
-        username: 'qwe',
-        password: '123',
+        username: '',
+        password: '',
       },
       loginRules: {
         username: [{required: true, message: 'Please enter your username', trigger: 'blur'}],
@@ -68,23 +69,29 @@ export default {
                   username: this.loginForm.username,
                   password: this.loginForm.password
                 }
-                this.$axios.post("/api/user/LogIn", this.$qs.stringify(params))
+                this.$axios.post("/api/user/logIn", this.$qs.stringify(params))
                   .then(res => {
-                    if (res.status == 200) {
-                      console.log("token:"+res.data.token)
-                      localStorage.setItem('token',res.data.token);
-                      this.$router.push('/hello');//否则跳转至首页
+                    if (res.data.code == 200) {
+                      this.$router.push('/UserContainer/HomePage');
+                      localStorage.setItem('token', res.data.token);
+                      let token = localStorage.getItem('token');
+                      console.log("token:" + token)
+                      const code = jwtDecode(token)
+                      console.log(code)
+                      localStorage.setItem('username', code.username)
+                      localStorage.setItem('userId', code.user_id);
                       this.$message({
                         title: '登录提示',
-                        message: '登录成功',
+                        message: res.data.message,
                         showClose: true,
                         center: true,
                         type: 'success'
                       });
-                    } else {
+                    } else if (res.data.code == 404) {
                       this.$message({
                         title: '登录提示',
-                        message: '用户名或密码错误',
+                        message: res.data.message,
+                        showClose: true,
                         center: true,
                         type: 'error'
                       });

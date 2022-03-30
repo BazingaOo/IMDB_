@@ -10,20 +10,21 @@ import (
 func SearchMovieByName(c *gin.Context) {
 	var movieName string
 	//user.Username = c.PostForm("username")
-	movieName = c.PostForm("movieName")
+	movieName = c.PostForm("searchName")
 	res := Models.SearchMovieByName(movieName)
-	if res == nil {
-		c.JSON(http.StatusNotFound, gin.H{
+	//movie= res
+	if len(res) == 0 {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    404,
 			"message": "error",
-			"user":    res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
+			"code":    200,
 			"message": "success",
-			"user":    res,
+			"movie":   res,
 		})
 	}
-
 }
 
 func SearchMovieByCast(c *gin.Context) {
@@ -32,15 +33,16 @@ func SearchMovieByCast(c *gin.Context) {
 
 	castName = c.PostForm("castName")
 	res := Models.SearchMovieByCast(castName)
-	if res == nil {
-		c.JSON(http.StatusNotFound, gin.H{
+	if len(res) == 0 {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    404,
 			"message": "error",
-			"user":    res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
+			"code":    200,
 			"message": "success",
-			"user":    res,
+			"movie":   res,
 		})
 	}
 
@@ -54,12 +56,14 @@ func SearchMovieByMovieId(c *gin.Context) {
 	movie := Models.Movie{}
 	if res == movie {
 		//if res == 0 {
-		c.JSON(http.StatusNotFound, gin.H{
+		c.JSON(http.StatusOK, gin.H{
+			"code":    404,
 			"message": "error",
 			"user":    res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
+			"code":    200,
 			"message": "success",
 			"user":    res,
 		})
@@ -72,15 +76,17 @@ func AddMovie(c *gin.Context) {
 	movie.Movie_id, _ = strconv.Atoi(c.PostForm("movieId"))
 	movie.Movie_name = c.PostForm("movieName")
 	movie.Year, _ = strconv.Atoi(c.PostForm("year"))
-	movie.Desciption = c.PostForm("desciption")
+	movie.Description = c.PostForm("desciption")
 	res := Models.AddMovie(movie)
 	if res == 0 {
-		c.JSON(http.StatusNotFound, gin.H{
+		c.JSON(http.StatusOK, gin.H{
+			"code":    404,
 			"message": "error",
 			"user":    res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
+			"code":    200,
 			"message": "success",
 			"user":    res,
 		})
@@ -92,16 +98,18 @@ func UpdateMovie(c *gin.Context) {
 	movie.Movie_id, _ = strconv.Atoi(c.PostForm("movieId"))
 	movie.Movie_name = c.PostForm("movieName")
 	movie.Year, _ = strconv.Atoi(c.PostForm("year"))
-	movie.Desciption = c.PostForm("desciption")
+	movie.Description = c.PostForm("desciption")
 	//res := Models.AddMovie(movie)
 	res := Models.UpdateMovie(movie)
 	if res == 0 {
-		c.JSON(http.StatusNotFound, gin.H{
+		c.JSON(http.StatusOK, gin.H{
+			"code":    404,
 			"message": "error",
 			"user":    res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
+			"code":    200,
 			"message": "success",
 			"user":    res,
 		})
@@ -113,12 +121,14 @@ func DeleteMovie(c *gin.Context) {
 	movie.Movie_id, _ = strconv.Atoi(c.PostForm("movieId"))
 	res := Models.DeleteMovie(movie.Movie_id)
 	if res == 0 {
-		c.JSON(http.StatusNotFound, gin.H{
+		c.JSON(http.StatusOK, gin.H{
+			"code":    404,
 			"message": "error",
 			"user":    res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
+			"code":    200,
 			"message": "success",
 			"user":    res,
 		})

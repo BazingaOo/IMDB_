@@ -17,13 +17,13 @@ func LogIn(c *gin.Context) {
 	var user Models.User
 	user.Username = c.PostForm("username")
 	user.Password = c.PostForm("password")
-	isTure := Models.LogIn(user)
-	if isTure == true {
-		c.JSON(http.StatusNotFound, gin.H{
+	if Models.LogIn(user).User_id == 0 {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    404,
 			"message": "username or password is wrong",
 		})
 	} else {
-		generateToken(c, user)
+		generateToken(c, Models.LogIn(user))
 	}
 
 }
@@ -38,6 +38,7 @@ func SignUp(c *gin.Context) {
 		User_type: 0,
 		Gender:    c.PostForm("gender"),
 		Age:       user.Age,
+		Email:     c.PostForm("email"),
 	}
 	//Models.SignUp(user)
 	if Models.SignUp(user) == 0 {
@@ -103,10 +104,11 @@ func generateToken(c *gin.Context, user Models.User) {
 	//	Token: token,
 	//}
 	c.JSON(http.StatusOK, gin.H{
-		"status": 0,
-		"msg":    "login success",
-		"user":   user,
-		"token":  token,
+		"code":    200,
+		"message": "login successfully",
+		"status":  0,
+		"user":    user,
+		"token":   token,
 	})
 	return
 }
@@ -138,6 +140,7 @@ func UpdateUserProfile(c *gin.Context) {
 			User_type: 0,
 			Gender:    c.PostForm("gender"),
 			Age:       user.Age,
+			Email:     c.PostForm("email"),
 		}
 		if Models.UpdateProfile(user) == 0 {
 			c.JSON(http.StatusNotFound, gin.H{
@@ -164,7 +167,7 @@ func UpdateUserProfile(c *gin.Context) {
 func DeleteUser(c *gin.Context) {
 	claims := c.MustGet("claims").(*myjwt.CustomClaims)
 	if claims != nil {
-		var userId, _ = strconv.Atoi(c.Query("userId"))
+		var userId, _ = strconv.Atoi(c.PostForm("userId"))
 		if Models.DeleteUser(userId) == 0 {
 			c.JSON(http.StatusNotFound, gin.H{
 				"message": "delete error",
@@ -183,4 +186,12 @@ func DeleteUser(c *gin.Context) {
 			"data":   claims,
 		})
 	}
+}
+
+func QueryUserInfoById(c *gin.Context) {
+	var userId, _ = strconv.Atoi(c.PostForm("userId"))
+	Models.QueryUserInfoByUserId(userId)
+	c.JSON(http.StatusOK, gin.H{
+		"userInfo": Models.QueryUserInfoByUserId(userId),
+	})
 }

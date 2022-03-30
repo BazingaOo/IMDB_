@@ -92,7 +92,7 @@ export default {
         return callback(new Error('用户名不能为空'));
       } else {
         let params = {username: value}
-        that.$axios.post("/api/user/CheckUsername", that.$qs.stringify(params)).then((res) => {
+        that.$axios.post("/api/user/checkUsername", that.$qs.stringify(params)).then((res) => {
           console.log(res.status)
           if (res.status == 201) {
             return callback(new Error('Username have been registered!!'));
@@ -145,7 +145,7 @@ export default {
             age: this.ruleForm.age,
             gender: this.ruleForm.gender,
           }
-          this.$axios.post("/api/user/SignUp", this.$qs.stringify(params))
+          this.$axios.post("/api/user/signUp", this.$qs.stringify(params))
             .then(res => {
               console.log(res);
               if (res.status == 200) {

@@ -1,65 +1,59 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import HomePage from '../views/user/HomePage.vue'
+import UserContainer from '../components/UserContainer'
 Vue.use(Router)
 
 const router = new Router({
   routes: [
     {
       path: '*',
-      redirect: '/HomePage'
+      redirect: '/userContainer/HomePage'
     },
     {
-      path: '/UserLogIn',
+      path: '/UserLogIn',//登录
       component: () => import('../views/user/UserLogIn.vue')
     },
     {
-      path: '/UserSignup',
+      path: '/UserSignup',//注册
       component: () => import('../views/user/UserSignUp.vue')
     },
     {
-      path: '/HomePage',
-      component: () => import('../views/user/HomePage.vue')
-    },
-    {
-      path: '/signup',
-      component: () => import('../components/UserContainer.vue')
-    },
-    {
-      path: '/hello',
-      component: () => import('../views/HelloWorld.vue')
-    },
-    {
-      path: '/UserPage',
-      component: () => import('../views/user/UserPage.vue')
-    },
-    {
-      path: '/Movies',
-      component: () => import('../views/user/Movies.vue')
-    },
-    {
-      path: '/TopMovies',
-      component: () => import('../views/user/TopMovies.vue')
-    },
-    {
-      path: '/WishMovies',
-      component: () => import('../views/user/WishMovies.vue')
-    },
+      path: '/userContainer',
+      name: 'UserContainer',
+      component: UserContainer,
+      children: [
+        {
+          path: 'HomePage',//主页
+          component: HomePage
+        },
+        {
+          path: 'SearchResult',//搜索电影结果
+          component: () => import('../views/movie/SearchResult.vue')
+        },
+        {
+          path: 'Userprofile',//用户个人信息
+          component: () => import('../views/user/Userprofile.vue')
+        },
+        {
+          path: 'Movies',
+          component: () => import('../views/movie/Movies.vue')
+        },
+        {
+          path: 'TopMovies',
+          component: () => import('../views/movie/TopMovies.vue')
+        },
+        {
+          path: 'WishMovies',
+          component: () => import('../views/user/WishMovies.vue')
+        },
+      ]
+    }
   ]
 });
 
-// 导航守卫
-// 使用 router.beforeEach 注册一个全局前置守卫，判断用户是否登陆
-// router.beforeEach(async (to, from, next) => {
-//   if (to.path === '/HomePage') {
-//     next();
-//   }
-//   else {
-//     let token = localStorage.getItem('token');
-//     if (token === null || token === '') {
-//       next('/HomePage');
-//     } else {
-//       next();
-//     }
-//   }
-// });
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 export default router;

@@ -17,7 +17,7 @@ func TestAddReview(t *testing.T) {
 func TestDeleteReview(t *testing.T) {
 	//var review = Models.Review{Review_id: 1, Review_content: "ttttt", User_id: 11, Movie_id: 1}
 	//var review_id = 1
-	if Models.DeleteReview(2) == 0 {
+	if Models.DeleteReview(1) == 0 {
 		t.Error("result is wrong!")
 	} else {
 		t.Log("result is right")

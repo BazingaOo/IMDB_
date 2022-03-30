@@ -14,6 +14,15 @@ func TestSearchMovieByCast(t *testing.T) {
 		t.Log("result is right")
 	}
 }
+func TestSearchMovieByName(t *testing.T) {
+	var name = "2"
+	if Models.SearchMovieByName(name) == nil {
+		t.Error("result is wrong!")
+	} else {
+		fmt.Println(Models.SearchMovieByName(name))
+		t.Log("11")
+	}
+}
 
 func TestAddMovie(t *testing.T) {
 	movie := Models.Movie{
