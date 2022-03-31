@@ -30,7 +30,8 @@ func DeleteWatched(c *gin.Context) {
 	var WatchList Models.Watch_list
 	WatchList.User_id, _ = strconv.Atoi(c.PostForm("userId"))
 	WatchList.Movie_id, _ = strconv.Atoi(c.PostForm("movieId"))
-	res := Models.DeleteWatched(WatchList.User_id, WatchList.Movie_id)
+	//res := Models.DeleteWatched(WatchList.User_id, WatchList.Movie_id)
+	res := Models.DeleteWatched(WatchList)
 	if res == 0 {
 		c.JSON(http.StatusNotFound, gin.H{
 			"message": "error",
