@@ -1,6 +1,6 @@
 
 
-# Watched List
+# watch List
 
 parameter  | discription
  ---- | ----- 
@@ -14,7 +14,7 @@ Users can add movies they have watched in the watched list.
 **Method**:POST  
 **URL**:http://localhost:8000/user/watchedList/addWatchedList  
 **Auth required**: Need token  
-If add watched error   
+If add watchList error   
 ```
 {
   "message": "add watched error",
@@ -26,6 +26,7 @@ If add watched success
 {
  "message": "add watched success",
  "code":    200,
+ "watchList":    res,
 }
 ```    
 The result class will be same as the watched_list struct.
@@ -68,5 +69,6 @@ If read watched list success
 {
  "message": "read watched list success",
  "code":    200,
+ "watchList":    res,
 }
 ```   
