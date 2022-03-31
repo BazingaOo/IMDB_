@@ -24,6 +24,7 @@ If add movies success
 {
  "message": "add movies success",
  "code":    200,
+ "movie":   res,
 }
 ```    
 The result class will be same as the movie struct.
@@ -66,6 +67,7 @@ If update movies success
 {
  "message": "update movies success",
  "code":    200,
+ "movie":   res,
 }
 ```   
 
@@ -88,6 +90,7 @@ If search movies success
 {
  "message": "search movies success",
  "code":    200,
+ "movie":   res,
 }
 ``` 
 The result class will be same as the movie struct.
@@ -109,6 +112,7 @@ If search movies success
 {
  "message": "search movies success",
  "code":    200,
+ "movies":   res,
 }
 ``` 
 Result Class
