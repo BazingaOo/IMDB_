@@ -25,6 +25,7 @@ If add reviews success
 {
  "message": "add reviews success",
  "code":    200,
+ "review":  res,
 }
 ```    
 The result class will be same as the review struct.
@@ -67,5 +68,29 @@ If update reviews success
 {
  "message": "update reviews success",
  "code":    200,
+ "review":  res,
 }
 ```   
+The result class will be same as the review struct.
+
+## SelectReviewsByUserId
+Users can select thier own reviews in the system.  
+**Method**:POST   
+**URL**:http://localhost:8000/movie/readReview  
+**Auth required**: Need token   
+If select reviews error   
+```
+{
+  "message": "select reviews error",
+  "code":    -1,
+}
+```  
+If select reviews success
+```
+{
+ "message": "select reviews success",
+ "code":    200,
+ "reviews":  res,
+}
+```   
+The result class will be same as the review struct.
