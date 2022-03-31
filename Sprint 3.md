@@ -16,7 +16,7 @@ add delete account
 We have implemented and fixed the functions that:  
 ### For User model:  
 fix bug for update profile function, which is username the user has display that has been used when they edit profile.\
-add image for each movie\
+add image for each movie
 ### For Movie model:
 add movie router with the jwt middleware.
 ### For Cast model:
