@@ -9,66 +9,67 @@ parameter  | discription
  token | token content
  res | result class
  
-## AddWatched
+## AddWatchList
 Users can add movies they have watched in the watched list.  
 **Method**:POST  
-**URL**:http://localhost:8000/user/watchedList/addWatchedList  
+**URL**:http://localhost:8000/user/watchedList/addWatchList  
 **Auth required**: Need token  
 If add watchList error   
 ```
 {
-  "message": "add watched error",
+  "message": "add to WatchList error",
   "code":    -1,
 }
 ```  
 If add watched success
 ```
 {
- "message": "add watched success",
+ "message": "add to watch success",
  "code":    200,
  "watchList":    res,
 }
 ```    
 The result class will be same as the watched_list struct.
 
-## DeleteWatched
+## DeleteWatchList
 Users can delete movies they have watched in the watched list. 
 **Method**:POST  
-**URL**:http://localhost:8000/user/watchedList/deleteWatchedList  
+**URL**:http://localhost:8000/user/watchedList/deleteWatchList  
 **Auth required**: Need token  
 If delete watched error   
 ```
 {
-  "message": "delete watched error",
+  "message": "delete from WatchList error",
   "code":    -1,
 }
 ```  
 If delete watched success
 ```
 {
- "message": "delete watched success",
+ "message": "delete from WatchList success",
  "code":    200,
 }
 ```   
 The result class will be same as the review struct.
 
-## ReadWatched
+## ReadWatchList
 Users can see all the movies they have watched in the watched list. 
 **Method**:POST   
-**URL**:http://localhost:8000/user/watchedList/readWatchedList  
+**URL**:http://localhost:8000/user/watchedList/readWatchList  
 **Auth required**: Need token   
 If read watched list error   
 ```
 {
-  "message": "read watched list error",
+  "message": "read watch list error",
   "code":    -1,
 }
 ```  
 If read watched list success
 ```
 {
- "message": "read watched list success",
+ "message": "read watch list success",
  "code":    200,
  "watchList":    res,
 }
 ```   
+The result class will be same as the review struct.
