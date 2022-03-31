@@ -15,7 +15,7 @@ add delete account
 ## what we have done
 We have implemented and fixed the functions that:  
 ### For User model:  
-fix bug for update profile function, which is username the user has display has been used when they edit profile.\
+fix bug for update profile function, which is username the user has display that has been used when they edit profile.\
 add image for each movie\
 ### For Movie model:
 add movie router with the jwt middleware.
