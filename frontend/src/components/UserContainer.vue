@@ -1,5 +1,10 @@
 <template>
   <el-container>
+    <el-image
+      style="width: 315px; height: 110px"
+      :src="require('@/assets/IMDB-CLone-FinalLogo.png')"
+      :preview-src-list="require('@/assets/IMDB-CLone-FinalLogo.png')">
+    </el-image>
     <el-header>
       <el-menu class="el-menu-demo" mode="horizontal" active-text-color="#409EFF" :router=true>
         <el-menu-item index="/UserContainer/Homepage">
@@ -49,7 +54,7 @@
 
 
     <el-footer>
-      <el-divider>-------------------------------------------------------------------------------------------</el-divider>
+      <el-divider></el-divider>
       <el-row :gutter="20" justify="center" align="middle" type="flex">
         <el-col :span="5">Instagram</el-col>
         <el-col :span="5">Twitter</el-col>
