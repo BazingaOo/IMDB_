@@ -1,31 +1,9 @@
 <template>
   <div class="block">
-<<<<<<< HEAD
-  <el-carousel indicator-position="outside">
-    <el-carousel-item v-for="item in 4" :key="item">
-              <el-image :src= "src" fit="cover"/>
-              <el-image :src= "src1" fit="cover"/>
-    </el-carousel-item>
-  </el-carousel>
-    <el-carousel height="350px">
-=======
     <el-carousel indicator-position="outside">
->>>>>>> 273c7a5a7898f9373c892b19657bda5cb2fc5315
       <el-carousel-item v-for="item in 4" :key="item">
-        <el-row>
-          <el-col :span="8" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
-            <el-card :body-style="{ padding: '0px' }">
-              <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png" class="image">
-              <div style="padding: 14px;">
-                <span>Featured Today</span>
-                <div class="bottom clearfix">
-                  <time class="time">{{ currentDate }}</time>
-                  <el-button type="text" class="button">click-button</el-button>
-                </div>
-              </div>
-            </el-card>
-          </el-col>
-        </el-row>
+        <el-image :src= "src" fit="cover"/>
+        <el-image :src= "src1" fit="cover"/>
       </el-carousel-item>
     </el-carousel>
 
