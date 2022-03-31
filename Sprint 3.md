@@ -25,6 +25,6 @@ add jwt middleware in the router
 ## Unit tests
 We tested all functions we implemented which are watchlist Model and cast Model, and all passed. The test files are in the "test" folder of the "backend" folder.  
 ## the backend API developed
-the API documents are in the backendAPI folder.
-Add watch list and review api in the folder
+the API documents are in the backendAPI folder. \
+Add watch list、review、and cast api in the folder
 
