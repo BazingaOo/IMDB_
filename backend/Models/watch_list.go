@@ -16,8 +16,23 @@ func AddWatched(Watch_list Watch_list) int64 {
 	return affected
 }
 
-func DeleteWatched(user_id int, movie_id int) int64 {
-	result := Database.DB.Delete(&Watch_list{}, user_id, movie_id)
+//func DeleteWatched(user_id int, movie_id int) int64 {
+//	var watched = Models.Watch_list{User_id: user_id, Movie_id: movie_id}
+//	result:=Database.DB.Delete(&watched)
+//	//result := Database.DB.Delete(&Watch_list{}, user_id, movie_id)
+//	//result := Database.DB.Where("user_id = ? and movie_id=?", 2, 1).Delete(&User{})
+//
+//	return result.RowsAffected
+//}
+
+func DeleteWatched(watched Watch_list) int64 {
+
+	//user = User{Username: user.Username, Password: user.Password, User_type: 0, Gender: user.Gender, Age: user.Age, Email: user.Email}
+	watched = Watch_list{User_id: watched.User_id, Movie_id: watched.Movie_id}
+	result := Database.DB.Delete(&watched)
+	//result := Database.DB.Delete(&Watch_list{}, user_id, movie_id)
+	//result := Database.DB.Where("user_id = ? and movie_id=?", 2, 1).Delete(&User{})
+
 	return result.RowsAffected
 }
 

@@ -17,7 +17,8 @@ func TestAddWatched(t *testing.T) {
 func TestDeleteWatched(t *testing.T) {
 	//var review = Models.Review{Review_id: 1, Review_content: "ttttt", User_id: 11, Movie_id: 1}
 	//var review_id = 1
-	if Models.DeleteWatched(2, 1) == 0 {
+	var watched = Models.Watch_list{User_id: 2, Movie_id: 3}
+	if Models.DeleteWatched(watched) == 0 {
 		t.Error("result is wrong!")
 	} else {
 		t.Log("result is right")
