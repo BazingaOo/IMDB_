@@ -89,7 +89,7 @@ export default {
     let that = this;
     var validateUser = function (rule, value, callback) {
       if (!value) {
-        return callback(new Error('用户名不能为空'));
+        return callback(new Error('Username cannot be empty'));
       } else {
         let params = {username: value}
         that.$axios.post("/api/user/checkUsername", that.$qs.stringify(params)).then((res) => {
@@ -116,21 +116,21 @@ export default {
       rules: {
         username: [
           {required: true, validator: validateUser, trigger: "blur"},
-          {min: 3, max: 12, message: "长度在 3 到 12 个字符", trigger: "blur"}
+          {min: 3, max: 12, message: "Length has to be 3 to 12 characters", trigger: "blur"}
         ],
         password: [
           {required: true, validator: validatePass, trigger: 'blur'},
-          {min: 6, max: 11, message: "长度在 6 到 11 个字符", trigger: "blur"}
+          {min: 6, max: 11, message: "Length has to be 6 to 11 characters", trigger: "blur"}
         ],
         checkPassword: [
           {required: true, validator: validatePass2, trigger: 'blur'}
         ],
         age: [
-          {required: true, message: "请输入年龄", trigger: "blur"},
+          {required: true, message: "Please enter your age", trigger: "blur"},
           {validator: checkAge, trigger: 'blur'}
         ],
         gender: [
-          {required: true, message: "请选择性别", trigger: "change"}
+          {required: true, message: "Please enter your gender", trigger: "change"}
         ]
       }
     };
@@ -151,8 +151,8 @@ export default {
               if (res.status == 200) {
                 this.$router.push('/UserLogIn');//否则跳转至首页
                 this.$message({
-                  title: '注册提示',
-                  message: '注册成功',
+                  title: 'Registration',
+                  message: 'registered successfully',
                   showClose: true,
                   center: true,
                   type: 'success'
@@ -162,7 +162,7 @@ export default {
             this.loading = false;
             console.log(error);
             this.$message({//这里采用element ui的一个错误显示效果模板
-              title: '注册提示',
+              title: 'Registration',
               message: error.message,
               center: true,
               type: 'warning'
