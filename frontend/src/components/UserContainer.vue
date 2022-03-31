@@ -11,11 +11,11 @@
             Menu
           </el-button>
           <el-drawer
-            title="我是标题"
+            title="IMDb Clone"
             :visible.sync="drawer"
             :direction="direction"
             :before-close="handleClose">
-            <span>我来啦!</span>
+            <span>Welcome to IMDb!</span>
           </el-drawer>
           </span>
         </el-menu-item>
@@ -49,7 +49,7 @@
 
 
     <el-footer>
-      <el-divider>below is footer</el-divider>
+      <el-divider>-------------------------------------------------------------------------------------------</el-divider>
       <el-row :gutter="20" justify="center" align="middle" type="flex">
         <el-col :span="5">Instagram</el-col>
         <el-col :span="5">Twitter</el-col>
