@@ -135,7 +135,7 @@ export default {
     let that = this;
     var validateUser = function (rule, value, callback) {
       if (!value) {
-        return callback(new Error('用户名不能为空'));
+        return callback(new Error('Username cannot be empty'));
       } else if(value !== localStorage.getItem('username')){
         let params = {username: value}
         that.$axios.post("/api/user/checkUsername", that.$qs.stringify(params)).then((res) => {
@@ -166,24 +166,24 @@ export default {
       rules: {
         Username: [
           {required: true, validator: validateUser, trigger: "blur"},
-          {min: 3, max: 12, message: "长度在 3 到 12 个字符", trigger: "blur"}
+          {min: 3, max: 12, message: "length has to be 6 to 11 characters", trigger: "blur"}
         ],
         Password: [
           {required: true, validator: validatePass, trigger: 'blur'},
-          {min: 6, max: 11, message: "长度在 6 到 11 个字符", trigger: "blur"}
+          {min: 6, max: 11, message: "length has to be 6 to 11 characters", trigger: "blur"}
         ],
         checkPassword: [
           {required: true, validator: validatePass2, trigger: 'blur'}
         ],
         Age: [
-          {required: true, message: "请输入年龄", trigger: "blur"},
+          {required: true, message: "please enter your age", trigger: "blur"},
           {validator: checkAge, trigger: 'blur'}
         ],
         Gender: [
-          {required: true, message: "请选择性别", trigger: "change"}
+          {required: true, message: "Please select your gender", trigger: "change"}
         ],
-        Email: [{required: true, message: '请输入邮箱地址', trigger: 'blur'},
-          {type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur']}]
+        Email: [{required: true, message: 'Please enter your email address', trigger: 'blur'},
+          {type: 'email', message: 'Please enter correct email address', trigger: ['blur']}]
       }
     };
   },
@@ -265,7 +265,7 @@ export default {
           }).catch(error => {
           console.log(error);
           this.$message({//这里采用element ui的一个错误显示效果模板
-            title: '更新提示',
+            title: 'update required',//'更新提示'
             message: error.message,
             center: true,
             type: 'warning'
@@ -274,7 +274,7 @@ export default {
       }).catch(() => {
         this.$message({
           type: 'info',
-          message: '已取消删除'
+          message: 'Deletion canceled'
         });
       });
     }

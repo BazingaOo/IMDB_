@@ -51,10 +51,10 @@
     <el-footer>
       <el-divider>below is footer</el-divider>
       <el-row :gutter="20" justify="center" align="middle" type="flex">
-        <el-col :span="1">ins</el-col>
-        <el-col :span="1">twitter</el-col>
-        <el-col :span="1">weibo</el-col>
-        <el-col :span="1">wechat</el-col>
+        <el-col :span="5">Instagram</el-col>
+        <el-col :span="5">Twitter</el-col>
+        <el-col :span="5">Weibo</el-col>
+        <el-col :span="5">WeChat</el-col>
       </el-row>
       <el-divider></el-divider>
     </el-footer>
