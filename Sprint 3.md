@@ -12,8 +12,16 @@ add user container page for all user\
 add user edit page\
 add delete account
 ## Cypress + unit tests
+
 ### Test the functions as follow:  
 We test the login page, sign-up page, homepage, search movies result page.
+
+### Test the function as follow:  
+ User login\
+ User register\
+ Movie search
+ 
+
 # Backend
 ## what we have done
 We have implemented and fixed the functions that:  
