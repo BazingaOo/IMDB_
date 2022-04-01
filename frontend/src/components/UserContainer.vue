@@ -1,5 +1,7 @@
 <template>
   <el-container>
+    <div :style="myStyle" id="wrapper">
+    </div>>
     <el-image
       style="width: 315px; height: 110px"
       :src="require('@/assets/IMDB-CLone-FinalLogo.png')"
@@ -78,6 +80,9 @@
 export default {
   data() {
     return {
+      myStyle:{
+        backgroundColor:"#16a085"
+      },
       drawer: false,
       direction: 'ttb',
       searchInput: '',
