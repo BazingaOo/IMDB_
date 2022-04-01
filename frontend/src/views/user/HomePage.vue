@@ -2,14 +2,14 @@
   <div class="block">
     <span class="demonstration" style="font-weight:bold; color:#fcd738; font-size: 200%"> Feature Today</span>
     <el-carousel indicator-position="outside">
-      <el-carousel-item v-for="item in imgs" :key="item.id">
+      <el-carousel-item v-for="item in imgs1" :key="item.id">
         <img :src="item.img" class="image" >
       </el-carousel-item>
     </el-carousel>
 
     <span class="demonstration" style="font-weight:bold; color:#fcd738; font-size: 200%"> Top Picks</span>
     <el-carousel :interval="4000" type="card" height="200px">
-      <el-carousel-item v-for="item in imgs" :key="item.id">
+      <el-carousel-item v-for="item in imgs2" :key="item.id">
         <img :src="item.img" class="image" >
       </el-carousel-item>
     </el-carousel>
@@ -21,21 +21,21 @@ export default {
   name: 'img_show',
   data() {
     return {
-      imgs: [
+      imgs1: [
         {
           id: 1, img: require('../../assets/CODA.jpg')
         },
         {
-          id: 2, img: require('../../assets/Beauty-Beast.jpg')
+          id: 2, img: require('../../assets/turningRed.jpg')
         },
         {
-          id: 3, img: require('../../assets/Avengers-Endgame.jpg')
+          id: 3, img: require('../../assets/topGun.jpg')
         },
         {
-          id: 4, img: require('../../assets/Captain-Marvel.jpg')
+          id: 4, img: require('../../assets/Spider-Man3.jpg')
         },
         {
-          id: 5, img: require('../../assets/ib.jpg')
+          id: 5, img: require('../../assets/500.jpg')
         },
         {
           id: 6, img: require('../../assets/inception.jpg')
@@ -50,9 +50,41 @@ export default {
           id: 9, img: require('../../assets/irobot.jpg')
         },
         {
-          id: 10, img: require('../../assets/forrest.jpg')
+          id: 10, img: require('../../assets/Morbius.jpg')
         }
       ],
+      imgs2 : [
+        {
+          id: 1, img: require('../../assets/theShawshankRedemption.jpg')
+        },
+        {
+          id: 2, img: require('../../assets/TheGodfather.jpg')
+        },
+        {
+          id: 3, img: require('../../assets/TheDarkKnight.jpg')
+        },
+        {
+          id: 4, img: require('../../assets/12_Angry_Men_(1957_film_poster).jpg')
+        },
+        {
+          id: 5, img: require('../../assets/SchindlerList.jpg')
+        },
+        {
+          id: 6, img: require('../../assets/TheLord.jpg')
+        },
+        {
+          id: 7, img: require('../../assets/Good_the_bad_and_the_ugly_poster.jpg')
+        },
+        {
+          id: 8, img: require('../../assets/forrest.jpg')
+        },
+        {
+          id: 9, img: require('../../assets/irobot.jpg')
+        },
+        {
+          id: 10, img: require('../../assets/forrest.jpg')
+        }
+      ]
     }
   },
   methods: {}
