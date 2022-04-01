@@ -30,7 +30,7 @@
         <el-menu-item>
           <span>
               <el-input placeholder="Search" prefix-icon="el-icon-search" v-model="searchInput"
-                        @keydown.enter.native="onSubmit" style=" width: 300px;"/>
+                        @keydown.enter.native="onSubmit" style=" width: 975px;"/>
           </span>
         </el-menu-item>
 
@@ -110,6 +110,12 @@ export default {
 </script>
 
 <style>
+.el-container {
+  background-color: #000000;
+  color: #333;
+  text-align: center;
+  width: 100%;
+}
 .el-header {
   background-color: #000000;
   color: #333;
