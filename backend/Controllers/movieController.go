@@ -58,13 +58,13 @@ func SearchMovieByMovieId(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    404,
 			"message": "error",
-			"user":    res,
+			"movie":   res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    200,
 			"message": "success",
-			"user":    res,
+			"movie":   res,
 		})
 	}
 
@@ -81,13 +81,13 @@ func AddMovie(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    404,
 			"message": "error",
-			"user":    res,
+			"movie":   res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    200,
 			"message": "success",
-			"user":    res,
+			"movie":   res,
 		})
 	}
 }
@@ -104,13 +104,13 @@ func UpdateMovie(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    404,
 			"message": "error",
-			"user":    res,
+			"movie":   res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    200,
 			"message": "success",
-			"user":    res,
+			"movie":   res,
 		})
 	}
 }
@@ -123,13 +123,13 @@ func DeleteMovie(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    404,
 			"message": "error",
-			"user":    res,
+			"movie":   res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    200,
 			"message": "success",
-			"user":    res,
+			"movie":   res,
 		})
 	}
 }

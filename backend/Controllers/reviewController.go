@@ -17,12 +17,12 @@ func AddReview(c *gin.Context) {
 	if res == 0 {
 		c.JSON(http.StatusNotFound, gin.H{
 			"message": "error",
-			"user":    res,
+			"review":  res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "success",
-			"user":    res,
+			"review":  res,
 		})
 	}
 }
@@ -37,12 +37,12 @@ func UpdateReview(c *gin.Context) {
 	if res == 0 {
 		c.JSON(http.StatusNotFound, gin.H{
 			"message": "error",
-			"user":    res,
+			"review":  res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "success",
-			"user":    res,
+			"review":  res,
 		})
 	}
 }
@@ -54,12 +54,12 @@ func DeleteReview(c *gin.Context) {
 	if res == 0 {
 		c.JSON(http.StatusNotFound, gin.H{
 			"message": "error",
-			"user":    res,
+			"review":  res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "success",
-			"user":    res,
+			"review":  res,
 		})
 	}
 }
@@ -71,12 +71,12 @@ func ReadReview(c *gin.Context) {
 	if res == nil {
 		c.JSON(http.StatusNotFound, gin.H{
 			"message": "error",
-			"user":    res,
+			"review":  res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "success",
-			"user":    res,
+			"review":  res,
 		})
 	}
 }

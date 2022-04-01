@@ -14,13 +14,13 @@ func AddWatched(c *gin.Context) {
 	res := Models.AddWatched(WatchList)
 	if res == 0 {
 		c.JSON(http.StatusNotFound, gin.H{
-			"message": "error",
-			"user":    res,
+			"message":   "error",
+			"watchList": res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
-			"message": "success",
-			"user":    res,
+			"message":   "success",
+			"watchList": res,
 		})
 	}
 }
@@ -34,13 +34,13 @@ func DeleteWatched(c *gin.Context) {
 	res := Models.DeleteWatched(WatchList)
 	if res == 0 {
 		c.JSON(http.StatusNotFound, gin.H{
-			"message": "error",
-			"user":    res,
+			"message":   "error",
+			"watchList": res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
-			"message": "success",
-			"user":    res,
+			"message":   "success",
+			"watchList": res,
 		})
 	}
 }
@@ -52,13 +52,13 @@ func ReadWatched(c *gin.Context) {
 	res := Models.ReadWatched(WatchList.User_id)
 	if res == nil {
 		c.JSON(http.StatusNotFound, gin.H{
-			"message": "error",
-			"user":    res,
+			"message":   "error",
+			"watchList": res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
-			"message": "success",
-			"user":    res,
+			"message":   "success",
+			"watchList": res,
 		})
 	}
 }

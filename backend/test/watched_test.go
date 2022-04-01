@@ -33,13 +33,3 @@ func TestReadWatched(t *testing.T) {
 		t.Log("result is right")
 	}
 }
-
-//
-//func TestUpdateReview(t *testing.T) {
-//	var review = Models.Review{Review_id: 2, Review_content: "hhhh", User_id: 11, Movie_id: 1}
-//	if Models.UpdateReview(review) == 0 {
-//		t.Error("result is wrong!")
-//	} else {
-//		t.Log("result is right")
-//	}
-//}

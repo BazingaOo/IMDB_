@@ -28,6 +28,13 @@ func Main() {
 		adminGroup.GET("/query", userController.LogIn)     // when query sth
 		adminGroup.PUT("/update", userController.LogIn)    // when update sth
 		adminGroup.DELETE("/delete", userController.LogIn) // when delete sth
+		castGroup := router.Group("/admin/cast")
+		{
+			castGroup.POST("/addCast")
+			castGroup.POST("/UpdateCast")
+			castGroup.POST("/DeleteCast")
+			castGroup.POST("/SearchCast")
+		}
 	}
 
 	// User Router, put all customer router in this.
