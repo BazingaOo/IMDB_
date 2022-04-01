@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <el-divider content-position="left">Titles</el-divider>
+      <span class="demonstration" style="float:left; font-weight:bold; color:#fcd738; font-size: 100%">Titles</span>
       <el-table
         :data="titleTableData"
         style="width: 100%">
@@ -25,11 +25,11 @@
         </el-table-column>
         <el-table-column label="Movie">
           <template v-slot="props">
-          <div class="demo-image">
-            <el-image style="width: 100px; height: 150px"
-                      :src="require('@/assets/'+props.row.Image)"
-                      fit="cover"/>
-          </div> </template>
+            <div class="demo-image">
+              <el-image style="width: 100px; height: 150px"
+                        :src="require('@/assets/'+props.row.Image)"
+                        fit="cover"/>
+            </div> </template>
         </el-table-column>
         <el-table-column
           label="Movie Name"
@@ -47,7 +47,7 @@
     </div>
     <br/>
     <div>
-      <el-divider content-position="left">Names</el-divider>
+      <span class="demonstration" style="float:left; font-weight:bold; color:#fcd738; font-size: 100%">Names</span>
       <el-table
         :data="nameTableData"
         style="width: 100%">
@@ -137,7 +137,7 @@ export default {
             this.titleTableData = res.data.movie
             this.$message({
               title: '查询提示',
-              message: '查询成功',
+              message: 'This is what we found by movie titles',
               showClose: true,
               center: true,
               type: 'success'
@@ -145,7 +145,7 @@ export default {
           } else {
             this.$message({
               title: '查询提示',
-              message: '电影不存在',
+              message: 'Sorry, we cannot find any result by movie titles',
               center: true,
               type: 'error'
             });
@@ -172,7 +172,7 @@ export default {
             this.nameTableData = res.data.movie
             this.$message({
               title: '查询提示',
-              message: '查询成功',
+              message: 'This is what we found by actor names',
               showClose: true,
               center: true,
               type: 'success'
@@ -181,7 +181,7 @@ export default {
             this.nameTableData.movie = null
             this.$message({
               title: '查询提示',
-              message: '电影不存在',
+              message: 'Sorry, we cannot find any result by actor names',
               center: true,
               type: 'error'
             });
