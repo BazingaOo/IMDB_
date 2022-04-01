@@ -1,6 +1,7 @@
 <template xmlns="http://www.w3.org/1999/html">
   <el-form :model="tableData" :rules="rules" ref="tableData" inline-message>
-    <el-descriptions title="User profile" direction="vertical" :column="3" border :data="tableData">
+    <span class="demonstration" style="float:left; font-weight:bold; color:#fcd738; font-size: 100%">User Profile</span>
+    <el-descriptions direction="vertical" :column="3" border :data="tableData"  >
       <template slot="extra">
         <el-button type="primary" @click="edit = !edit">Edit</el-button>
       </template>
@@ -135,7 +136,7 @@ export default {
     let that = this;
     var validateUser = function (rule, value, callback) {
       if (!value) {
-        return callback(new Error('Username cannot be empty'));
+        return callback(new Error('username cannot be nothing'));
       } else if(value !== localStorage.getItem('username')){
         let params = {username: value}
         that.$axios.post("/api/user/checkUsername", that.$qs.stringify(params)).then((res) => {
@@ -166,24 +167,24 @@ export default {
       rules: {
         Username: [
           {required: true, validator: validateUser, trigger: "blur"},
-          {min: 3, max: 12, message: "length has to be 6 to 11 characters", trigger: "blur"}
+          {min: 3, max: 12, message: "Please enter a username in a length of 3-12", trigger: "blur"}
         ],
         Password: [
           {required: true, validator: validatePass, trigger: 'blur'},
-          {min: 6, max: 11, message: "length has to be 6 to 11 characters", trigger: "blur"}
+          {min: 6, max: 11, message: "Please enter a username in a length of 6-11", trigger: "blur"}
         ],
         checkPassword: [
           {required: true, validator: validatePass2, trigger: 'blur'}
         ],
         Age: [
-          {required: true, message: "please enter your age", trigger: "blur"},
+          {required: true, message: "Please enter your age", trigger: "blur"},
           {validator: checkAge, trigger: 'blur'}
         ],
         Gender: [
           {required: true, message: "Please select your gender", trigger: "change"}
         ],
-        Email: [{required: true, message: 'Please enter your email address', trigger: 'blur'},
-          {type: 'email', message: 'Please enter correct email address', trigger: ['blur']}]
+        Email: [{required: true, message: 'Please enter your e-mail address', trigger: 'blur'},
+          {type: 'email', message: 'Please enter your correct e-mail address', trigger: ['blur']}]
       }
     };
   },
@@ -265,7 +266,7 @@ export default {
           }).catch(error => {
           console.log(error);
           this.$message({//这里采用element ui的一个错误显示效果模板
-            title: 'update required',//'更新提示'
+            title: '更新提示',
             message: error.message,
             center: true,
             type: 'warning'
@@ -274,7 +275,7 @@ export default {
       }).catch(() => {
         this.$message({
           type: 'info',
-          message: 'Deletion canceled'
+          message: '已取消删除'
         });
       });
     }

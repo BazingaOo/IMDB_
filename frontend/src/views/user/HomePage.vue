@@ -2,21 +2,15 @@
   <div class="block">
     <span class="demonstration" style="font-weight:bold; color:#fcd738; font-size: 200%"> Feature Today</span>
     <el-carousel indicator-position="outside">
-      <el-carousel-item v-for="item in 4" :key="item">
-        <el-image :src= "src" fit="cover"/>
-
-        <el-image :src= "src1" fit="cover"/>
+      <el-carousel-item v-for="item in imgs" :key="item.id">
+        <img :src="item.img" class="image" >
       </el-carousel-item>
     </el-carousel>
 
     <span class="demonstration" style="font-weight:bold; color:#fcd738; font-size: 200%"> Top Picks</span>
     <el-carousel :interval="4000" type="card" height="200px">
-      <el-carousel-item v-for="item in 6" :key="item">
-        <h3 class="medium">
-          {{<el-image :src= "src2" fit="cover"/>}}
-          {{<el-image :src= "src3" fit="cover"/>}}
-          {{<el-image :src= "src1" fit="cover"/>}}
-        </h3>
+      <el-carousel-item v-for="item in imgs" :key="item.id">
+        <img :src="item.img" class="image" >
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -24,14 +18,41 @@
 
 <script>
 export default {
+  name: 'img_show',
   data() {
     return {
-      currentDate: new Date(),
-
-      src : require(`@/assets/black-panther.jpg`),
-      src1 : require(`@/assets/Avengers-Endgame.jpg`),
-      src2 : require(`@/assets/uncharted.jpg`),
-      src3 : require(`@/assets/Captain-Marvel.jpg`),
+      imgs: [
+        {
+          id: 1, img: require('../../assets/black-panther.jpg')
+        },
+        {
+          id: 2, img: require('../../assets/Beauty-Beast.jpg')
+        },
+        {
+          id: 3, img: require('../../assets/Avengers-Endgame.jpg')
+        },
+        {
+          id: 4, img: require('../../assets/Captain-Marvel.jpg')
+        },
+        {
+          id: 5, img: require('../../assets/ib.jpg')
+        },
+        {
+          id: 6, img: require('../../assets/inception.jpg')
+        },
+        {
+          id: 7, img: require('../../assets/Pulp-Fiction1.jpg')
+        },
+        {
+          id: 8, img: require('../../assets/500.jpg')
+        },
+        {
+          id: 9, img: require('../../assets/irobot.jpg')
+        },
+        {
+          id: 10, img: require('../../assets/forrest.jpg')
+        }
+      ],
     }
   },
 
