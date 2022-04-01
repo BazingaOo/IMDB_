@@ -1,15 +1,22 @@
 <template>
   <div class="block">
+    <span class="demonstration" style="font-weight:bold; color:#fcd738; font-size: 200%"> Feature Today</span>
     <el-carousel indicator-position="outside">
-      <el-carousel-item v-for="item in assets" :key="item.id">
-        <img :src="item.idView" class="image">
+      <el-carousel-item v-for="item in 4" :key="item">
+        <el-image :src= "src" fit="cover"/>
+
+        <el-image :src= "src1" fit="cover"/>
       </el-carousel-item>
     </el-carousel>
 
-    <span class="demonstration">Top Picks</span>
+    <span class="demonstration" style="font-weight:bold; color:#fcd738; font-size: 200%"> Top Picks</span>
     <el-carousel :interval="4000" type="card" height="200px">
-      <el-carousel-item v-for="item in assets" :key="item.id">
-        <img :src="item.idView" class="image">
+      <el-carousel-item v-for="item in 6" :key="item">
+        <h3 class="medium">
+          {{<el-image :src= "src2" fit="cover"/>}}
+          {{<el-image :src= "src3" fit="cover"/>}}
+          {{<el-image :src= "src1" fit="cover"/>}}
+        </h3>
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -20,36 +27,16 @@ export default {
   data() {
     return {
       currentDate: new Date(),
-      assets: [{id:0,idView:require('../assets/uncharted.jpg')},
-        {id:1,idView:require('../assets/Beauty-Beast.jpg')},
-        {id:2,idView:require('../assets/Captain-Marvel.jpg')}
-    ]
-    }
-      return {
-      assets: [{id:0,idView:require('../assets/uncharted.jpg')},
-        {id:1,idView:require('../assets/Beauty-Beast.jpg')},
-        {id:2,idView:require('../assets/Captain-Marvel.jpg')}
-        ]
-      }
-    },
-  methods:{
-    setSize:function () {
-      // 通过浏览器宽度(图片宽度)计算高度
-      this.bannerHeight = 400 / 1920 * this.screenWidth;
-    },
-  },
-  mounted() {
-    // 首次加载时,需要调用一次
-    this.screenWidth =  window.innerWidth;
-    this.setSize();
-    // 窗口大小发生改变时,调用一次
-    window.onresize = () =>{
-      this.screenWidth =  window.innerWidth;
-      this.setSize();
-    }
-  }
-}
 
+      src : require(`@/assets/black-panther.jpg`),
+      src1 : require(`@/assets/Avengers-Endgame.jpg`),
+      src2 : require(`@/assets/uncharted.jpg`),
+      src3 : require(`@/assets/Captain-Marvel.jpg`),
+    }
+  },
+
+  methods: {}
+}
 
 </script>
 

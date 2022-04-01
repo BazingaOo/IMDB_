@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <div :style="myStyle" id="wrapper">
-    </div>>
+    </div>
     <el-image
       style="width: 315px; height: 110px"
       :src="require('@/assets/IMDB-CLone-FinalLogo.png')"
@@ -30,7 +30,7 @@
         <el-menu-item>
           <span>
               <el-input placeholder="Search" prefix-icon="el-icon-search" v-model="searchInput"
-                        @keydown.enter.native="onSubmit" style=" width: 500px;"/>
+                        @keydown.enter.native="onSubmit" style=" width: 300px;"/>
           </span>
         </el-menu-item>
 
@@ -56,7 +56,7 @@
 
 
     <el-footer>
-      <el-divider></el-divider>
+
       <el-row :gutter="20" justify="center" align="middle" type="flex">
         <el-col :span="5">
           <el-button type="danger">Instagram</el-button>
@@ -71,7 +71,7 @@
           <el-button type="success">WeChat</el-button>
         </el-col>
       </el-row>
-      <el-divider></el-divider>
+
     </el-footer>
   </el-container>
 
@@ -110,9 +110,39 @@ export default {
 </script>
 
 <style>
-.el-header, .el-footer {
+.el-header {
+  background-color: #000000;
+  color: #333;
   text-align: center;
   width: 100%;
+}
+
+.el-menu {
+  background-color: #000000;
+  color: #333;
+  text-align: center;
+  width: 100%;
+}
+
+.el-footer {
+  background-color: #000000;
+  color: #333;
+  text-align: center;
+  width: 100%;
+}
+
+.el-row {
+  background-color: #000000;
+  color: #333;
+  text-align: center;
+  width: 100%;
+}
+
+.el-aside {
+  background-color: #000000;
+  color: #333;
+  text-align: center;
+  line-height: 200px;
 }
 
 .ui {
@@ -124,6 +154,8 @@ export default {
 }
 
 .el-main {
+  background-color: #000000;
+  color: #333;
   text-align: center;
   margin-left: 20%;
   margin-right: 20%;
