@@ -81,7 +81,7 @@ export default {
                       localStorage.setItem('username', code.username)
                       localStorage.setItem('userId', code.user_id);
                       this.$message({
-                        title: '登录提示',
+                        title: 'Login Prompt',
                         message: res.data.message,
                         showClose: true,
                         center: true,
@@ -89,7 +89,7 @@ export default {
                       });
                     } else if (res.data.code == 404) {
                       this.$message({
-                        title: '登录提示',
+                        title: 'Login Prompt',
                         message: res.data.message,
                         showClose: true,
                         center: true,
@@ -101,7 +101,7 @@ export default {
                   this.load = false;
                   console.log(error);
                   this.$message({//这里采用element ui的一个错误显示效果模板
-                    title: '登录提示',
+                    title: 'Login Prompt',
                     message: error.message,
                     center: true,
                     type: 'warning'

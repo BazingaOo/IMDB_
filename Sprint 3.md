@@ -1,4 +1,7 @@
-# backend and frontend port
+# Video Demo of Sprint 3
+https://youtu.be/ZmG02U41QrA
+
+# Backend and Frontend Port
 the port of frontend: localhost:8080  
 the port of backend: localhost:8000  
 
@@ -9,8 +12,8 @@ add user container page for all user\
 add user edit page\
 add delete account
 ## Cypress + unit tests
-### Test the function as follow:  
- 你们自己写
+### Test the functions as follow:  
+We test the login page, sign-up page, homepage, search movies result page.
 # Backend
 ## what we have done
 We have implemented and fixed the functions that:  
