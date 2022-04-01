@@ -47,11 +47,11 @@ const router = new Router({
         {
           path: 'WishMovies',
           component: () => import('../views/user/WishMovies.vue')
-        },
-        {
-          path: 'Genre',
-          component: () => import('../views/movie/Genre.vue')
         }
+        // {
+        //   path: 'Genre',
+        //   component: () => import('../views/movie/Genre.vue')
+        // }
       ]
     }
   ]
