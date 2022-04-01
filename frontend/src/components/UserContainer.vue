@@ -72,6 +72,15 @@
         </el-col>
       </el-row>
 
+      <ul>
+        <li v-for="(item,index) in arr" :key="item.id" @click="chooseClick(index)">
+          <span>
+            <img v-if="item.isChoose" src="@/assets/youtube.png" alt />
+            <img v-else src="@/assets/Twitter.jpg" alt />
+          </span>
+          <span>{{item.title}}</span>
+        </li>
+      </ul>
     </el-footer>
   </el-container>
 
@@ -80,14 +89,25 @@
 export default {
   data() {
     return {
-      myStyle:{
-        backgroundColor:"#16a085"
+      myStyle: {
+        backgroundColor: "#16a085"
       },
       drawer: false,
       direction: 'ttb',
       searchInput: '',
       username: localStorage.getItem('username'),
+      n: 6,
+      arr: [
+        {id: "1", title: "选项1", isChoose: false},
+        {id: "2", title: "选项2", isChoose: false},
+        {id: "3", title: "选项3", isChoose: false},
+        {id: "4", title: "选项4", isChoose: false},
+        {id: "5", title: "礼", isChoose: false},
+        {id: "0", title: "其他问题", isChoose: false}
+      ],
+      imgarr: []
     };
+
   },
   methods: {
     removeToken() {
@@ -105,8 +125,23 @@ export default {
         query: {searchInput: this.searchInput}
       });
     },
-  }
+    chooseClick(index) {
+      //选择问题类型
+      for (let i = 0; i < this.arr.length; i++) {
+        if (index == i) {
+          //选中之后可以进行取消
+          // this.arr[index].isChoose = !this.arr[index].isChoose;
+          //选中之后不可取消  必须有一个是选中的
+          this.arr[index].isChoose = true;
+          this.n = index;
+        } else {
+          this.arr[i].isChoose = false;
+        }
+      }
+    },
+  },
 }
+
 </script>
 
 <style>

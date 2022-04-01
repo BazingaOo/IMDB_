@@ -84,14 +84,38 @@ export default {
         {
           id: 10, img: require('../../assets/forrest.jpg')
         }
-      ]
+      ],
+      screenWidth :0
     }
   },
-  methods: {}
+  methods: {
+    setSize:function () {
+      // 通过浏览器宽度(图片宽度)计算高度
+      this.bannerHeight = 400 / 1920 * this.screenWidth;
+    },
+  },
+  mounted() {
+    // 首次加载时,需要调用一次
+    this.screenWidth =  window.innerWidth;
+    this.setSize();
+    // 窗口大小发生改变时,调用一次
+    window.onresize = () =>{
+      this.screenWidth =  window.innerWidth;
+      this.setSize();
+    }
+  }
 }
 </script>
 
-<style >
+<style scoped>
+img_show{
+  background-color: dimgrey;
+  padding-top: 50px;
+  width: auto;
+}
+img {
+  align-content: center;
+}
 .el-carousel__item h3 {
   color: #475669;
   font-size: 18px;
