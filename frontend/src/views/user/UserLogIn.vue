@@ -10,7 +10,7 @@
     >
       <h3 class="title">Log In</h3>
       <el-form-item prop="username">
-        <el-input type="text" v-model="loginForm.username" auto-complete="off" placeholder="用户名">
+        <el-input type="text" v-model="loginForm.username" auto-complete="off" placeholder="Please enter your username">
           <template slot="prepend">
             <i class="el-icon-s-custom"></i>
           </template>
@@ -19,7 +19,7 @@
 
 
       <el-form-item prop="password">
-        <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="密码" show-password>
+        <el-input type="password" v-model="loginForm.password" auto-complete="off" placeholder="Please enter your password" show-password>
           <template slot="prepend">
             <i class="el-icon-lock"></i>
           </template>
