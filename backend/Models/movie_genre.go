@@ -1,5 +1,7 @@
 package Models
 
+import "backend/Database"
+
 type Movie_genre struct {
 	Movie_id uint
 	Genre_id uint
@@ -8,6 +10,12 @@ type Movie_genre struct {
 }
 
 // 表名默认为模型名称的复数，此处手动设置User的表名为`users`
-func (Movie_genre) TableName() string {
-	return "movie_genre"
+//func (Movie_genre) TableName() string {
+//	return "movie_genre"
+//}
+
+func AddMovieGenre(movieGenre Movie_genre) int64 {
+	result := Database.DB.Create(&movieGenre) // 通过数据的指针来创建
+	affected := result.RowsAffected           // 返回插入记录的条数
+	return affected
 }
