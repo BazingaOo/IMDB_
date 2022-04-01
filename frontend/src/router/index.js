@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '../views/user/HomePage.vue'
 import UserContainer from '../components/UserContainer'
+
 Vue.use(Router)
 
 const router = new Router({
@@ -47,6 +48,10 @@ const router = new Router({
           path: 'WishMovies',
           component: () => import('../views/user/WishMovies.vue')
         },
+        {
+          path: 'Genre',
+          component: () => import('../views/movie/Genre.vue')
+        }
       ]
     }
   ]

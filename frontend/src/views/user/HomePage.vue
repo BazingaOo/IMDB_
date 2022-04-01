@@ -1,6 +1,6 @@
 <template>
   <div class="block">
-    <span class="demonstration" style="font-weight:bold; color:#fcd738; font-size: 200%"> Feature Today</span>
+    <span class="demonstration" style="font-weight:bold; color:#fc389a; font-size: 200%"> Feature Today</span>
     <el-carousel indicator-position="outside">
       <el-carousel-item v-for="item in imgs1" :key="item.id">
         <img :src="item.img" class="image" >

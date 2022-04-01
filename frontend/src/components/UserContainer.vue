@@ -231,4 +231,52 @@ export default {
 .clearfix:after {
   clear: both
 }
+.questionType {
+  font-size: 0.14rem;
+  text-align: left;
+  padding: 0.1rem 0.15rem;
+  padding-bottom: 0rem;
+  box-sizing: border-box;
+p {
+  letter-spacing: 1px;
+  font-size: 0.14rem;
+  padding-bottom: 0.15rem;
+  box-sizing: border-box;
+}
+ul {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+li {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.1rem 0rem;
+  padding-left: 0.1rem;
+  box-sizing: border-box;
+  border-top: 1px solid #ccc;
+span:nth-child(1) {
+  display: block;
+  margin-right: 0.1rem;
+img {
+  width: 0.12rem;
+  height: 0.12rem;
+  vertical-align: middle;
+}
+}
+span:nth-child(2) {
+  font-size: 0.12rem;
+  color: #777;
+}
+}
+}
+}
+
+
+
 </style>
