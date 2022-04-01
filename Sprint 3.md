@@ -10,7 +10,10 @@ add user edit page\
 add delete account
 ## Cypress + unit tests
 ### Test the function as follow:  
- 你们自己写
+ User login
+ User register
+ Movie search
+ 
 # Backend
 ## what we have done
 We have implemented and fixed the functions that:  
