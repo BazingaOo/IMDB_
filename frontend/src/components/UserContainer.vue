@@ -27,7 +27,7 @@
 
         <el-menu-item>
           <span>
-              <el-input placeholder="请输入内容" prefix-icon="el-icon-search" v-model="searchInput"
+              <el-input placeholder="Search" prefix-icon="el-icon-search" v-model="searchInput"
                         @keydown.enter.native="onSubmit" style=" width: 300px;"/>
           </span>
         </el-menu-item>
@@ -56,10 +56,18 @@
     <el-footer>
       <el-divider></el-divider>
       <el-row :gutter="20" justify="center" align="middle" type="flex">
-        <el-col :span="5">Instagram</el-col>
-        <el-col :span="5">Twitter</el-col>
-        <el-col :span="5">Weibo</el-col>
-        <el-col :span="5">WeChat</el-col>
+        <el-col :span="5">
+          <el-button type="danger">Instagram</el-button>
+        </el-col>
+        <el-col :span="5">
+          <el-button type="primary">Twitter</el-button>
+        </el-col>
+        <el-col :span="5">
+          <el-button type="warning">Weibo</el-button>
+        </el-col>
+        <el-col :span="5">
+          <el-button type="success">WeChat</el-button>
+        </el-col>
       </el-row>
       <el-divider></el-divider>
     </el-footer>

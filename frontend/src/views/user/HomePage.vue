@@ -5,6 +5,8 @@
         <el-image :src= "src" fit="cover"/>
 
         <el-image :src= "src1" fit="cover"/>
+        <el-image :src= "src2" fit="cover"/>
+        <el-image :src= "src3" fit="cover"/>
       </el-carousel-item>
     </el-carousel>
 
