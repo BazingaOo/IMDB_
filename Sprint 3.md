@@ -17,7 +17,8 @@ add user edit page\
 add delete account function\
 add User Profile Page\
 add User View History page\
-add Movie info page
+add Movie info page\
+add search movie and cast page
 
 ## Cypress + unit tests
 
