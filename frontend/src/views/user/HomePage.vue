@@ -47,7 +47,7 @@ export default {
           id: 8, img: require('../../assets/wolf.jpg')
         },
         {
-          id: 9, img: require('../../assets/titanic.jpg')
+          id: 9, img: require('../../assets/Django.jpg')
         },
         {
           id: 10, img: require('../../assets/Morbius.jpg')
