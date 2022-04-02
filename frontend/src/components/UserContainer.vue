@@ -2,11 +2,11 @@
   <el-container>
     <div :style="myStyle" id="wrapper">
     </div>
-    <!--    <el-image-->
-    <!--      style="width: 315px; height: 110px"-->
-    <!--      :src="require('@/assets/IMDB-CLone-FinalLogo.png')"-->
-    <!--    fit="fill">-->
-    <!--    </el-image>-->
+        <el-image
+          style="width: 315px; height: 110px"
+          :src="require('@/assets/IMDB-CLone-FinalLogo.png')"
+          :fit="fill">
+        </el-image>
     <el-header>
       <el-menu class="el-menu-demo" mode="horizontal" active-text-color="#409EFF" :router=true>
         <el-menu-item index="/UserContainer/Homepage">
