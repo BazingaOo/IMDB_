@@ -10,16 +10,19 @@ the port of backend: localhost:8000
 ### We have implemented the functions that:  
 add user container page for all user\
 add user edit page\
-add delete account
-## Cypress + unit tests
+add delete account\
+add User Page\
+add History page\
 
-### Test the functions as follow:  
-We test the login page, sign-up page, homepage, search movies result page.
+## Cypress + unit tests
 
 ### Test the function as follow:  
  User login\
  User register\
- Movie search
+ Movie search\
+ User profile\
+ Delete Account\
+ Edit User Profile\
  
 
 # Backend
