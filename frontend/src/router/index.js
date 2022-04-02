@@ -51,6 +51,10 @@ const router = new Router({
         {
           path: 'UserPage',
           component: () => import('../views/user/UserPage.vue')
+        },
+        {
+          path: 'History',
+          component: () => import('../views/user/History.vue')
         }
       ]
     }
