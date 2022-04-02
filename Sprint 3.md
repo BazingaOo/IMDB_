@@ -7,12 +7,17 @@ the port of backend: localhost:8000
 
 # Frontend
 ## what we have done
-### We have implemented the functions that:  
+Redo the homepage\
+Redo the header and footer\
+Redo the login page\
+Redo the register page
+
 add user container page for all user\
 add user edit page\
-add delete account\
-add User Page\
-add History page\
+add delete account function\
+add User Profile Page\
+add User View History page\
+add Movie info page
 
 ## Cypress + unit tests
 
