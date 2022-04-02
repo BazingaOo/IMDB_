@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '../views/user/HomePage.vue'
 import UserContainer from '../components/UserContainer'
+import History  from "../views/user/History";
+import UserPage from "../views/user/UserPage";
+import MovieInfo from "../views/user/MovieInfo";
 
 Vue.use(Router)
 
@@ -55,6 +58,10 @@ const router = new Router({
         {
           path: 'History',
           component: () => import('../views/user/History.vue')
+        },
+        {
+          path: 'MovieInfo'
+          component: () => import('../views/user/MovieInfo.vue')
         }
       ]
     }
