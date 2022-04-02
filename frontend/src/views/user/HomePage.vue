@@ -35,7 +35,7 @@ export default {
           id: 4, img: require('../../assets/Spider-Man3.jpg')
         },
         {
-          id: 5, img: require('../../assets/500.jpg')
+          id: 5, img: require('../../assets/interstellar.jpg')
         },
         {
           id: 6, img: require('../../assets/inception.jpg')
@@ -44,10 +44,10 @@ export default {
           id: 7, img: require('../../assets/Pulp-Fiction1.jpg')
         },
         {
-          id: 8, img: require('../../assets/500.jpg')
+          id: 8, img: require('../../assets/wolf.jpg')
         },
         {
-          id: 9, img: require('../../assets/irobot.jpg')
+          id: 9, img: require('../../assets/titanic.jpg')
         },
         {
           id: 10, img: require('../../assets/Morbius.jpg')
@@ -79,7 +79,7 @@ export default {
           id: 8, img: require('../../assets/forrest.jpg')
         },
         {
-          id: 9, img: require('../../assets/irobot.jpg')
+          id: 9, img: require('../../assets/500.jpg')
         },
         {
           id: 10, img: require('../../assets/forrest.jpg')
