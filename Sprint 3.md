@@ -7,19 +7,28 @@ the port of backend: localhost:8000
 
 # Frontend
 ## what we have done
-### We have implemented the functions that:  
+Redo the homepage\
+Redo the header and footer\
+Redo the login page\
+Redo the register page
+
 add user container page for all user\
 add user edit page\
-add delete account
-## Cypress + unit tests
+add delete account function\
+add User Profile Page\
+add User View History page\
+add Movie info page\
+add search movie and cast page
 
-### Test the functions as follow:  
-We test the login page, sign-up page, homepage, search movies result page.
+## Cypress + unit tests
 
 ### Test the function as follow:  
  User login\
  User register\
- Movie search
+ Movie search\
+ User profile\
+ Delete Account\
+ Edit User Profile\
  
 
 # Backend
