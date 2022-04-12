@@ -9,7 +9,8 @@
           <template v-slot="props">
             <el-form label-position="left" inline class="demo-table-expand">
               <el-form-item label="Movie Name">
-                <span>{{ props.row.Movie_name }}</span>
+
+                <span  @click="handleClick(props.row)">{{ props.row.Movie_name }}</span>
               </el-form-item>
               <el-form-item label="Grade">
                 <span>{{ props.row.Grade }}</span>
@@ -32,8 +33,9 @@
             </div> </template>
         </el-table-column>
         <el-table-column
-          label="Movie Name"
-          prop="Movie_name">
+          label="Movie Name">
+          <template v-slot="props">
+            <span @click="handleClick(props.row)">{{ props.row.Movie_name }}</span></template>
         </el-table-column>
         <el-table-column
           label="Year"
@@ -117,12 +119,18 @@ export default {
     }
   },
   mounted() {
-
     this.fetchData()
     this.searchMovieByTitle()
     this.searchMovieByName()
   },
   methods: {
+    handleClick(row) {
+      console.log("!!:"+row.Movie_id);
+      this.$router.push({
+        path: 'Movies',
+        query: {movieId: row.Movie_id}
+      });
+    },
     fetchData() {
       this.searchInput = this.$route.query.searchInput
       console.log("searchInput:" + this.searchInput)
