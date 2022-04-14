@@ -47,6 +47,10 @@ const router = new Router({
           path: 'WishMovies',
           component: () => import('../views/user/WishMovies.vue')
         },
+        {
+          path: 'Actors',
+          component: () => import('../views/movie/Actors.vue')
+        },
       ]
     }
   ]

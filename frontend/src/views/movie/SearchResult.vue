@@ -60,7 +60,7 @@
                 <span>{{ props.row.MovieName }}</span>
               </el-form-item>
               <el-form-item label="Actor Name">
-                <span>{{ props.row.CastName }}</span>
+                <span @click="handleClick(props.row)">{{ props.row.CastName }}</span>
               </el-form-item>
               <el-form-item label="Grade">
                 <span>{{ props.row.Grade }}</span>
@@ -86,6 +86,8 @@
         <el-table-column
           label="Actor Name"
           prop="CastName">
+          <template v-slot="props">
+            <span @click="handleClick(props.row)">{{ props.row.CastName }}</span></template>
         </el-table-column>
         <el-table-column
           label="Movie Name"

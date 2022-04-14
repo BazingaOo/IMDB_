@@ -7,7 +7,7 @@
         </template>
       </el-header>
       <el-container>
-        <el-aside>Movie Poster
+        <el-aside>Actor Image
           <template  v-slot="props">
             <el-image
               style="width: 259px; height: 375px"
@@ -15,7 +15,7 @@
             </el-image></template>
         </el-aside>
         <el-container>
-          <el-main>Movie Information
+          <el-main>Actors
             <el-table
               :data="tableData"
               style="width: 100%">
