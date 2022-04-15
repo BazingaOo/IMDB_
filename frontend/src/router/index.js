@@ -51,6 +51,10 @@ const router = new Router({
           path: 'Actors',
           component: () => import('../views/movie/Actors.vue')
         },
+        {
+          path: 'TopMovies',
+          component: () => import('../views/movie/TopMovies')
+        },
       ]
     }
   ]

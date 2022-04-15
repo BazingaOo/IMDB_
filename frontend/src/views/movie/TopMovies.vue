@@ -1,41 +1,52 @@
 <template>
-  <el-card class="box-card">
-    <div slot="header" class="clearfix">
-      <span>卡片名称</span>
-      <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
+  <div class="wrapper" v-loading="loadingMoving">
+    <h2>豆瓣新片榜 · · · · · · </h2>
+    <div class="indent">
+      <div class="">
+        <p class="ul first"></p>
+        <searchTag v-for="(subject,index) in ranking250.subjects" :key="index" :subject="subject"></searchTag>
+      </div>
     </div>
-    <div v-for="o in 4" :key="o" class="text item">
-      {{'列表内容 ' + o }}
-    </div>
-  </el-card>
-
+  </div>
 </template>
-
 <script>
-export default {
-  name: "WishMovie"
+import searchTag from '../components/searchTag.vue'
+export default{
+  props: {
+    data: Object
+  },
+  data () {
+    return {
+      timer: null,
+      isLoad: false,
+      page: 1,
+      totalPage: 0,
+      start: 1
+    }
+  },
+  mounted () {
+    document.title = 'top250'
+    this.$store.commit('PAGE_START', {start: 8})
+    this.$store.dispatch('loadingtop250')
+  },
+  components: {
+    searchTag
+  },
+  computed: {
+    ranking250 () {
+      this.isLoad = false
+      this.totalPage = this.$store.getters.ranking250.total
+      return this.$store.getters.ranking250
+    },
+    loadingMoving () {
+      return this.$store.getters.loadingMoving
+    }
+  }
 }
 </script>
-.text {
-font-size: 14px;
-}
-
-.item {
-margin-bottom: 18px;
-}
-
-.clearfix:before,
-.clearfix:after {
-display: table;
-content: "";
-}
-.clearfix:after {
-clear: both
-}
-
-.box-card {
-width: 480px;
-}
-<style scoped>
-
+<style rel="stylesheet/stylus" lang="stylus">
+.wrapper
+  width: 950px;
+  min-height: 500px;
+  margin: 30px auto;
 </style>
