@@ -9,10 +9,10 @@
       <el-container>
         <el-aside>Movie Poster
           <template  v-slot="props">
-            <el-image
-              style="width: 259px; height: 375px"
-              :src="require('@/assets/'+$data.image)" fit="cover">
-            </el-image></template>
+          <el-image
+            style="width: 259px; height: 375px"
+            :src="require('@/assets/'+$data.image)" fit="cover">
+          </el-image></template>
         </el-aside>
         <el-container>
           <el-main>Movie Information
@@ -30,8 +30,18 @@
                 width="200">
               </el-table-column>
               <el-table-column
-                prop="cast"
+
                 label="Cast">
+<!--                <el-table :data="castList">-->
+<!--                  <el-table-column>-->
+<!--                    <template v-slot="props">-->
+<!--                      {{props.row.CastName}}-->
+<!--                    </template>-->
+<!--                  </el-table-column>-->
+<!--                </el-table>-->
+                <span v-for="(item, i) in castList">
+                  {{item.CastName }} <br/>
+                </span>
               </el-table-column>
               <el-table-column
                 label="Rating">
@@ -77,22 +87,61 @@ export default {
       image:'',
       grade:0,
       tableData: [{
-        genre: 'crime ' +
-          'drama ' +
-          'thriller',
-        abstract: 'A mentally troubled stand-up comedian embarks on a downward spiral that leads to the creation of an iconic villain',
+        abstract: '',
         cast: 'Joaquin Phoenix',
-      }]
+      }],
+      castList: []
+
+
     };
 
   },
   mounted() {
     this.fetchData()
     this.searchMovieByTitle()
+    this.showCast()
   }, methods: {
     fetchData() {
       this.movieId = this.$route.query.movieId
     },
+    showCast(){
+      let params = {
+        movieId: this.movieId,
+      }
+      this.$axios.post("/api/user/cast/searchCastByMovieId", this.$qs.stringify(params))
+        .then(res => {
+          if (res.data.code === 200) {
+            this.castList = res.data.cast
+            this.tableData[0].abstract=res.data.movie.Description
+            this.$message({
+              title: '查询提示',
+              message: 'This is what we found by movie titles',
+              showClose: true,
+              center: true,
+              type: 'success'
+            });
+          } else {
+            this.$message({
+              title: '查询提示',
+              message: 'Sorry, we cannot find any result by movie titles',
+              center: true,
+              type: 'error'
+            });
+          }
+        }).catch(error => {
+          console.log(error);
+          this.$message({//这里采用element ui的一个错误显示效果模板
+            title: '系统提示',
+            message: error.message,
+            center: true,
+            type: 'warning'
+          });
+        }
+      )
+      ;
+    },
+
+    //根据movie_id来找movie信息
     searchMovieByTitle() {
       console.log("movieId:" + this.movieId)
       let params = {
@@ -105,6 +154,7 @@ export default {
             this.image=res.data.movie.Image
             this.movieName = res.data.movie.Movie_name
             this.year = res.data.movie.Year
+            //this.cast = res.data.movie.
             this.tableData[0].abstract=res.data.movie.Description
             this.$message({
               title: '查询提示',
@@ -167,7 +217,7 @@ colors: ['#99A9BF', '#F7BA2A', '#FF9900']  // 等同于 { 2: '#99A9BF', 4: { val
   color: #333;
   text-align: center;
   line-height: 150px;
-  width: fit-content;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }

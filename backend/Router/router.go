@@ -1,6 +1,7 @@
 package Router
 
 import (
+	castController "backend/Controllers"
 	movieController "backend/Controllers"
 	userController "backend/Controllers"
 	watchedListController "backend/Controllers"
@@ -47,6 +48,13 @@ func Main() {
 		{
 			movieGroup.POST("/searchMovieByName", movieController.SearchMovieByName)
 			movieGroup.POST("/searchMovieByCast", movieController.SearchMovieByCast)
+			movieGroup.POST("/searchMovieByMovieId", movieController.SearchMovieByMovieId)
+			
+		}
+		castGroup := router.Group("/user/cast")
+		{
+			castGroup.POST("/searchCastById", castController.SearchCastById)
+			castGroup.POST("/searchCastByMovieId", castController.SearchCastByMovieId)
 		}
 		reviewGroup := router.Group("/user/review")
 		{

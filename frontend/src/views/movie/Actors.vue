@@ -20,19 +20,19 @@
               :data="tableData"
               style="width: 100%">
               <el-table-column
-                prop="genre"
-                label="Genre"
+                prop="bornyear"
+                label="Born Year"
               >
               </el-table-column>
               <el-table-column
-                prop="abstract"
-                label="Abstract"
+                prop="description"
+                label="Description"
                 width="200">
               </el-table-column>
-              <el-table-column
-                prop="cast"
-                label="Cast">
-              </el-table-column>
+<!--              <el-table-column-->
+<!--                prop="cast"-->
+<!--                label="Cast">-->
+<!--              </el-table-column>-->
               <el-table-column
                 label="Rating">
                 <template>
@@ -73,13 +73,11 @@ export default {
         {name: 'Romance', type: 'danger'}
       ],
       movieName: '',
-      year: 0,
+      // bornyear: 0,
       image:'',
       grade:0,
       tableData: [{
-        genre: 'crime ' +
-          'drama ' +
-          'thriller',
+        genre: '',
         abstract: 'A mentally troubled stand-up comedian embarks on a downward spiral that leads to the creation of an iconic villain',
         cast: 'Joaquin Phoenix',
       }]
@@ -91,21 +89,22 @@ export default {
     this.searchMovieByTitle()
   }, methods: {
     fetchData() {
-      this.movieId = this.$route.query.movieId
+      this.CastId = this.$route.query.SrCastId
     },
+    //根据cast_id来搜索演员名字
     searchMovieByTitle() {
-      console.log("movieId:" + this.movieId)
+      console.log("this cast id:" + this.CastId)
       let params = {
-        movieId: this.movieId,
+        castId: this.CastId,
       }
-      this.$axios.post("/api/user/movie/searchMovieByMovieId", this.$qs.stringify(params))
+      this.$axios.post("/api/user/cast/searchCastById", this.$qs.stringify(params))
         .then(res => {
           if (res.data.code === 200) {
-            this.grade = res.data.movie.Grade
-            this.image=res.data.movie.Image
-            this.movieName = res.data.movie.Movie_name
-            this.year = res.data.movie.Year
-            this.tableData[0].abstract=res.data.movie.Description
+            this.grade = res.data.cast.Grade
+            this.image=res.data.cast.CastImage
+            this.movieName = res.data.cast.CastName
+            this.bornyear = res.data.cast.Year
+            this.tableData[0].description=res.data.cast.Description
             this.$message({
               title: '查询提示',
               message: 'This is what we found by movie titles',
@@ -167,7 +166,7 @@ colors: ['#99A9BF', '#F7BA2A', '#FF9900']  // 等同于 { 2: '#99A9BF', 4: { val
   color: #333;
   text-align: center;
   line-height: 150px;
-  width: fit-content;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }

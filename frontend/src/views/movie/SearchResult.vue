@@ -60,7 +60,7 @@
                 <span>{{ props.row.MovieName }}</span>
               </el-form-item>
               <el-form-item label="Actor Name">
-                <span @click="handleClick(props.row)">{{ props.row.CastName }}</span>
+                <span @click="Click(props.row)">{{ props.row.CastName }}</span>
               </el-form-item>
               <el-form-item label="Grade">
                 <span>{{ props.row.Grade }}</span>
@@ -87,7 +87,7 @@
           label="Actor Name"
           prop="CastName">
           <template v-slot="props">
-            <span @click="handleClick(props.row)">{{ props.row.CastName }}</span></template>
+            <span @click="Click(props.row)">{{ props.row.CastName }}</span></template>
         </el-table-column>
         <el-table-column
           label="Movie Name"
@@ -124,6 +124,7 @@ export default {
     this.fetchData()
     this.searchMovieByTitle()
     this.searchMovieByName()
+
   },
   methods: {
     handleClick(row) {
@@ -131,6 +132,13 @@ export default {
       this.$router.push({
         path: 'Movies',
         query: {movieId: row.Movie_id}
+      });
+    },
+    Click(row) {
+      console.log("!!:"+row.CastId);
+      this.$router.push({
+        path: 'Actors',
+        query: {SrCastId: row.CastId}
       });
     },
     fetchData() {
