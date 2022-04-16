@@ -46,7 +46,7 @@
               <el-table-column label="Rating">
                 <template>
                   <el-rate
-                    v-model="value"
+                    v-model="ratingscore"
                     disabled
                     show-score
                     text-color="#ff9900"
@@ -68,8 +68,8 @@
                 <div class="block">
                   <span class="demonstration">Rate this movie</span>
                   <el-rate
-                    v-model="value2"
-                    :colors="colors">
+                    v-model="value" :texts="texts"
+                    show-text>
                   </el-rate>
                 </div>
                 <el-button size="small" @click="jump">Comments</el-button>
@@ -89,7 +89,9 @@
 export default {
   data() {
     return {
-
+      ratingscore: 4,
+      value: null,
+      texts:['Terrible','Bad','Regular','Good','Fantastic'],
       tags: [
         {name: 'Action', type: ''},
         {name: 'Comedy', type: 'success'},
