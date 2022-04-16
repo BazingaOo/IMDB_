@@ -52,8 +52,8 @@ const router = new Router({
           component: () => import('../views/movie/Actors.vue')
         },
         {
-          path: 'TopMovies',
-          component: () => import('../views/movie/TopMovies')
+          path: 'Comments',
+          component: () => import('../views/movie/Comments.vue')
         },
       ]
     }

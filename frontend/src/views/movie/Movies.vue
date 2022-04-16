@@ -9,10 +9,10 @@
       <el-container>
         <el-aside>Movie Poster
           <template  v-slot="props">
-          <el-image
-            style="width: 259px; height: 375px"
-            :src="require('@/assets/'+$data.image)" fit="cover">
-          </el-image></template>
+            <el-image
+              style="width: 259px; height: 375px"
+              :src="require('@/assets/'+$data.image)" fit="cover">
+            </el-image></template>
         </el-aside>
         <el-container>
           <el-main>Movie Information
@@ -32,13 +32,13 @@
               <el-table-column
 
                 label="Cast">
-<!--                <el-table :data="castList">-->
-<!--                  <el-table-column>-->
-<!--                    <template v-slot="props">-->
-<!--                      {{props.row.CastName}}-->
-<!--                    </template>-->
-<!--                  </el-table-column>-->
-<!--                </el-table>-->
+                <!--                <el-table :data="castList">-->
+                <!--                  <el-table-column>-->
+                <!--                    <template v-slot="props">-->
+                <!--                      {{props.row.CastName}}-->
+                <!--                    </template>-->
+                <!--                  </el-table-column>-->
+                <!--                </el-table>-->
                 <span v-for="(item, i) in castList">
                   {{item.CastName }} <br/>
                 </span>
@@ -55,11 +55,13 @@
           </el-main>
           <el-footer>
             Storyline
-
           </el-footer>
+
           <hgroup class="ipc-title ipc-title--section-title ipc-title--base ipc-title--on-textPrimary">
             <h3 class="ipc-title__text">
-              Comments
+              <el-badge value="new" class="item">
+                <el-button size="small" @click="jump">Comments</el-button>
+              </el-badge>
             </h3>
           </hgroup>
         </el-container>
@@ -100,7 +102,13 @@ export default {
     this.fetchData()
     this.searchMovieByTitle()
     this.showCast()
+
   }, methods: {
+    jump(){
+      this.$router.push({
+        path: 'Comments',
+      });
+    },
     fetchData() {
       this.movieId = this.$route.query.movieId
     },
