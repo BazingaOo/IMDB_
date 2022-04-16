@@ -55,6 +55,10 @@ const router = new Router({
           path: 'Comments',
           component: () => import('../views/movie/Comments.vue')
         },
+        {
+          path: 'Rating',
+          component: () => import('../views/movie/Rating.vue')
+        },
       ]
     }
   ]

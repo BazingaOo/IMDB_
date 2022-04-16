@@ -59,7 +59,14 @@
 
           <hgroup class="ipc-title ipc-title--section-title ipc-title--base ipc-title--on-textPrimary">
             <h3 class="ipc-title__text">
-              <el-badge value="new" class="item">
+              <el-badge class="item">
+                <div class="block">
+                  <span class="demonstration">Rate this movie</span>
+                  <el-rate
+                    v-model="value2"
+                    :colors="colors">
+                  </el-rate>
+                </div>
                 <el-button size="small" @click="jump">Comments</el-button>
               </el-badge>
             </h3>
