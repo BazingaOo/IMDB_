@@ -43,10 +43,15 @@
                   {{item.CastName }} <br/>
                 </span>
               </el-table-column>
-              <el-table-column
-                label="Rating">
+              <el-table-column label="Rating">
                 <template>
-                  {{grade}}
+                  <el-rate
+                    v-model="value"
+                    disabled
+                    show-score
+                    text-color="#ff9900"
+                    score-template="{value}">
+                  </el-rate>
                 </template>
 
               </el-table-column>
@@ -84,6 +89,7 @@
 export default {
   data() {
     return {
+
       tags: [
         {name: 'Action', type: ''},
         {name: 'Comedy', type: 'success'},
@@ -99,7 +105,8 @@ export default {
         abstract: '',
         cast: 'Joaquin Phoenix',
       }],
-      castList: []
+      castList: [],
+
 
 
     };
@@ -114,6 +121,11 @@ export default {
     jump(){
       this.$router.push({
         path: 'Comments',
+      });
+    },
+    hop(){
+      this.$router.push({
+        path: 'Rating',
       });
     },
     fetchData() {
