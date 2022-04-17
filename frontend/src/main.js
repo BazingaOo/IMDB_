@@ -9,6 +9,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import axios from "axios"
 import qs from 'qs'
 import moment from 'moment'
+import * as echarts from 'echarts'
+// 全局方法挂载
+Vue.prototype.echarts = echarts
 
 Vue.prototype.$axios = axios
 Vue.prototype.$qs = qs
