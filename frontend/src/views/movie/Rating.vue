@@ -49,21 +49,22 @@ export default {
           itemHeight: 30, // 设置图例图形的高
           itemGap: 30,
           backgroundColor: "#eee", // 设置整个图例区域背景颜色
-          data: ["大学及以上", "高中及以下", "初中及以下", "小学及以下"],
+          data: ["5 Stars", "4 Stars", "3 Stars", "2 Stars", "1 Star"],
         },
         series: [
           {
-            name: "教育程度",
+            name: "User Ratings",
             type: "pie", // 设置图表类型为饼图
             radius: ["55%", "65%"], // 饼图的半径，外半径为可视区尺寸（容器高宽中较小一项）的 55% 长度。
             data: [
               // 数据数组，name 为数据项名称，value 为数据项值
-              { value: 30, name: "大学及以上" },
-              { value: 40, name: "高中及以下" },
-              { value: 20, name: "初中及以下" },
-              { value: 10, name: "小学及以下" },
+              { value: 30, name: "5 Stars" },
+              { value: 40, name: "4 Stars" },
+              { value: 20, name: "3 Stars" },
+              { value: 10, name: "2 Stars" },
+              { value: 10, name: "1 Star" },
             ],
-            color: ["green", "blue", "Cyan", "red"], //各个区域颜色
+            color: ["green", "blue", "Cyan", "red", "yellow"], //各个区域颜色
             itemStyle: {
               normal: {
                 label: {

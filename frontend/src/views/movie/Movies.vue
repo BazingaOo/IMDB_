@@ -52,6 +52,7 @@
                     text-color="#ff9900"
                     score-template="{value}">
                   </el-rate>
+                  <el-button size="small" @click="hop">User Ratings </el-button>
                 </template>
 
               </el-table-column>
