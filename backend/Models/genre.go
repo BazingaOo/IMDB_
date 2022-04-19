@@ -59,7 +59,7 @@ type ResultGenre struct {
 func SearchGenre(genreName string) []ResultGenre {
 	var result []ResultGenre
 	//Database.DB.Raw("SELECT movie.movie_id, movie.movie_name, movie.year, movie.grade, movie.description, movie.Image, cast.cast_name,cast.cast_id, cast.cast_description, cast.cast_image FROM cast INNER JOIN movie_cast ON cast.cast_id = movie_cast.cast_id INNER JOIN movie ON movie_cast.movie_id = movie.movie_id WHERE cast.cast_name = ? ORDER BY cast.cast_id", castName).Scan(&result)
-	Database.DB.Raw("SELECT genre.genre_name,genre.genre_id,movie.movie_id, movie.movie_name, movie.year, movie.grade, movie.description, movie.Image FROM genre INNER JOIN movie_genre ON genre.genre_id=movie_genre.genre_id INNER JOIN movie ON movie.movie_id=movie_cast.movie_id WHERE genre.genre_name=?", genreName).Scan(&result)
+	Database.DB.Raw("SELECT genre.genre_name,genre.genre_id,movie.movie_id, movie.movie_name, movie.year, movie.grade, movie.description, movie.Image FROM genre INNER JOIN movie_genre ON genre.genre_id=movie_genre.genre_id INNER JOIN movie ON movie.movie_id=movie_genre.movie_id WHERE genre.genre_name=?", genreName).Scan(&result)
 	return result
 }
 
