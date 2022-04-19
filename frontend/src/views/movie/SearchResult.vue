@@ -152,20 +152,7 @@ export default {
         .then(res => {
           if (res.data.code === 200) {
             this.titleTableData = res.data.movie
-            this.$message({
-              title: '查询提示',
-              message: 'This is what we found by movie titles',
-              showClose: true,
-              center: true,
-              type: 'success'
-            });
           } else {
-            this.$message({
-              title: '查询提示',
-              message: 'Sorry, we cannot find any result by movie titles',
-              center: true,
-              type: 'error'
-            });
           }
         }).catch(error => {
           console.log(error);
@@ -187,21 +174,8 @@ export default {
         .then(res => {
           if (res.data.code === 200) {
             this.nameTableData = res.data.movie
-            this.$message({
-              title: '查询提示',
-              message: 'This is what we found by actor names',
-              showClose: true,
-              center: true,
-              type: 'success'
-            });
           } else {
             this.nameTableData.movie = null
-            this.$message({
-              title: '查询提示',
-              message: 'Sorry, we cannot find any result by actor names',
-              center: true,
-              type: 'error'
-            });
           }
         }).catch(error => {
         console.log(error);

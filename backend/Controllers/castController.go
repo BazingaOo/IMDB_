@@ -47,3 +47,21 @@ func SearchCastByMovieId(c *gin.Context) {
 		})
 	}
 }
+
+func SearchRelativeMovieByCastId(c *gin.Context) {
+	var castId, _ = strconv.Atoi(c.PostForm("castId"))
+	res := Models.SearchRelativeMovieByCastId(castId)
+	if len(res) == 0 {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    404,
+			"message": "error",
+			"movie":   res,
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    200,
+			"message": "success",
+			"movie":   res,
+		})
+	}
+}

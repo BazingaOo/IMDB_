@@ -112,3 +112,22 @@ func SearchGenre(c *gin.Context) {
 	}
 
 }
+func SearchMovieWithGenre(c *gin.Context) {
+	var movieId int
+	//user.Username = c.PostForm("username")
+	movieId, _ = strconv.Atoi(c.PostForm("movieId"))
+	res := Models.SearchMovieWithGenre(movieId)
+	if len(res) == 0 {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    404,
+			"message": "error",
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    200,
+			"message": "success",
+			"genre":   res,
+		})
+	}
+
+}

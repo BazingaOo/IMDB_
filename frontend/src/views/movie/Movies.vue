@@ -22,7 +22,11 @@
           <el-main
             >Movie Information
             <el-table :data="tableData" style="width: 100%">
-              <el-table-column prop="genre" label="Genre"> </el-table-column>
+              <el-table-column  label="Genre"> 
+                 <span v-for="(item, i) in genreTable">
+                 <el-tag>{{ item.Genre }}</el-tag> &nbsp;
+                </span>
+              </el-table-column>
               <el-table-column prop="abstract" label="Abstract" width="200">
               </el-table-column>
               <el-table-column label="Cast">
@@ -41,7 +45,7 @@
                 </el-rate>
               </el-table-column>
               <el-table-column label="My Rating">
-                <template v-if="myScore === 0.0||0||null">
+                <template v-if="myScore === 0.0 || 0 || null">
                   <el-rate
                     v-model="myScore"
                     show-score
@@ -49,7 +53,7 @@
                     score-template="{value}"
                     @change="addScore()"
                   ></el-rate>
-                  <span>u do not rate this movie</span>
+                  <span>you do not rate this movie</span>
                 </template>
                 <template v-else>
                   <el-rate
@@ -80,6 +84,14 @@
                 <el-button size="small" @click="toMovie">Comments</el-button>
               </el-badge>
             </h3>
+            <el-table :data="commentTable" style="width: 100%">
+              <el-table-column width="90">
+              </el-table-column>
+              <el-table-column label="username" prop="Username" width="180">
+              </el-table-column>
+              <el-table-column label="content" prop="Review_content">
+              </el-table-column>
+            </el-table>
           </hgroup>
         </el-container>
       </el-container>
@@ -91,6 +103,8 @@
 export default {
   data() {
     return {
+      genreTable:[],
+      commentTable: [],
       score: 3.7,
       myScore: 0.0,
       texts: ["Terrible", "Bad", "Regular", "Good", "Fantastic"],
@@ -100,7 +114,6 @@ export default {
       tableData: [
         {
           abstract: "",
-          cast: "Joaquin Phoenix",
         },
       ],
       castList: [],
@@ -111,8 +124,60 @@ export default {
     this.searchMovieByTitle();
     this.showCast();
     this.queryRate();
+    this.readReviewByMovieId();
+    this.searchMovieWithGenre();
   },
   methods: {
+    searchMovieWithGenre(){
+      let params = {
+        movieId: this.movieId,
+      };
+      this.$axios
+        .post(
+          "/api/user/movie/searchMovieWithGenre",
+          this.$qs.stringify(params)
+        )
+        .then((res) => {
+          if (res.data.code == 200) {
+            this.genreTable = res.data.genre;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.$message({
+            //这里采用element ui的一个错误显示效果模板
+            title: "系统提示",
+            message: error.message,
+            center: true,
+            type: "warning",
+          });
+        });
+    },
+    readReviewByMovieId() {
+      let params = {
+        movieId: this.movieId,
+      };
+      this.$axios
+        .post(
+          "/api/user/review/readReviewByMovieId",
+          this.$qs.stringify(params)
+        )
+        .then((res) => {
+          if (res.data.code == 200) {
+            this.commentTable = res.data.review;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.$message({
+            //这里采用element ui的一个错误显示效果模板
+            title: "系统提示",
+            message: error.message,
+            center: true,
+            type: "warning",
+          });
+        });
+    },
     undateScore() {
       let params = {
         movieId: this.movieId,
@@ -217,21 +282,7 @@ export default {
         .then((res) => {
           if (res.data.code === 200) {
             this.castList = res.data.cast;
-            this.tableData[0].abstract = res.data.movie.Description;
-            this.$message({
-              title: "查询提示",
-              message: "This is what we found by movie titles",
-              showClose: true,
-              center: true,
-              type: "success",
-            });
           } else {
-            this.$message({
-              title: "查询提示",
-              message: "Sorry, we cannot find any result by movie titles",
-              center: true,
-              type: "error",
-            });
           }
         })
         .catch((error) => {

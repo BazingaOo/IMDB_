@@ -3,8 +3,8 @@ package Models
 import "backend/Database"
 
 type Movie_genre struct {
-	Movie_id uint
-	Genre_id uint
+	Movie_id int
+	Genre_id int
 	Movie    Movie `gorm:"ForeignKey:Movie_id"` // 设置关联模型并指定UserId作为外键
 	Genre    Genre `gorm:"ForeignKey:Genre_id"` // 设置关联模型并指定UserId作为外键
 }

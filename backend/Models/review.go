@@ -41,3 +41,18 @@ func ReadReview(User_id int) []Review {
 	Database.DB.Where("user_id = ?", User_id).Find(&review)
 	return review
 }
+
+type reviewName struct {
+	Review_id      int
+	User_id        int
+	Movie_id       int
+	Review_content string
+	Username       string
+}
+
+func ReadReviewByMovieId(Movie_id int) []reviewName {
+	var review []reviewName
+	//Database.DB.Where("Movie_name Like ? , "%jin%").Find(&movies)
+	Database.DB.Raw("SELECT review.*, user.username FROM review INNER JOIN user ON review.user_id = user.user_id WHERE review.movie_id = ?", Movie_id).Scan(&review)
+	return review
+}

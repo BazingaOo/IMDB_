@@ -2,6 +2,7 @@ package Router
 
 import (
 	castController "backend/Controllers"
+	genreController "backend/Controllers"
 	movieController "backend/Controllers"
 	ratingController "backend/Controllers"
 	userController "backend/Controllers"
@@ -50,12 +51,14 @@ func Main() {
 			movieGroup.POST("/searchMovieByName", movieController.SearchMovieByName)
 			movieGroup.POST("/searchMovieByCast", movieController.SearchMovieByCast)
 			movieGroup.POST("/searchMovieByMovieId", movieController.SearchMovieByMovieId)
-
+			movieGroup.POST("/searchMovieWithGenre", genreController.SearchMovieWithGenre)
 		}
 		castGroup := router.Group("/user/cast")
 		{
 			castGroup.POST("/searchCastById", castController.SearchCastById)
 			castGroup.POST("/searchCastByMovieId", castController.SearchCastByMovieId)
+			castGroup.POST("/searchRelativeMovieByCastId", castController.SearchRelativeMovieByCastId)
+
 		}
 		reviewGroup := router.Group("/user/review")
 		{
@@ -63,6 +66,7 @@ func Main() {
 			reviewGroup.POST("/updateReview", movieController.UpdateReview)
 			reviewGroup.POST("/deleteReview", movieController.DeleteReview)
 			reviewGroup.POST("/readReview", movieController.ReadReview)
+			reviewGroup.POST("/readReviewByMovieId", movieController.ReadReviewByMovieId)
 		}
 		watchedListGroup := router.Group("/user/watchedList")
 		{
@@ -75,7 +79,7 @@ func Main() {
 			ratingGroup.POST("/readRating", ratingController.ReadRating)
 			ratingGroup.POST("/addRating", ratingController.AddRating)
 			ratingGroup.POST("/updateRating", ratingController.UpdateRating)
-
+			ratingGroup.POST("/computeAvgGrade", ratingController.ComputeAvgGrade)
 		}
 	}
 	userGroup.Use(jwt.JWTAuth())

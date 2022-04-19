@@ -53,6 +53,18 @@ func SearchCastById(castId int) Result {
 	return result
 }
 
+type CastWithName struct {
+	Movie_id   int
+	Movie_name string
+	Image      string
+}
+
+func SearchRelativeMovieByCastId(castId int) []CastWithName {
+	var result []CastWithName
+	Database.DB.Raw("SELECT movie.movie_name,movie.image,movie.movie_id FROM movie_cast INNER JOIN cast ON movie_cast.cast_id = cast.cast_id INNER JOIN movie ON movie_cast.movie_id = movie.movie_id WHERE cast.cast_id = ?", castId).Scan(&result)
+	return result
+}
+
 //
 //func SearchMovieByName(name string) []Movie {
 //	var movies []Movie

@@ -2,138 +2,181 @@
   <div class="block">
     <el-container>
       <el-header>
-        <template >
+        <template>
           {{ movieName }}
         </template>
       </el-header>
       <el-container>
-        <el-aside>Actor Image
-          <template  v-slot="props">
+        <el-aside
+          >Actor Image
+          <template v-slot="props">
             <el-image
               style="width: 259px; height: 375px"
-              :src="require('@/assets/'+$data.image)" fit="cover">
-            </el-image></template>
+              :src="require('@/assets/' + $data.image)"
+              fit="cover"
+            >
+            </el-image
+          ></template>
         </el-aside>
         <el-container>
-          <el-main>Actors
-            <el-table
-              :data="tableData"
-              style="width: 100%">
-              <el-table-column
-                prop="bornyear"
-                label="Born Year"
-              >
-              </el-table-column>
+          <el-main
+            >Actors
+            <el-table :data="tableData" style="width: 100%">
               <el-table-column
                 prop="description"
                 label="Description"
-                width="200">
-              </el-table-column>
-<!--              <el-table-column-->
-<!--                prop="cast"-->
-<!--                label="Cast">-->
-<!--              </el-table-column>-->
-              <el-table-column
-                label="Rating">
-                <template>
-                  {{grade}}
-                </template>
-
+                width="200"
+              >
               </el-table-column>
             </el-table>
-
           </el-main>
-          <el-footer>
-            Storyline
-
-          </el-footer>
-          <hgroup class="ipc-title ipc-title--section-title ipc-title--base ipc-title--on-textPrimary">
-            <h3 class="ipc-title__text">
-              Comments
-            </h3>
+          <el-footer> Storyline </el-footer>
+          <hgroup
+            class="
+              ipc-title
+              ipc-title--section-title
+              ipc-title--base
+              ipc-title--on-textPrimary
+            "
+          >
+            <h3 class="ipc-title__text">Relative movie you might like</h3>
+            <el-table :data="relativeMovie" style="width: 100%">
+              <el-table-column width="90"> </el-table-column>
+              <el-table-column label="Movie Name" width="180">
+                <template v-slot="props">
+                  <span @click="handleClick(props.row)">{{
+                    props.row.Movie_name
+                  }}</span></template
+                >
+              </el-table-column>
+              <el-table-column label="Movie">
+                <template v-slot="prop">
+                  <img
+                    style="width: 100px; height: 150px"
+                    :src="require('@/assets/' + prop.row.Image)"
+                    fit="cover"
+                  />
+                </template>
+              </el-table-column>
+            </el-table>
           </hgroup>
         </el-container>
       </el-container>
     </el-container>
-
   </div>
-
-
 </template>
 
 <script>
 export default {
   data() {
     return {
-      tags: [
-        {name: 'Action', type: ''},
-        {name: 'Comedy', type: 'success'},
-        {name: 'Drama', type: 'info'},
-        {name: 'Si-Fi', type: 'warning'},
-        {name: 'Romance', type: 'danger'}
+      movieName: "",
+      movieImage: [],
+      image: "",
+      grade: 0,
+      tableData: [
+        {
+          genre: "",
+          abstract:
+            "A mentally troubled stand-up comedian embarks on a downward spiral that leads to the creation of an iconic villain",
+          cast: "Joaquin Phoenix",
+        },
       ],
-      movieName: '',
-      // bornyear: 0,
-      image:'',
-      grade:0,
-      tableData: [{
-        genre: '',
-        abstract: 'A mentally troubled stand-up comedian embarks on a downward spiral that leads to the creation of an iconic villain',
-        cast: 'Joaquin Phoenix',
-      }]
+      relativeMovie: [],
     };
-
   },
   mounted() {
-    this.fetchData()
-    this.searchMovieByTitle()
-  }, methods: {
+    this.fetchData();
+    this.searchMovieByTitle();
+    this.SearchRelativeMovieByCastId();
+  },
+  methods: {
+    handleClick(row) {
+      this.$router.push({
+        path: 'Movies',
+        query: {movieId: row.Movie_id}
+      });
+    },
     fetchData() {
-      this.CastId = this.$route.query.SrCastId
+      this.CastId = this.$route.query.SrCastId;
     },
     //根据cast_id来搜索演员名字
     searchMovieByTitle() {
-      console.log("this cast id:" + this.CastId)
+      console.log("this cast id:" + this.CastId);
       let params = {
         castId: this.CastId,
-      }
-      this.$axios.post("/api/user/cast/searchCastById", this.$qs.stringify(params))
-        .then(res => {
+      };
+      this.$axios
+        .post("/api/user/cast/searchCastById", this.$qs.stringify(params))
+        .then((res) => {
           if (res.data.code === 200) {
-            this.grade = res.data.cast.Grade
-            this.image=res.data.cast.CastImage
-            this.movieName = res.data.cast.CastName
-            this.bornyear = res.data.cast.Year
-            this.tableData[0].description=res.data.cast.Description
+            this.grade = res.data.cast.Grade;
+            this.image = res.data.cast.CastImage;
+            this.movieName = res.data.cast.CastName;
+            this.bornyear = res.data.cast.Year;
+            this.tableData[0].description = res.data.cast.Description;
             this.$message({
-              title: '查询提示',
-              message: 'This is what we found by movie titles',
+              title: "查询提示",
+              message: "This is what we found by movie titles",
               showClose: true,
               center: true,
-              type: 'success'
+              type: "success",
             });
           } else {
             this.$message({
-              title: '查询提示',
-              message: 'Sorry, we cannot find any result by movie titles',
+              title: "查询提示",
+              message: "Sorry, we cannot find any result by movie titles",
               center: true,
-              type: 'error'
+              type: "error",
             });
           }
-        }).catch(error => {
+        })
+        .catch((error) => {
           console.log(error);
-          this.$message({//这里采用element ui的一个错误显示效果模板
-            title: '系统提示',
+          this.$message({
+            //这里采用element ui的一个错误显示效果模板
+            title: "系统提示",
             message: error.message,
             center: true,
-            type: 'warning'
+            type: "warning",
           });
-        }
-      )
-      ;
+        });
     },
-  }
-}
+    SearchRelativeMovieByCastId() {
+      console.log("this cast id:" + this.CastId);
+      let params = {
+        castId: this.CastId,
+      };
+      this.$axios
+        .post(
+          "/api/user/cast/searchRelativeMovieByCastId",
+          this.$qs.stringify(params)
+        )
+        .then((res) => {
+          if (res.data.code === 200) {
+            this.relativeMovie = res.data.movie;
+          } else {
+            this.$message({
+              title: "查询提示",
+              message: "Sorry, we cannot find any result by movie titles",
+              center: true,
+              type: "error",
+            });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.$message({
+            //这里采用element ui的一个错误显示效果模板
+            title: "系统提示",
+            message: error.message,
+            center: true,
+            type: "warning",
+          });
+        });
+    },
+  },
+};
 </script>
 
 export default {
@@ -146,15 +189,16 @@ colors: ['#99A9BF', '#F7BA2A', '#FF9900']  // 等同于 { 2: '#99A9BF', 4: { val
 }
 }
 <style scoped>
-.el-header, .el-footer {
-  background-color: #B3C0D1;
+.el-header,
+.el-footer {
+  background-color: #b3c0d1;
   color: #333;
   text-align: center;
   line-height: 60px;
 }
 
 .el-aside {
-  background-color: #D3DCE6;
+  background-color: #d3dce6;
   color: #333;
   text-align: center;
   line-height: 150px;
@@ -162,7 +206,7 @@ colors: ['#99A9BF', '#F7BA2A', '#FF9900']  // 等同于 { 2: '#99A9BF', 4: { val
 }
 
 .el-main {
-  background-color: #E9EEF3;
+  background-color: #e9eef3;
   color: #333;
   text-align: center;
   line-height: 150px;
@@ -183,5 +227,4 @@ body > .el-container {
 .el-container:nth-child(7) .el-aside {
   line-height: 320px;
 }
-
 </style>

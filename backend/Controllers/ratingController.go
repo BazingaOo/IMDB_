@@ -95,7 +95,7 @@ func ReadRating(c *gin.Context) {
 
 }
 
-func UpdateGrade(c *gin.Context) {
+func ComputeAvgGrade(c *gin.Context) {
 	var movieId int
 	//rating.User_id, _ = strconv.Atoi(c.PostForm("userId"))
 	movieId, _ = strconv.Atoi(c.PostForm("movieId"))
