@@ -22,6 +22,7 @@
 <!--    </el-table-column>-->
 <!--  </el-table>-->
 
+
   <div>
     <div class="pie" style="height: 400px" ref="chartEducation"></div>
     <div class="review-container" style="max-height: none;">
@@ -78,6 +79,9 @@
   </div>
 
 
+
+
+
 </template>
 
 <script>
@@ -98,7 +102,7 @@ export default {
         legend: {
           orient: "horizontal",
           x: "right",
-          y: "top",
+          y: "bottom",
           itemWidth: 18, // 设置图例图形的宽
           itemHeight: 30, // 设置图例图形的高
           itemGap: 30,
@@ -232,5 +236,13 @@ export default {
 </script>
 
 <style scoped>
+.chartEducation h3 {
+  color: #475669;
+  font-size: 18px;
+  opacity: 0.75;
+  line-height: 300px;
+  margin: 0;
+}
+
 
 </style>

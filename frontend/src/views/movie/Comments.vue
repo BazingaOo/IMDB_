@@ -77,33 +77,31 @@
       <div>
         <img  class="headerImg"  src="http://yijiao.oss-cn-qingdao.aliyuncs.com/web/1472127058468.jpg">
         <div class="grade-box">
-          <div class="score">商品评分</div>
-          <div class="bgImg">
-            <img v-for="(star,index) in stars" v-bind:src="star.src" v-on:click="rating(index,'starts')" alt="星星图片" />
-          </div>
+
         </div>
       </div>
       <div class="scoreInfo">{{scoreInfo}}</div>
     </div>
     <div class="line"></div>
     <div class="inputText">
-      <textarea v-bind:maxlength="Surplus" @input="descArea" v-model="inputText" name="abstract" id="abstract" placeholder="宝贝满足你的期待吗？说说你的使用心得，分享给想买的他们吧！"></textarea>
+      <textarea v-bind:maxlength="Surplus" @input="descArea" v-model="inputText" name="abstract" id="abstract" placeholder="Please leave your comment about this movie."></textarea>
       <div class="selectPic">
         <up-Load :multiple="true" :max=6 :list="imgList" ref="upload"></up-Load>
       </div>
     </div>
     <div class="bgName">
       <img src="../../../static/Images/star02@2x.png">
-      <div class="unName">匿名</div>
+      <div class="unName">Anonymous</div>
     </div>
     <div class="line2"></div>
     <div class="severce">
-      <div class="attitudeOfService">服务态度</div>
-      <div class="bgImg">
-        <img v-for="(star,index) in severceStarts" v-bind:src="star.src" v-on:click="rating(index,'severce')" alt="星星图片" />
-      </div>
+      <div class="attitudeOfService"> Rate this movie </div>
+      <el-rate
+        v-model="value" :texts="texts"
+        show-text>
+      </el-rate>
     </div>
-    <div class="publish" @click="publicComment">发布</div>
+    <div class="publish" @click="publicComment">Submit</div>
   </div>
 </template>
 
@@ -115,7 +113,7 @@ var starOnImg = '../../../static/Images/star@2x.png'
 export default {
   data: function () {
     return {
-      scoreInfo: '很满意',
+      texts:['Terrible','Bad','Regular','Good','Fantastic'],
       inputText: '',
       Surplus: 140,
       newTitle: '商品评价',
@@ -214,15 +212,15 @@ export default {
           this.scoreStartNum = count
         }
         if (this.scoreStartNum === 1) {
-          this.scoreInfo = '很差'
+          this.scoreInfo = 'Terrible'
         } else if (this.scoreStartNum === 2) {
-          this.scoreInfo = '差'
+          this.scoreInfo = 'Bad'
         } else if (this.scoreStartNum === 3) {
-          this.scoreInfo = '一般'
+          this.scoreInfo = 'Regular'
         } else if (this.scoreStartNum === 4) {
-          this.scoreInfo = '满意'
+          this.scoreInfo = 'Good'
         } else if (this.scoreStartNum === 5) {
-          this.scoreInfo = '很满意'
+          this.scoreInfo = 'Fantastic'
         }
       } else {
         var total = this.severceStarts.length // 星星总数
