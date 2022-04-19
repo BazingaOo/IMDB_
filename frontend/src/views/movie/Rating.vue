@@ -21,7 +21,8 @@
 <!--      label="地址">-->
 <!--    </el-table-column>-->
 <!--  </el-table>-->
-  <div style="height: 400px" ref="chartEducation"></div>
+  <div style="height: 400px" ref="chartEducation">User Rating</div>
+
 
 
 </template>
@@ -44,7 +45,7 @@ export default {
         legend: {
           orient: "horizontal",
           x: "right",
-          y: "top",
+          y: "bottom",
           itemWidth: 18, // 设置图例图形的宽
           itemHeight: 30, // 设置图例图形的高
           itemGap: 30,
@@ -178,5 +179,13 @@ export default {
 </script>
 
 <style scoped>
+.chartEducation h3 {
+  color: #475669;
+  font-size: 18px;
+  opacity: 0.75;
+  line-height: 300px;
+  margin: 0;
+}
+
 
 </style>
