@@ -1,6 +1,5 @@
 <template>
-  <ul class="infinite-list" v-infinite-scroll="load" style="overflow:auto">
-    <el-card class="box-card">
+  <el-card class="box-card">
     <div slot="header" class="clearfix">
       <span>卡片名称</span>
       <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
@@ -9,24 +8,12 @@
       {{'列表内容 ' + o }}
     </div>
   </el-card>
-    <li v-for="i in count" class="infinite-list-item">{{ i }}</li>
-  </ul>
+
 </template>
 
 <script>
 export default {
-  name: "WishMovie",
-  data () {
-    return {
-      count: 0
-    }
-  },
-  methods: {
-    load () {
-
-      this.count = 250
-    }
-  }
+  name: "WishMovie"
 }
 </script>
 .text {

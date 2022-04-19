@@ -9,7 +9,6 @@
           <template v-slot="props">
             <el-form label-position="left" inline class="demo-table-expand">
               <el-form-item label="Movie Name">
-
                 <span  @click="handleClick(props.row)">{{ props.row.Movie_name }}</span>
               </el-form-item>
               <el-form-item label="Grade">

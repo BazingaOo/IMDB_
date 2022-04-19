@@ -1,16 +1,26 @@
 <template>
   <div class="block">
-    <span class="demonstration" style="font-weight:bold; color:#fcd738; font-size: 200%"> Feature Today</span>
-    <el-carousel interval="4000" indicator-position="outside">
+    <span
+      class="demonstration"
+      style="font-weight: bold; color: #fcd738; font-size: 200%"
+    >
+      Feature Today</span
+    >
+    <el-carousel :interval="4000" indicator-position="outside" height="400px">
       <el-carousel-item v-for="item in imgs1" :key="item.id">
-        <img :src="item.img" class="image" >
+        <el-image :src="item.img"  fit="cover" />
       </el-carousel-item>
     </el-carousel>
 
-    <span class="demonstration" style="font-weight:bold; color:#fcd738; font-size: 200%"> Top Picks</span>
-    <el-carousel :interval="4000" type="card" height="200px">
+    <span
+      class="demonstration"
+      style="font-weight: bold; color: #fcd738; font-size: 200%"
+    >
+      Top Picks</span
+    >
+    <el-carousel :interval="4000" type="card" height="800px">
       <el-carousel-item v-for="item in imgs2" :key="item.id">
-        <img :src="item.img" class="image" >
+        <el-image :src="item.img"  fit="scale-down"></el-image>
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -102,7 +112,7 @@ export default {
 .el-carousel__item:nth-child(2n) {
   background-color: #99a9bf;
 }
-.el-carousel__item:nth-child(2n+1) {
+.el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
 }
 .time {
@@ -127,6 +137,6 @@ export default {
   content: "";
 }
 .clearfix:after {
-  clear: both
+  clear: both;
 }
 </style>
