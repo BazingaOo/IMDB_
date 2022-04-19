@@ -72,10 +72,10 @@
 
 
   <div class="bgView">
-    <!--    <head-bar :title="newTitle" :set="newSet" :is-back="isBack" :is-set="isSet"></head-bar>-->
+<!--        <head-bar :title="newTitle" :set="newSet" :is-back="isBack" :is-set="isSet"></head-bar>-->
     <div class="bgScored">
       <div>
-        <img  class="headerImg" src="http://yijiao.oss-cn-qingdao.aliyuncs.com/web/1472127058468.jpg">
+        <img  class="headerImg"  src="http://yijiao.oss-cn-qingdao.aliyuncs.com/web/1472127058468.jpg">
         <div class="grade-box">
           <div class="score">商品评分</div>
           <div class="bgImg">

@@ -163,8 +163,8 @@ export default {
   background-color: #7690b9;
   color: #333;
   text-align: center;
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .time {
