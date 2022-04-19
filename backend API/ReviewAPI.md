@@ -17,7 +17,7 @@ If add reviews error
 ```
 {
   "message": "add reviews error",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If add reviews success
@@ -39,7 +39,7 @@ If delete reviews error
 ```
 {
   "message": "delete reviews error",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If delete reviews success
@@ -47,6 +47,7 @@ If delete reviews success
 {
  "message": "delete reviews success",
  "code":    200,
+ "review":  res,
 }
 ```   
 The result class will be same as the review struct.
@@ -60,7 +61,7 @@ If update reviews error
 ```
 {
   "message": "update reviews error",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If update reviews success
@@ -82,7 +83,7 @@ If select reviews error
 ```
 {
   "message": "select reviews error",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If select reviews success
@@ -90,7 +91,7 @@ If select reviews success
 {
  "message": "select reviews success",
  "code":    200,
- "reviews":  res,
+ "review":  res,
 }
 ```   
 The result class will be same as the review struct.
