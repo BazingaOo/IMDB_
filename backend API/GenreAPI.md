@@ -79,7 +79,7 @@ search genre by some key words.
 **Method**:POST   
 **URL**:http://localhost:8000/admin/cast/SearchCast  
 **Auth required**: do not need token   
-If search cast error   
+If search genre error   
 ```
 {
   "message": "search genre error",
@@ -101,7 +101,7 @@ find all the movies belonging to one specific genre.
 **Method**:POST   
 **URL**:http://localhost:8000/admin/cast/SearchCast  
 **Auth required**: do not need token   
-If search cast error   
+If search genre error   
 ```
 {
   "message": "search genre error",
