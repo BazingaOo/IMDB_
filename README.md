@@ -32,42 +32,17 @@ Zihan Guo, 8615-3487<br/>
 ## Project Set-up and Installation of Environment
 To run our web app user interface, you need to go to Node.js website, (https://nodejs.org/en/), to install Node.js javascript runtime engine.
 
-### Install npm package
+# How to run
+## Install npm package
 ```
 npm install
 ```
-
-### Install Vue CLI
-```
-npm install -g @vue/cli
-# OR
-yarn global add @vue/cli
-```
-
-### Compiles and hot-reloads for development
+## Run the front server
 ```
 npm run serve
 ```
-
-### Add Bootstrap in Vue.js
-```
-npm install bootstrap
-# OR
-yarn add bootstrap
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Run the backend server
+open in the GoLand software and config the go build, then click the start button
 
 ### What we complished in Sprint 1
 We connect frontend to backend, build up the sign-up, login, forgot password page and backend API, build up the database and JSON Web Token（JWT).<br/>
