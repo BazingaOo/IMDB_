@@ -12,11 +12,11 @@ Administrators can add new cast in the system.
 **Method**:POST  
 **URL**:http://localhost:8000/admin/cast/addCast  
 **Auth required**: Need token  
-If add movies error   
+If add cast error   
 ```
 {
   "message": "add cast error",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If add cast success
@@ -24,7 +24,7 @@ If add cast success
 {
  "message": "add cast success",
  "code":    200,
- "movie":   res,
+ "cast":   res,
 }
 ```    
 The result class will be same as the cast struct.
@@ -38,7 +38,7 @@ If delete cast error
 ```
 {
   "message": "delete cast error",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If delete cast success
@@ -46,6 +46,7 @@ If delete cast success
 {
  "message": "delete casts success",
  "code":    200,
+ "cast":   res,
 }
 ```   
 The result class will be same as the cast struct.
@@ -59,7 +60,7 @@ If update Cast error
 ```
 {
   "message": "update Cast error",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If update Cast success
@@ -67,7 +68,7 @@ If update Cast success
 {
  "message": "update Cast success",
  "code":    200,
- "movie":   res,
+ "cast":   res,
 }
 ```   
 The result class will be same as the cast struct.
@@ -81,7 +82,7 @@ If search cast error
 ```
 {
   "message": "not found the Cast",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If search cast success
@@ -89,7 +90,7 @@ If search cast success
 {
  "message": "search cast success",
  "code":    200,
- "movies":   res,
+ "cast":   res,
 }
 ``` 
 The result class will be same as the cast struct.
