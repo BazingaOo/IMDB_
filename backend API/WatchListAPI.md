@@ -18,7 +18,7 @@ If add watchList error
 ```
 {
   "message": "add to WatchList error",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If add watched success
@@ -40,7 +40,7 @@ If delete watched error
 ```
 {
   "message": "delete from WatchList error",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If delete watched success
@@ -48,6 +48,7 @@ If delete watched success
 {
  "message": "delete from WatchList success",
  "code":    200,
+ "watchList":    res,
 }
 ```   
 The result class will be same as the review struct.
@@ -61,7 +62,7 @@ If read watched list error
 ```
 {
   "message": "read watch list error",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If read watched list success
