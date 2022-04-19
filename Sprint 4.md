@@ -11,7 +11,20 @@ Backend unit test video - 90sec max
 
 [Link to Project board](https://github.com/BazingaOo/IMDB_Clone/projects)
 
-[Link to Sprint4 deliverables](https://github.com/BazingaOo/IMDB_Clone.git)
+[Link to Sprint4 deliverables](https://github.com/BazingaOo/IMDB_Clone.git) Note: The whole project is in the frontend and backend folders.
+
+# How to run
+## Install npm package
+```
+npm install
+```
+## Run the front server
+```
+npm run serve
+```
+the homepage is localhost:8080
+## Run the backend server
+open in the GoLand software and config the go build, then click the start button, the backend address is localhost:8000
 
 # Frontend and backend team members
 ## Group Members
