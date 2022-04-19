@@ -16,7 +16,7 @@ If add movies error
 ```
 {
   "message": "add movies error",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If add movies success
@@ -38,7 +38,7 @@ If delete movies error
 ```
 {
   "message": "delete movies error",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If delete movies success
@@ -46,6 +46,7 @@ If delete movies success
 {
  "message": "delete movies success",
  "code":    200,
+ "movie":   res,
 }
 ```   
 The result class will be same as the movie struct.
@@ -104,7 +105,7 @@ If search movies error
 ```
 {
   "message": "not found the movie",
-  "code":    -1,
+  "code":    404,
 }
 ```  
 If search movies success
@@ -112,7 +113,7 @@ If search movies success
 {
  "message": "search movies success",
  "code":    200,
- "movies":   res,
+ "movie":   res,
 }
 ``` 
 Result Class
