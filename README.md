@@ -41,8 +41,9 @@ npm install
 ```
 npm run serve
 ```
+the homepage is localhost:8080
 ## Run the backend server
-open in the GoLand software and config the go build, then click the start button
+open in the GoLand software and config the go build, then click the start button, the backend address is localhost:8000
 
 ### What we complished in Sprint 1
 We connect frontend to backend, build up the sign-up, login, forgot password page and backend API, build up the database and JSON Web Token（JWT).<br/>
