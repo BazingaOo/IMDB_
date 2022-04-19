@@ -78,10 +78,6 @@
     </div>
   </div>
 
-
-
-
-
 </template>
 
 <script>

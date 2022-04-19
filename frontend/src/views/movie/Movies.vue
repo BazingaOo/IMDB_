@@ -52,7 +52,7 @@
                     text-color="#ff9900"
                     score-template="{value}">
                   </el-rate>
-                  <el-button size="small" @click="hop">User Ratings </el-button>
+                  <el-button size="small" @click="hop">View user ratings </el-button>
                 </template>
 
               </el-table-column>
@@ -67,20 +67,14 @@
             <h3 class="ipc-title__text">
               <el-badge class="item">
                 <div class="block">
-                  <span class="demonstration">Rate this movie</span>
-                  <el-rate
-                    v-model="value" :texts="texts"
-                    show-text>
-                  </el-rate>
                 </div>
-                <el-button size="small" @click="jump">Comments</el-button>
+                <el-button size="small" @click="jump">Rate& Comments</el-button>
               </el-badge>
             </h3>
           </hgroup>
         </el-container>
       </el-container>
     </el-container>
-
   </div>
 
 
