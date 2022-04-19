@@ -33,3 +33,24 @@ func TestUpdateCast(t *testing.T) {
 		t.Log("result is right")
 	}
 }
+
+func TestSearchCast(t *testing.T) {
+	//var cast = Models.Cast{Cast_id: 2, Cast_name: "lalalal", Cast_description: "11", Cast_image: "123"}
+	var castName = "Tao"
+	if Models.SearchCast(castName) == nil {
+		t.Error("result is wrong!")
+	} else {
+		t.Log("result is right")
+	}
+}
+
+func TestSearchCastById(t *testing.T) {
+	var castId = 2
+	resCast := Models.Result{}
+	if Models.SearchCastById(castId) == resCast {
+		t.Error("result is wrong!")
+	} else {
+		//fmt.Println(Models.SearchMovieByName(name))
+		t.Log("result is right")
+	}
+}
