@@ -3,6 +3,7 @@ package Router
 import (
 	castController "backend/Controllers"
 	movieController "backend/Controllers"
+	ratingController "backend/Controllers"
 	userController "backend/Controllers"
 	watchedListController "backend/Controllers"
 	jwt "backend/Middleware"
@@ -49,7 +50,7 @@ func Main() {
 			movieGroup.POST("/searchMovieByName", movieController.SearchMovieByName)
 			movieGroup.POST("/searchMovieByCast", movieController.SearchMovieByCast)
 			movieGroup.POST("/searchMovieByMovieId", movieController.SearchMovieByMovieId)
-			
+
 		}
 		castGroup := router.Group("/user/cast")
 		{
@@ -68,6 +69,13 @@ func Main() {
 			watchedListGroup.POST("/addWatchedList", watchedListController.AddWatched)
 			watchedListGroup.POST("/deleteWatchedList", watchedListController.DeleteWatched)
 			watchedListGroup.POST("/readWatchedList", watchedListController.ReadWatched)
+		}
+		ratingGroup := router.Group("/user/rating")
+		{
+			ratingGroup.POST("/readRating", ratingController.ReadRating)
+			ratingGroup.POST("/addRating", ratingController.AddRating)
+			ratingGroup.POST("/updateRating", ratingController.UpdateRating)
+
 		}
 	}
 	userGroup.Use(jwt.JWTAuth())

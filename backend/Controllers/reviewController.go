@@ -9,7 +9,7 @@ import (
 
 func AddReview(c *gin.Context) {
 	var review Models.Review
-	review.Review_id, _ = strconv.Atoi(c.PostForm("reviewId"))
+	//review.Review_id, _ = strconv.Atoi(c.PostForm("reviewId"))
 	review.User_id, _ = strconv.Atoi(c.PostForm("userId"))
 	review.Movie_id, _ = strconv.Atoi(c.PostForm("movieId"))
 	review.Review_content = c.PostForm("reviewContent")
@@ -21,6 +21,7 @@ func AddReview(c *gin.Context) {
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
+			"code":    200,
 			"message": "success",
 			"review":  res,
 		})
@@ -65,6 +66,22 @@ func DeleteReview(c *gin.Context) {
 }
 
 func ReadReview(c *gin.Context) {
+	var review Models.Review
+	review.User_id, _ = strconv.Atoi(c.PostForm("userId"))
+	res := Models.ReadReview(review.User_id)
+	if res == nil {
+		c.JSON(http.StatusNotFound, gin.H{
+			"message": "error",
+			"review":  res,
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "success",
+			"review":  res,
+		})
+	}
+}
+func ratingMovie(c *gin.Context) {
 	var review Models.Review
 	review.User_id, _ = strconv.Atoi(c.PostForm("userId"))
 	res := Models.ReadReview(review.User_id)

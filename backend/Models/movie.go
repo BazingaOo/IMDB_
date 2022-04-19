@@ -48,6 +48,12 @@ func SearchMovieByName(name string) []Movie {
 	return movies
 }
 
+func SearchMovieByYear(year int) []Movie {
+	var movies []Movie
+	Database.DB.Where("year = ?", year).Find(&movies)
+	return movies
+}
+
 func TopMovie() []Movie {
 	var movies []Movie
 	Database.DB.Raw("select * from movie ORDER BY grade desc LIMIT 3").Scan(&movies)

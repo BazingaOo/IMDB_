@@ -7,7 +7,7 @@ import (
 type Rating struct {
 	User_id  int
 	Movie_id int
-	Score    int
+	Score    float64
 }
 
 //func (Rating) TableName() string {
@@ -41,10 +41,10 @@ func DeleteRating(rating Rating) int64 {
 	return result.RowsAffected
 }
 
-func ReadRating(User_id int) []Rating {
-	var rating []Rating
+func ReadRating(UserId, MovieId int) Rating {
+	var rating Rating
 	//Database.DB.Where("Movie_name Like ? , "%jin%").Find(&movies)
-	Database.DB.Where("user_id = ?", User_id).Find(&rating)
+	Database.DB.Where("user_id = ? and movie_id = ?", UserId, MovieId).Find(&rating)
 	return rating
 }
 

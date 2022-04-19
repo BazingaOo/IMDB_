@@ -67,11 +67,3 @@ func TestDeleteMovie(t *testing.T) {
 		t.Log("result is right")
 	}
 }
-
-func TestTopMovie(t *testing.T) {
-	if Models.TopMovie() == nil {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
-	}
-}
