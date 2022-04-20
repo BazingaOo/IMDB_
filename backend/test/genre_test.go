@@ -1,87 +1,63 @@
 package Test
 
 import (
-	"backend/Models"
+	genreController "backend/Controllers"
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
+	"net/http"
+	"net/http/httptest"
+	"net/url"
+	"strings"
 	"testing"
 )
 
-func TestAddGenre(t *testing.T) {
-	var genre = Models.Genre{Genre_id: 2, Genre_name: "3"}
-	if Models.AddGenre(genre) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
-	}
-}
-
-func TestUpdateGenre(t *testing.T) {
-	var genre = Models.Genre{Genre_id: 1, Genre_name: "13"}
-	if Models.AddGenre(genre) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
-	}
-}
-
-func TestDeleteGenre(t *testing.T) {
-	var genreId = 1
-	if Models.DeleteGenre(genreId) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
-	}
-}
+//func TestSearchGenreName(t *testing.T) {
+//	//var castName = ""
+//	if Models.SearchGenreName("1") == nil {
+//		t.Error("result is wrong!")
+//	} else {
+//		t.Log("result is right")
+//	}
+//}
 
 func TestSearchGenreName(t *testing.T) {
-	var genreName = "3"
-	if Models.SearchGenreName(genreName) == nil {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
+
+	router := gin.New()
+
+	genreGroup := router.Group("/user/genre")
+	{
+		genreGroup.POST("/searchGenreName", genreController.SearchGenreName)
+		genreGroup.POST("/searchGenreByGenreName", genreController.SearchGenreByGenreName)
 	}
+
+	params := url.Values{}
+	params.Add("genreName", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/genre/searchGenreName", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
 }
 
-func TestSearchGenre(t *testing.T) {
-	var genreName = "123"
-	if Models.SearchGenre(genreName) == nil {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
-	}
-}
+func TestSearchGenreByGenreName(t *testing.T) {
 
-//func TestDeleteRating(t *testing.T) {
-//
-//	var rating = Models.Rating{User_id: 2, Movie_id: 3}
-//	if Models.DeleteRating(rating) == 0 {
-//		t.Error("result is wrong!")
-//	} else {
-//		t.Log("result is right")
-//	}
-//}
-//
-//func TestReadRating(t *testing.T) {
-//	//var user_id = 1
-//	if Models.ReadRating(2) == nil {
-//		t.Error("result is wrong!")
-//	} else {
-//		t.Log("result is right")
-//	}
-//}
-//
-//func TestUpdateRating(t *testing.T) {
-//	var rating = Models.Rating{User_id: 1, Movie_id: 3, Score: 4}
-//	if Models.UpdateRating(rating) == 0 {
-//		t.Error("result is wrong!")
-//	} else {
-//		t.Log("result is right")
-//	}
-//}
-//
-//func TestUpdateGrade(t *testing.T) {
-//	if Models.UpdateGrade(3) == 0 {
-//		t.Error("result is wrong!")
-//	} else {
-//		t.Log("result is right")
-//	}
-//}
+	router := gin.New()
+
+	genreGroup := router.Group("/user/genre")
+	{
+		genreGroup.POST("/searchGenreName", genreController.SearchGenreName)
+		genreGroup.POST("/searchGenreByGenreName", genreController.SearchGenreByGenreName)
+	}
+
+	params := url.Values{}
+	params.Add("genreName", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/genre/searchGenreByGenreName", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
+}
