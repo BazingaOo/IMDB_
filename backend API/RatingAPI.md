@@ -7,12 +7,12 @@ parameter  | discription
  msg  | hint message 
  code  | status code 
  token | token content 
- res | result class
+ rating | result class
  
 ## AddRating
 Users can add rating for all the movies.  
 **Method**:POST  
-**URL**:http://localhost:8000/admin/cast/addCast  
+**URL**:http://localhost:8000/user/rating/addRating  
 **Auth required**: Need token  
 If add rating error   
 ```
@@ -34,7 +34,7 @@ The result class will be same as the rating struct.
 ## DeleteRating
 Users can delete rating for all the movies.  
 **Method**:POST  
-**URL**:http://localhost:8000/admin/cast/DeleteCast  
+**URL**:http://localhost:8000/user/rating/deleteRating  
 **Auth required**: Need token  
 If delete rating error   
 ```
@@ -56,7 +56,7 @@ The result class will be same as the genre struct.
 ## UpdateRating
 Users can update rating for all the movies.  
 **Method**:POST   
-**URL**:http://localhost:8000/admin/cast/UpdateCast  
+**URL**:http://localhost:8000/user/rating/updateRating  
 **Auth required**: Need token   
 If update rating error   
 ```
@@ -78,7 +78,7 @@ The result class will be same as the rating struct.
 ## ReadRating
 users can read all the ratings for the movies they wrote before. 
 **Method**:POST   
-**URL**:http://localhost:8000/user/cast/SearchCast  
+**URL**:http://localhost:8000/user/rating/readRating  
 **Auth required**: Need token
 If search rating error   
 ```
@@ -100,7 +100,7 @@ The result class will be same as the rating struct.
 ## ComputeAvgGrade
 the average grade for each movie will be updated according to all the users' rating. 
 **Method**:POST   
-**URL**:http://localhost:8000/user/cast/SearchCast  
+**URL**:http://localhost:8000/user/rating/computeAvgGrade  
 **Auth required**: do not need token   
 If search rating error   
 ```

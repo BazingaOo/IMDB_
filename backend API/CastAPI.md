@@ -5,12 +5,12 @@ parameter  | discription
  msg  | hint message 
  code  | status code 
  token | token content
- res | result class
+ cast | result class
  
 ## AddCast
 Administrators can add new cast in the system.  
 **Method**:POST  
-**URL**:http://localhost:8000/admin/cast/addCast  
+**URL**:http://localhost:8000/admin/addCast  
 **Auth required**: Need token  
 If add cast error   
 ```
@@ -32,7 +32,7 @@ The result class will be same as the cast struct.
 ## DeleteCast
 Administrators can delete cast in the system.  
 **Method**:POST  
-**URL**:http://localhost:8000/admin/cast/DeleteCast  
+**URL**:http://localhost:8000/admin/DeleteCast  
 **Auth required**: Need token  
 If delete cast error   
 ```
@@ -54,7 +54,7 @@ The result class will be same as the cast struct.
 ## UpdateCast
 Administrators can update Cast in the system.  
 **Method**:POST   
-**URL**:http://localhost:8000/admin/cast/UpdateCast  
+**URL**:http://localhost:8000/admin/updateCast  
 **Auth required**: Need token   
 If update Cast error   
 ```
@@ -76,7 +76,7 @@ The result class will be same as the cast struct.
 ## SearchCastByName
 search cast by a specific cast name.  
 **Method**:POST   
-**URL**:http://localhost:8000/admin/cast/SearchCast  
+**URL**:http://localhost:8000/searchCast  
 **Auth required**: do not need token   
 If search cast error   
 ```

@@ -7,7 +7,7 @@ parameter  | discription
  msg  | hint message 
  code  | status code 
  token | token content
- res | result class
+ watchList | result class
  
 ## AddWatchList
 Users can add movies they have watched in the watched list.  

@@ -6,12 +6,12 @@ parameter  | discription
  msg  | hint message 
  code  | status code 
  token | token content
- res | result class
+ genre | result class
  
 ## AddGenre
 Administrators can add new genre in the system.  
 **Method**:POST  
-**URL**:http://localhost:8000/admin/cast/addCast  
+**URL**:http://localhost:8000/admin/addGenre  
 **Auth required**: Need token  
 If add genre error   
 ```
@@ -33,7 +33,7 @@ The result class will be same as the genre struct.
 ## DeleteGenre
 Administrators can delete genre in the system.  
 **Method**:POST  
-**URL**:http://localhost:8000/admin/cast/deleteCast  
+**URL**:http://localhost:8000/admin/deleteGenre  
 **Auth required**: Need token  
 If delete genre error   
 ```
@@ -55,7 +55,7 @@ The result class will be same as the genre struct.
 ## UpdateGenre
 Administrators can update genre in the system.  
 **Method**:POST   
-**URL**:http://localhost:8000/admin/cast/updateCast  
+**URL**:http://localhost:8000/admin/updateGenre  
 **Auth required**: Need token   
 If update genre error   
 ```
@@ -99,7 +99,7 @@ The result class will be same as the genre struct.
 ## SearchGenreByGenreName
 find all the movies belonging to one specific genre.
 **Method**:POST   
-**URL**:http://localhost:8000/user/cast/searchGenreByGenreName  
+**URL**:http://localhost:8000/user/genre/searchGenreByGenreName  
 **Auth required**: do not need token   
 If search genre error   
 ```
@@ -121,7 +121,7 @@ The result class will be same as the genre struct.
 ## SearchMovieWithGenre
 search movie and genre by movieId
 **Method**:POST   
-**URL**:http://localhost:8000/user/cast/searchMovieWithGenre  
+**URL**:http://localhost:8000/user/genre/searchMovieWithGenre  
 **Auth required**: do not need token   
 If search genre error   
 ```
