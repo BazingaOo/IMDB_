@@ -33,7 +33,7 @@ The result class will be same as the genre struct.
 ## DeleteGenre
 Administrators can delete genre in the system.  
 **Method**:POST  
-**URL**:http://localhost:8000/admin/cast/DeleteCast  
+**URL**:http://localhost:8000/admin/cast/deleteCast  
 **Auth required**: Need token  
 If delete genre error   
 ```
@@ -55,7 +55,7 @@ The result class will be same as the genre struct.
 ## UpdateGenre
 Administrators can update genre in the system.  
 **Method**:POST   
-**URL**:http://localhost:8000/admin/cast/UpdateCast  
+**URL**:http://localhost:8000/admin/cast/updateCast  
 **Auth required**: Need token   
 If update genre error   
 ```
@@ -74,10 +74,10 @@ If update genre success
 ```   
 The result class will be same as the genre struct.
 
-### SearchGenreName
-search genre by some key words.  
+## SearchGenreName
+search genre by genre name.  
 **Method**:POST   
-**URL**:http://localhost:8000/admin/cast/SearchCast  
+**URL**:http://localhost:8000/user/cast/searchGenreName  
 **Auth required**: do not need token   
 If search genre error   
 ```
@@ -96,10 +96,10 @@ If search genre success
 ``` 
 The result class will be same as the genre struct.
 
-### SearchGenre
+## SearchGenreByGenreName
 find all the movies belonging to one specific genre.
 **Method**:POST   
-**URL**:http://localhost:8000/admin/cast/SearchCast  
+**URL**:http://localhost:8000/user/cast/searchGenreByGenreName  
 **Auth required**: do not need token   
 If search genre error   
 ```
@@ -117,3 +117,26 @@ If search genre success
 }
 ``` 
 The result class will be same as the genre struct.
+
+## SearchMovieWithGenre
+search movie and genre by movieId
+**Method**:POST   
+**URL**:http://localhost:8000/user/cast/searchMovieWithGenre  
+**Auth required**: do not need token   
+If search genre error   
+```
+{
+  "message": "search genre error",
+  "code":    404,
+}
+```  
+If search genre success
+```
+{
+ "message": "search genre success",
+ "code":    200,
+ "genre":   res,
+}
+``` 
+The result class will be same as the genre struct.
+
