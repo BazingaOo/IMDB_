@@ -45,7 +45,7 @@ func ReadRating(UserId, MovieId int) Rating {
 	var rating Rating
 	//Database.DB.Where("Movie_name Like ? , "%jin%").Find(&movies)
 	Database.DB.Where("user_id = ? and movie_id = ?", UserId, MovieId).Find(&rating)
-	Database.DB.Exec("update movie set movie.grade= (select AVG(rating.score) from rating where rating.movie_id=?) where movie.movie_id=?", MovieId, MovieId)
+	Database.DB.Exec("update movie set movie.grade= (select CAST(AVG(rating.score) as decimal(10,1)) from rating where rating.movie_id=?) where movie.movie_id=?", MovieId, MovieId)
 	return rating
 }
 

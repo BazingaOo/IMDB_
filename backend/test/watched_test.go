@@ -45,7 +45,7 @@ func TestDeleteWatched(t *testing.T) {
 
 	params := url.Values{}
 	params.Add("userId", "1")
-	params.Add("movieId", "1")
+	params.Add("movieId", "2")
 
 	//params.Add("password", "123")
 	para1 := params.Encode()

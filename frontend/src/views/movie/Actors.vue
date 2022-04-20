@@ -25,7 +25,7 @@
               <el-table-column
                 prop="description"
                 label="Description"
-                width="200"
+                width="700"
               >
               </el-table-column>
             </el-table>

@@ -77,7 +77,7 @@
               </el-table-column>
             </el-table>
           </el-main>
-          <el-footer>  </el-footer>
+          <el-footer> Storyline </el-footer>
 
           <hgroup
             class="
@@ -93,7 +93,7 @@
                   <el-link
                     type="warning"
                     href="http://localhost:8080/#/UserLogIn"
-                    >Please login or sign up to comment</el-link
+                    >if comment, please login or sign up</el-link
                   >
                 </span>
                 <span v-else>
@@ -146,18 +146,17 @@ export default {
       ],
       castList: [],
       total: 0, //数据总数
-      pageSize: 2, //每页的数据条数
+      pageSize: 5, //每页的数据条数
       currentPage: 1, //默认开始页面
     };
   },
-  mounted() {
-    this.fetchData();
-    this.searchMovieByTitle();
-    this.showCast();
-    this.queryRate();
-    this.readReviewByMovieId();
-    this.searchMovieWithGenre();
-    console.log(localStorage.getItem("username"));
+  created() {
+      this.fetchData();
+      this.showCast();
+      this.queryRate();
+      this.readReviewByMovieId();
+      this.searchMovieWithGenre();
+      this.searchMovieByTitle();
   },
   methods: {
     handleSizeChange(val) {
@@ -209,8 +208,8 @@ export default {
         .then((res) => {
           if (res.data.code == 200) {
             this.commentTable = res.data.review;
-            this.total=res.data.count
-            console.log(this.total)
+            this.total = res.data.count;
+            console.log(this.total);
           }
         })
         .catch((error) => {
