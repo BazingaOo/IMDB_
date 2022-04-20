@@ -15,29 +15,18 @@ import (
 func Main() {
 	router := gin.Default()
 
-	// Customer Router, put all customer router in this.
-	customerGroup := router.Group("/customer")
-	{
-		customerGroup.POST("/add", userController.LogIn)      // when create sth
-		customerGroup.GET("/query", userController.LogIn)     // when query sth
-		customerGroup.PUT("/update", userController.LogIn)    // when update sth
-		customerGroup.DELETE("/delete", userController.LogIn) // when delete sth
-	}
-
 	// Admin Router, put all customer router in this. // there is a Middleware that authentic admin
 	adminGroup := router.Group("/admin", gin.BasicAuth(gin.Accounts{"admin": "123"}))
+	adminGroup.Use(jwt.JWTAuth())
 	{
-		adminGroup.GET("/", userController.LogIn)
-		adminGroup.GET("/query", userController.LogIn)     // when query sth
-		adminGroup.PUT("/update", userController.LogIn)    // when update sth
-		adminGroup.DELETE("/delete", userController.LogIn) // when delete sth
-		castGroup := router.Group("/admin/cast")
-		{
-			castGroup.POST("/addCast")
-			castGroup.POST("/UpdateCast")
-			castGroup.POST("/DeleteCast")
-			castGroup.POST("/SearchCast")
-		}
+		adminGroup.POST("/addGenre", ratingController.AddGenre)
+		adminGroup.POST("/updateGenre", ratingController.UpdateGenre)
+		adminGroup.POST("/deleteGenre", ratingController.DeleteGenre)
+		adminGroup.POST("/addMovie", genreController.AddMovie)
+		adminGroup.POST("/updateMovie", genreController.UpdateMovie)
+		adminGroup.DELETE("/deleteMovie", genreController.DeleteMovie)
+		adminGroup.POST("/addMovieGenre", genreController.AddMovieGenre)
+		adminGroup.POST("/addMovieCast", genreController.AddMovieCast)
 	}
 
 	// User Router, put all customer router in this.
@@ -52,12 +41,15 @@ func Main() {
 			movieGroup.POST("/searchMovieByCast", movieController.SearchMovieByCast)
 			movieGroup.POST("/searchMovieByMovieId", movieController.SearchMovieByMovieId)
 			movieGroup.POST("/searchMovieWithGenre", genreController.SearchMovieWithGenre)
+			movieGroup.POST("/searchMovieByYear", genreController.SearchMovieByYear)
+			movieGroup.POST("/topMovie", genreController.TopMovie)
 		}
 		castGroup := router.Group("/user/cast")
 		{
 			castGroup.POST("/searchCastById", castController.SearchCastById)
 			castGroup.POST("/searchCastByMovieId", castController.SearchCastByMovieId)
 			castGroup.POST("/searchRelativeMovieByCastId", castController.SearchRelativeMovieByCastId)
+			castGroup.POST("/searchCastByName", castController.SearchCastByName)
 
 		}
 		reviewGroup := router.Group("/user/review")
@@ -80,11 +72,16 @@ func Main() {
 			ratingGroup.POST("/addRating", ratingController.AddRating)
 			ratingGroup.POST("/updateRating", ratingController.UpdateRating)
 			ratingGroup.POST("/computeAvgGrade", ratingController.ComputeAvgGrade)
+			ratingGroup.POST("/deleteRating", ratingController.DeleteRating)
+		}
+		genreGroup := router.Group("/user/genre")
+		{
+			genreGroup.POST("/searchGenreName", ratingController.SearchGenreName)
+			genreGroup.POST("/searchGenreByGenreName", ratingController.SearchGenreByGenreName)
 		}
 	}
 	userGroup.Use(jwt.JWTAuth())
 	{
-		userGroup.GET("/jwt", userController.GetDataByTime)
 		userGroup.POST("/UpdateProfile", userController.UpdateUserProfile)
 		userGroup.POST("/DeleteUser", userController.DeleteUser)
 		userGroup.POST("/queryUserInfoById", userController.QueryUserInfoById)

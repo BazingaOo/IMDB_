@@ -19,22 +19,22 @@
           ></template>
         </el-aside>
         <el-container>
-          <el-main
-            >Movie Information
+          <el-main>
+            <h2 style="height:50px;text-align;center">Movie Information</h2>
             <el-table :data="tableData" style="width: 100%">
-              <el-table-column  label="Genre"> 
-                 <span v-for="(item, i) in genreTable">
-                 <el-tag>{{ item.Genre }}</el-tag> &nbsp;
+              <el-table-column label="Genre" width="200">
+                <span v-for="(item, i) in genreTable">
+                  <el-tag>{{ item.Genre }}</el-tag> &nbsp;
                 </span>
-              </el-table-column>
-              <el-table-column prop="abstract" label="Abstract" width="200">
               </el-table-column>
               <el-table-column label="Cast">
                 <span v-for="(item, i) in castList">
-                  {{ item.CastName }} <br />
+                  {{ item.CastName }},
                 </span>
               </el-table-column>
-              <el-table-column label="Rating">
+              <el-table-column prop="abstract" label="Abstract">
+              </el-table-column>
+              <el-table-column label="Rating" width="200">
                 <el-rate
                   v-model="score"
                   disabled
@@ -44,28 +44,36 @@
                 >
                 </el-rate>
               </el-table-column>
-              <el-table-column label="My Rating">
-                <template v-if="myScore === 0.0 || 0 || null">
-                  <el-rate
-                    v-model="myScore"
-                    show-score
-                    allow-half
-                    score-template="{value}"
-                    @change="addScore()"
-                  ></el-rate>
-                  <span>you do not rate this movie</span>
-                </template>
-                <template v-else>
-                  <el-rate
-                    v-model="myScore"
-                    show-score
-                    text-color="#ff9900"
-                    score-template="{value}"
-                    allow-half
-                    @change="undateScore()"
+              <el-table-column label="My Rating" width="200">
+                <span v-if="$data.username == null || ''">
+                  <el-link
+                    type="primary"
+                    href="http://localhost:8080/#/UserLogIn"
+                    >login or sign up</el-link
                   >
-                  </el-rate
-                ></template>
+                </span>
+                <span v-else>
+                  <template v-if="myScore === 0.0 || 0 || null">
+                    <el-rate
+                      v-model="myScore"
+                      show-score
+                      allow-half
+                      score-template="{value}"
+                      @change="addScore()"
+                    ></el-rate>
+                    <span>you do not rate this movie</span>
+                  </template>
+                  <template v-else>
+                    <el-rate
+                      v-model="myScore"
+                      show-score
+                      text-color="#ff9900"
+                      score-template="{value}"
+                      allow-half
+                      @change="undateScore()"
+                    >
+                    </el-rate></template
+                ></span>
               </el-table-column>
             </el-table>
           </el-main>
@@ -81,17 +89,36 @@
           >
             <h3 class="ipc-title__text">
               <el-badge class="item">
-                <el-button size="small" @click="toMovie">Comments</el-button>
+                <span v-if="$data.username == null || ''">
+                  <el-link
+                    type="warning"
+                    href="http://localhost:8080/#/UserLogIn"
+                    >if comment, please login or sign up</el-link
+                  >
+                </span>
+                <span v-else>
+                  <el-button size="small" @click="toMovie"
+                    >Comments</el-button
+                  ></span
+                >
               </el-badge>
             </h3>
             <el-table :data="commentTable" style="width: 100%">
-              <el-table-column width="90">
-              </el-table-column>
+              <el-table-column width="90"> </el-table-column>
               <el-table-column label="username" prop="Username" width="180">
               </el-table-column>
               <el-table-column label="content" prop="Review_content">
               </el-table-column>
             </el-table>
+            <el-pagination
+              @size-change="handleSizeChange"
+              @current-change="handleCurrentChange"
+              :current-page="currentPage"
+              :page-size="pageSize"
+              background
+              :total="total"
+            >
+            </el-pagination>
           </hgroup>
         </el-container>
       </el-container>
@@ -103,7 +130,8 @@
 export default {
   data() {
     return {
-      genreTable:[],
+      username: localStorage.getItem("username"),
+      genreTable: [],
       commentTable: [],
       score: 3.7,
       myScore: 0.0,
@@ -117,6 +145,9 @@ export default {
         },
       ],
       castList: [],
+      total: 0, //数据总数
+      pageSize: 2, //每页的数据条数
+      currentPage: 1, //默认开始页面
     };
   },
   mounted() {
@@ -126,9 +157,20 @@ export default {
     this.queryRate();
     this.readReviewByMovieId();
     this.searchMovieWithGenre();
+    console.log(localStorage.getItem("username"));
   },
   methods: {
-    searchMovieWithGenre(){
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+      this.pageSize = val;
+      this.readReviewByMovieId();
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+      this.currentPage = val;
+      this.readReviewByMovieId();
+    },
+    searchMovieWithGenre() {
       let params = {
         movieId: this.movieId,
       };
@@ -156,6 +198,8 @@ export default {
     readReviewByMovieId() {
       let params = {
         movieId: this.movieId,
+        pageNo: this.currentPage,
+        pageSize: this.pageSize,
       };
       this.$axios
         .post(
@@ -165,6 +209,8 @@ export default {
         .then((res) => {
           if (res.data.code == 200) {
             this.commentTable = res.data.review;
+            this.total=res.data.count
+            console.log(this.total)
           }
         })
         .catch((error) => {
@@ -376,7 +422,7 @@ colors: ['#99A9BF', '#F7BA2A', '#FF9900']  // 等同于 { 2: '#99A9BF', 4: { val
   background-color: #e9eef3;
   color: #333;
   text-align: center;
-  line-height: 150px;
+  line-height: 50px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;

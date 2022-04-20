@@ -87,17 +87,20 @@ func ReadReview(c *gin.Context) {
 func ReadReviewByMovieId(c *gin.Context) {
 	var review Models.Review
 	review.Movie_id, _ = strconv.Atoi(c.PostForm("movieId"))
-	res := Models.ReadReviewByMovieId(review.Movie_id)
+	var pageNo, _ = strconv.Atoi(c.PostForm("pageNo"))
+	var pageSize, _ = strconv.Atoi(c.PostForm("pageSize"))
+	res := Models.ReadReviewByMovieId(review.Movie_id, pageNo, pageSize)
+	count := Models.CountNumOfReview(review.Movie_id)
 	if res == nil {
 		c.JSON(http.StatusNotFound, gin.H{
 			"message": "error",
-			"review":  res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    200,
 			"message": "success",
 			"review":  res,
+			"count":   count,
 		})
 	}
 }

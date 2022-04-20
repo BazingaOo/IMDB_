@@ -93,9 +93,8 @@ func SearchGenreName(c *gin.Context) {
 
 }
 
-func SearchGenre(c *gin.Context) {
+func SearchGenreByGenreName(c *gin.Context) {
 	var genreName string
-	//user.Username = c.PostForm("username")
 	genreName = c.PostForm("genreName")
 	res := Models.SearchGenre(genreName)
 	if len(res) == 0 {

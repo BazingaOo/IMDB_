@@ -26,7 +26,8 @@ func TestDeleteRating(t *testing.T) {
 
 func TestReadRating(t *testing.T) {
 	//var user_id = 1
-	if Models.ReadRating(2) == nil {
+	var rating = Models.Rating{}
+	if Models.ReadRating(2, 3) == rating {
 		t.Error("result is wrong!")
 	} else {
 		t.Log("result is right")
