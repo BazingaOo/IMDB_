@@ -19,7 +19,13 @@ For aesthetic design of our homepage, we refill the picture size to
 make movie posters showing like IMax screen. \
 Moreover, we find more suitable-size pictures as our Top-Movies' covers.
 
-### For 
+### Implementing new Functionalities
+#### For searching movie
+Add the grade of movies\
+Add the description of actors\
+Complete the searching function with added movies and actors in mysql database
+
+#### For 
 implemented the actor, comment, write comment page\
 embellished all the pages previously created\
 redesigned some pages\
