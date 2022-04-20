@@ -12,7 +12,23 @@ Backend unit test video - 90sec max
 [Link to Project board](https://github.com/BazingaOo/IMDB_Clone/projects)
 
 [Link to Sprint4 deliverables](https://github.com/BazingaOo/IMDB_Clone.git) Note: The whole project is in the frontend and backend folders.
-
+# what we do
+## front end
+implement the actor, comment, write comment page
+## back end
+### For Comment model
+basic CURD for comment    
+add a pagination to display comments for each movie  
+add jwt middleware to the router  
+### For Rating model
+basic CURD for rating    
+add a function that could display the trending movie  
+add a computing average socore function for each function  
+add jwt middleware to the router  
+### For Genre model
+basic CURD for genre  
+add genre to the search result for each movie  
+add jwt middleware to the router  
 # How to run
 ## Install npm package
 ```
