@@ -131,9 +131,23 @@ CREATE TABLE `movie_cast`  (
 -- ----------------------------
 -- Records of movie_cast
 -- ----------------------------
-INSERT INTO `movie_cast` VALUES (1, 1);
-INSERT INTO `movie_cast` VALUES (2, 1);
-INSERT INTO `movie_cast` VALUES (3, 5);
+INSERT INTO movie_cast VALUES (1, 1);
+INSERT INTO movie_cast VALUES (2, 1);
+INSERT INTO movie_cast VALUES (4, 10);
+INSERT INTO movie_cast VALUES (6, 2);
+INSERT INTO movie_cast VALUES (7, 18);
+INSERT INTO movie_cast VALUES (8, 9);
+INSERT INTO movie_cast VALUES (9, 3);
+INSERT INTO movie_cast VALUES (10, 7);
+INSERT INTO movie_cast VALUES (11, 8);
+INSERT INTO movie_cast VALUES (12, 11);
+INSERT INTO movie_cast VALUES (13, 12);
+INSERT INTO movie_cast VALUES (14, 13);
+INSERT INTO movie_cast VALUES (15, 14);
+INSERT INTO movie_cast VALUES (16, 15);
+INSERT INTO movie_cast VALUES (17, 16);
+INSERT INTO movie_cast VALUES (18, 17);
+INSERT INTO movie_cast VALUES (19, 1);
 
 -- ----------------------------
 -- Table structure for movie_genre
