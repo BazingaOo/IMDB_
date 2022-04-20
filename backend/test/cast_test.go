@@ -1,56 +1,100 @@
 package Test
 
 import (
-	"backend/Models"
+	castController "backend/Controllers"
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
+	"net/http"
+	"net/http/httptest"
+	"net/url"
+	"strings"
 	"testing"
 )
 
-func TestAddCast(t *testing.T) {
-	//vat cast=Models.Cast{}
-	var cast = Models.Cast{Cast_id: 4, Cast_name: "lalalal", Cast_description: "11", Cast_image: "123"}
-	if Models.AddCast(cast) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
-	}
-}
-
-func TestDeleteCast(t *testing.T) {
-	//var review = Models.Review{Review_id: 1, Review_content: "ttttt", User_id: 11, Movie_id: 1}
-	//var review_id = 1
-	if Models.DeleteCast(1) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
-	}
-}
-
-func TestUpdateCast(t *testing.T) {
-	var cast = Models.Cast{Cast_id: 2, Cast_name: "lalalal", Cast_description: "11", Cast_image: "123"}
-	if Models.UpdateCast(cast) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
-	}
-}
-
-func TestSearchCast(t *testing.T) {
-	//var cast = Models.Cast{Cast_id: 2, Cast_name: "lalalal", Cast_description: "11", Cast_image: "123"}
-	var castName = "Tao"
-	if Models.SearchCastByName(castName) == nil {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
-	}
-}
-
 func TestSearchCastById(t *testing.T) {
-	var castId = 2
-	resCast := Models.Result{}
-	if Models.SearchCastById(castId) == resCast {
-		t.Error("result is wrong!")
-	} else {
-		//fmt.Println(Models.SearchMovieByName(name))
-		t.Log("result is right")
+	router := gin.New()
+	castGroup := router.Group("/user/cast")
+	{
+		castGroup.POST("/searchCastById", castController.SearchCastById)
+		castGroup.POST("/searchCastByMovieId", castController.SearchCastByMovieId)
+		castGroup.POST("/searchRelativeMovieByCastId", castController.SearchRelativeMovieByCastId)
+		castGroup.POST("/searchCastByName", castController.SearchCastByName)
 	}
+
+	params := url.Values{}
+	params.Add("castId", "1")
+	//params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/cast/searchCastById", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
+}
+
+func TestSearchCastByMovieId(t *testing.T) {
+	router := gin.New()
+	castGroup := router.Group("/user/cast")
+	{
+		castGroup.POST("/searchCastById", castController.SearchCastById)
+		castGroup.POST("/searchCastByMovieId", castController.SearchCastByMovieId)
+		castGroup.POST("/searchRelativeMovieByCastId", castController.SearchRelativeMovieByCastId)
+		castGroup.POST("/searchCastByName", castController.SearchCastByName)
+	}
+
+	params := url.Values{}
+	params.Add("movieId", "1")
+	//params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/cast/searchCastByMovieId", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
+}
+
+func TestSearchRelativeMovieByCastId(t *testing.T) {
+	router := gin.New()
+	castGroup := router.Group("/user/cast")
+	{
+		castGroup.POST("/searchCastById", castController.SearchCastById)
+		castGroup.POST("/searchCastByMovieId", castController.SearchCastByMovieId)
+		castGroup.POST("/searchRelativeMovieByCastId", castController.SearchRelativeMovieByCastId)
+		castGroup.POST("/searchCastByName", castController.SearchCastByName)
+	}
+
+	params := url.Values{}
+	params.Add("castId", "1")
+	//params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/cast/searchRelativeMovieByCastId", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
+}
+
+func TestSearchCastByName(t *testing.T) {
+	router := gin.New()
+	castGroup := router.Group("/user/cast")
+	{
+		castGroup.POST("/searchCastById", castController.SearchCastById)
+		castGroup.POST("/searchCastByMovieId", castController.SearchCastByMovieId)
+		castGroup.POST("/searchRelativeMovieByCastId", castController.SearchRelativeMovieByCastId)
+		castGroup.POST("/searchCastByName", castController.SearchCastByName)
+	}
+
+	params := url.Values{}
+	params.Add("castName", "Tao")
+	//params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/cast/searchCastByName", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
 }
