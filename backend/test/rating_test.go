@@ -1,52 +1,142 @@
 package Test
 
 import (
-	"backend/Models"
+	ratingController "backend/Controllers"
+	"github.com/stretchr/testify/assert"
+
+	//"backend/Models"
+	"github.com/gin-gonic/gin"
+	"net/http"
+	"net/http/httptest"
+	"net/url"
+	"strings"
 	"testing"
 )
 
 func TestAddRating(t *testing.T) {
-	var rating = Models.Rating{Movie_id: 1, User_id: 2, Score: 1}
-	if Models.AddRating(rating) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
+	router := gin.New()
+	ratingGroup := router.Group("/user/rating")
+	{
+		ratingGroup.POST("/readRating", ratingController.ReadRating)
+		ratingGroup.POST("/addRating", ratingController.AddRating)
+		ratingGroup.POST("/updateRating", ratingController.UpdateRating)
+		ratingGroup.POST("/computeAvgGrade", ratingController.ComputeAvgGrade)
+		ratingGroup.POST("/deleteRating", ratingController.DeleteRating)
 	}
-}
 
-func TestDeleteRating(t *testing.T) {
+	params := url.Values{}
+	params.Add("movieId", "1")
+	params.Add("userId", "1")
+	params.Add("score", "10")
+	//params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/rating/addRating", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
 
-	var rating = Models.Rating{User_id: 2, Movie_id: 3}
-	if Models.DeleteRating(rating) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
-	}
 }
 
 func TestReadRating(t *testing.T) {
-	//var user_id = 1
-	var rating = Models.Rating{}
-	if Models.ReadRating(2, 3) == rating {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
+	router := gin.New()
+	ratingGroup := router.Group("/user/rating")
+	{
+		ratingGroup.POST("/readRating", ratingController.ReadRating)
+		ratingGroup.POST("/addRating", ratingController.AddRating)
+		ratingGroup.POST("/updateRating", ratingController.UpdateRating)
+		ratingGroup.POST("/computeAvgGrade", ratingController.ComputeAvgGrade)
+		ratingGroup.POST("/deleteRating", ratingController.DeleteRating)
 	}
+
+	params := url.Values{}
+	params.Add("movieId", "1")
+	params.Add("userId", "1")
+
+	//params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/rating/readRating", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
 }
 
 func TestUpdateRating(t *testing.T) {
-	var rating = Models.Rating{User_id: 1, Movie_id: 3, Score: 4}
-	if Models.UpdateRating(rating) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
+	router := gin.New()
+	ratingGroup := router.Group("/user/rating")
+	{
+		ratingGroup.POST("/readRating", ratingController.ReadRating)
+		ratingGroup.POST("/addRating", ratingController.AddRating)
+		ratingGroup.POST("/updateRating", ratingController.UpdateRating)
+		ratingGroup.POST("/computeAvgGrade", ratingController.ComputeAvgGrade)
+		ratingGroup.POST("/deleteRating", ratingController.DeleteRating)
 	}
+
+	params := url.Values{}
+	params.Add("movieId", "1")
+	params.Add("userId", "1")
+	params.Add("score", "8")
+
+	//params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/rating/updateRating", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
 }
 
-func TestUpdateGrade(t *testing.T) {
-	if Models.UpdateGrade(3) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
+func TestComputeAvgGrade(t *testing.T) {
+	router := gin.New()
+	ratingGroup := router.Group("/user/rating")
+	{
+		ratingGroup.POST("/readRating", ratingController.ReadRating)
+		ratingGroup.POST("/addRating", ratingController.AddRating)
+		ratingGroup.POST("/updateRating", ratingController.UpdateRating)
+		ratingGroup.POST("/computeAvgGrade", ratingController.ComputeAvgGrade)
+		ratingGroup.POST("/deleteRating", ratingController.DeleteRating)
 	}
+
+	params := url.Values{}
+	params.Add("movieId", "1")
+	//params.Add("userId", "1")
+	//params.Add("score", "8")
+
+	//params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/rating/computeAvgGrade", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
+}
+
+func TestDeleteRating(t *testing.T) {
+	router := gin.New()
+	ratingGroup := router.Group("/user/rating")
+	{
+		ratingGroup.POST("/readRating", ratingController.ReadRating)
+		ratingGroup.POST("/addRating", ratingController.AddRating)
+		ratingGroup.POST("/updateRating", ratingController.UpdateRating)
+		ratingGroup.POST("/computeAvgGrade", ratingController.ComputeAvgGrade)
+		ratingGroup.POST("/deleteRating", ratingController.DeleteRating)
+	}
+
+	params := url.Values{}
+	params.Add("movieId", "1")
+	params.Add("userId", "1")
+	params.Add("score", "8")
+
+	//params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/rating/deleteRating", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
 }
