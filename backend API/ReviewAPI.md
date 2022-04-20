@@ -6,7 +6,7 @@ parameter  | discription
  msg  | hint message 
  code  | status code 
  token | token content
- res | result class
+ review | result class
  
 ## AddNewReview
 Users can add new reviews in any movies.  
