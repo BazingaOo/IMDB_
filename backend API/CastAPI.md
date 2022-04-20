@@ -160,7 +160,7 @@ If search cast success
  "movie":   res,
 }
 ``` 
-The result class will be same as the cast struct.
+The result class will be same as the movie struct.
 
 ## SearchCastByName
 search cast by a specific cast name.  
