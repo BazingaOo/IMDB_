@@ -18,6 +18,8 @@ func TestUpdateUserProfile(t *testing.T) {
 	userGroup.Use(jwt.JWTAuth())
 	{
 		userGroup.POST("/UpdateProfile", userController.UpdateUserProfile)
+		userGroup.POST("/DeleteUser", userController.DeleteUser)
+		userGroup.POST("/queryUserInfoById", userController.QueryUserInfoById)
 	}
 
 	params := url.Values{}
@@ -31,6 +33,50 @@ func TestUpdateUserProfile(t *testing.T) {
 	para1 := params.Encode()
 	w := httptest.NewRecorder()
 	req, _ := http.NewRequest("POST", "/user/UpdateProfile", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
+}
+
+func TestDeleteUser(t *testing.T) {
+	router := gin.New()
+	userGroup := router.Group("/user")
+	userGroup.Use(jwt.JWTAuth())
+	{
+		userGroup.POST("/UpdateProfile", userController.UpdateUserProfile)
+		userGroup.POST("/DeleteUser", userController.DeleteUser)
+		userGroup.POST("/queryUserInfoById", userController.QueryUserInfoById)
+	}
+
+	params := url.Values{}
+	params.Add("userId", "2")
+
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/DeleteUser", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
+}
+
+func TestQueryUserInfoById(t *testing.T) {
+	router := gin.New()
+	userGroup := router.Group("/user")
+	userGroup.Use(jwt.JWTAuth())
+	{
+		userGroup.POST("/UpdateProfile", userController.UpdateUserProfile)
+		userGroup.POST("/DeleteUser", userController.DeleteUser)
+		userGroup.POST("/queryUserInfoById", userController.QueryUserInfoById)
+	}
+
+	params := url.Values{}
+	params.Add("userId", "2")
+
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/queryUserInfoById", strings.NewReader(para1))
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	router.ServeHTTP(w, req)
 	assert.Equal(t, 200, w.Code)
