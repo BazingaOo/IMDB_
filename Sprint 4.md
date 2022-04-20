@@ -14,7 +14,11 @@ Backend unit test video - 90sec max
 [Link to Sprint4 deliverables](https://github.com/BazingaOo/IMDB_Clone.git) Note: The whole project is in the frontend and backend folders.
 # what we do
 ## front end
-implement the actor, comment, write comment page
+implemented the actor, comment, write comment page\
+embellished all the pages previously created\
+redesigned some pages\
+cypress test for login\
+
 ## back end
 ### For Comment model
 basic CURD for comment    
