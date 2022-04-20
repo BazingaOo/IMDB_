@@ -1,7 +1,7 @@
 describe('login', () => {
     it('test login', () => {
-        const username = 'qwe'
-        const password = '123'
+        const username = 'blessedroll'
+        const password = '246810'
         cy.visit('http://localhost:8080/#/UserLogIn')
         cy.contains('button', 'Sign In')  // 查找button.button-login里包含登录字符串的元素，如果查找不到则失败
 
