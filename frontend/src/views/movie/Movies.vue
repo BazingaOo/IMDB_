@@ -77,7 +77,7 @@
               </el-table-column>
             </el-table>
           </el-main>
-
+          <el-footer>  </el-footer>
 
           <hgroup
             class="
@@ -93,7 +93,7 @@
                   <el-link
                     type="warning"
                     href="http://localhost:8080/#/UserLogIn"
-                    >if comment, please login or sign up</el-link
+                    >Please login or sign up to comment</el-link
                   >
                 </span>
                 <span v-else>
