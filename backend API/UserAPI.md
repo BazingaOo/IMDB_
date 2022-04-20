@@ -132,7 +132,7 @@ delete success
 }
 ```
 ## GenerateToken
-**Auth required**: Need token 
+**Auth required**: Need token  
 generate success
 ```
 {
