@@ -97,7 +97,7 @@ If search genre success
 The result class will be same as the genre struct.
 
 ## SearchGenreByGenreName
-find all the movies belonging to one specific genre.
+find all the movies belonging to one specific genre.  
 **Method**:POST   
 **URL**:http://localhost:8000/user/genre/searchGenreByGenreName  
 **Auth required**: do not need token   
@@ -113,13 +113,25 @@ If search genre success
 {
  "message": "search genre success",
  "code":    200,
- "genre":   res,
+ "resultGenre":   res,
 }
 ``` 
-The result class will be same as the genre struct.
+The result class will be as following:
+
+Result Class
+parameter  | discription
+ ---- | ----- 
+ GenreName  | genre name 
+ GenreId  | genre id 
+ MovieID  | movie id 
+ MovieName  | movie name 
+ Year | the year of the movie
+ Grade | the average of grade of each movie 
+ Description | the description of each movie 
+ Image | the path of the image for each movie 
 
 ## SearchMovieWithGenre
-search movie and genre by movieId
+search movie and genre by movieId  
 **Method**:POST   
 **URL**:http://localhost:8000/user/genre/searchMovieWithGenre  
 **Auth required**: do not need token   
