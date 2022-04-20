@@ -8,7 +8,7 @@
     >
     <el-carousel :interval="4000" indicator-position="outside" height="400px">
       <el-carousel-item v-for="item in imgs1" :key="item.id">
-        <el-image :src="item.img"  fit="cover" />
+        <el-image :src="item.img"  fit="auto" />
       </el-carousel-item>
     </el-carousel>
 
