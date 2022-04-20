@@ -136,10 +136,10 @@ delete success
 generate success
 ```
 {
-   "code":    200,
-		 "message": "login successfully",
-		 "status":  0,
-		 "user":    user,
-		 "token":   token,
+  "code":    200,
+  "message": "login successfully",
+  "status":  0,
+  "user":    user,
+  "token":   token,
 }
 ```
