@@ -6,7 +6,7 @@
     >
       Feature Today</span
     >
-    <el-carousel :interval="4000" indicator-position="outside" height="400px">
+    <el-carousel :interval="4000" indicator-position="outside" height="550px">
       <el-carousel-item v-for="item in imgs1" :key="item.id">
         <el-image :src="item.img"  fit="auto" />
       </el-carousel-item>
@@ -33,34 +33,34 @@ export default {
     return {
       imgs1: [
         {
-          id: 1, img: require('../../assets/CODA.jpg')
+          id: 1, img: require('../../assets/doctor-strange-2-mcu-box-office.jpg')
         },
         {
           id: 2, img: require('../../assets/turningRed.jpg')
         },
         {
-          id: 3, img: require('../../assets/topGun.jpg')
+          id: 3, img: require('../../assets/justiceLeague.jpg')
         },
         {
-          id: 4, img: require('../../assets/Spider-Man3.jpg')
+          id: 4, img: require('../../assets/3-idiots.jpg')
         },
         {
           id: 5, img: require('../../assets/interstellar.jpg')
         },
         {
-          id: 6, img: require('../../assets/inception.jpg')
+          id: 6, img: require('../../assets/inception1.jpg')
         },
         {
-          id: 7, img: require('../../assets/Pulp-Fiction1.jpg')
+          id: 7, img: require('../../assets/uncharted.jpg')
         },
         {
-          id: 8, img: require('../../assets/wolf.jpg')
+          id: 8, img: require('../../assets/theWolf.jpg')
         },
         {
-          id: 9, img: require('../../assets/Django.jpg')
+          id: 9, img: require('../../assets/Call-Me-By-Your-Name-Header.jpg')
         },
         {
-          id: 10, img: require('../../assets/Morbius.jpg')
+          id: 10, img: require('../../assets/moonfall.jpeg')
         }
       ],
       imgs2 : [
@@ -83,16 +83,16 @@ export default {
           id: 6, img: require('../../assets/TheLord.jpg')
         },
         {
-          id: 7, img: require('../../assets/Good_the_bad_and_the_ugly_poster.jpg')
+          id: 7, img: require('../../assets/truman.jpg')
         },
         {
           id: 8, img: require('../../assets/forrest.jpg')
         },
         {
-          id: 9, img: require('../../assets/500.jpg')
+          id: 9, img: require('../../assets/breakingBad.jpg')
         },
         {
-          id: 10, img: require('../../assets/forrest.jpg')
+          id: 10, img: require('../../assets/inglouriousBasterds.jpg')
         }
       ]
     }
