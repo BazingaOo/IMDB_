@@ -67,7 +67,7 @@ when user input userne on sign up page, check whether username unique or not
 
 **URL**:http://localhost:8000/user/CheckUsername
 
-**Auth required**: no Need token 
+**Auth required**: Need token 
 
 username unique
 ```
