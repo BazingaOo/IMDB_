@@ -39,6 +39,12 @@ Update the submitted comments in database and show comments on Movie Info page
 
 
 implemented the actor, comment, write comment page\
+created actor information page\
+created movie information page\
+created comment page\
+implemented comment function\
+implemented rating function\
+implemented ralative movie function\
 embellished all the pages previously created\
 redesigned some pages\
 cypress test for login
