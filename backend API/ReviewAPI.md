@@ -74,10 +74,32 @@ If update reviews success
 ```   
 The result class will be same as the review struct.
 
-## SelectReviewsByUserId
+## ReadReviewByUserId
 Users can select thier own reviews in the system.  
 **Method**:POST   
-**URL**:http://localhost:8000/movie/readReview  
+**URL**:http://localhost:8000/user/review/readReview  
+**Auth required**: Need token   
+If select reviews error   
+```
+{
+  "message": "select reviews error",
+  "code":    404,
+}
+```  
+If select reviews success
+```
+{
+ "message": "select reviews success",
+ "code":    200,
+ "review":  res,
+}
+```   
+The result class will be same as the review struct.
+
+## ReadReviewByMovieId
+On the movie detailed page, user can see the other guys comments.  
+**Method**:POST   
+**URL**:http://localhost:8000/user/review/readReviewByMovieId  
 **Auth required**: Need token   
 If select reviews error   
 ```
