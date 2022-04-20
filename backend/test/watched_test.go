@@ -1,35 +1,81 @@
 package Test
 
 import (
-	"backend/Models"
+	watchedListController "backend/Controllers"
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
+	"net/http"
+	"net/http/httptest"
+	"net/url"
+	"strings"
 	"testing"
 )
 
 func TestAddWatched(t *testing.T) {
-	var watched = Models.Watch_list{User_id: 2, Movie_id: 3}
-	if Models.AddWatched(watched) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
+	router := gin.New()
+	watchedListGroup := router.Group("/user/watchedList")
+	{
+		watchedListGroup.POST("/addWatchedList", watchedListController.AddWatched)
+		watchedListGroup.POST("/deleteWatchedList", watchedListController.DeleteWatched)
+		watchedListGroup.POST("/readWatchedList", watchedListController.ReadWatched)
 	}
+
+	params := url.Values{}
+	params.Add("userId", "1")
+	params.Add("movieId", "2")
+
+	//params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/watchedList/addWatchedList", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
 }
 
 func TestDeleteWatched(t *testing.T) {
-	//var review = Models.Review{Review_id: 1, Review_content: "ttttt", User_id: 11, Movie_id: 1}
-	//var review_id = 1
-	var watched = Models.Watch_list{User_id: 2, Movie_id: 3}
-	if Models.DeleteWatched(watched) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
+	router := gin.New()
+	watchedListGroup := router.Group("/user/watchedList")
+	{
+		watchedListGroup.POST("/addWatchedList", watchedListController.AddWatched)
+		watchedListGroup.POST("/deleteWatchedList", watchedListController.DeleteWatched)
+		watchedListGroup.POST("/readWatchedList", watchedListController.ReadWatched)
 	}
+
+	params := url.Values{}
+	params.Add("userId", "1")
+	params.Add("movieId", "1")
+
+	//params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/watchedList/deleteWatchedList", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
 }
 
 func TestReadWatched(t *testing.T) {
-	//var user_id = 1
-	if Models.ReadWatched(2) == nil {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
+	router := gin.New()
+	watchedListGroup := router.Group("/user/watchedList")
+	{
+		watchedListGroup.POST("/addWatchedList", watchedListController.AddWatched)
+		watchedListGroup.POST("/deleteWatchedList", watchedListController.DeleteWatched)
+		watchedListGroup.POST("/readWatchedList", watchedListController.ReadWatched)
 	}
+
+	params := url.Values{}
+	params.Add("userId", "1")
+	//params.Add("movieId", "1")
+
+	//params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/watchedList/readWatchedList", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
+
 }
