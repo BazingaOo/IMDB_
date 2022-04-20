@@ -76,7 +76,7 @@ If update rating success
 The result class will be same as the rating struct.
 
 ## ReadRating
-users can read all the ratings for the movies they wrote before.
+users can read all the ratings for the movies they wrote before. 
 **Method**:POST   
 **URL**:http://localhost:8000/user/cast/SearchCast  
 **Auth required**: Need token
@@ -98,7 +98,7 @@ If search rating success
 The result class will be same as the rating struct.
 
 ## ComputeAvgGrade
-the average grade for each movie will be updated according to all the users' rating.
+the average grade for each movie will be updated according to all the users' rating. 
 **Method**:POST   
 **URL**:http://localhost:8000/user/cast/SearchCast  
 **Auth required**: do not need token   
