@@ -20,12 +20,24 @@ make movie posters showing like IMax screen. \
 Moreover, we find more suitable-size pictures as our Top-Movies' covers.
 
 ### Implementing new Functionalities
-#### For searching movie
+#### For Searching Movie Functionality
 Add the grade of movies\
 Add the description of actors\
 Complete the searching function with added movies and actors in mysql database
 
-#### For 
+#### For Movie Information Page
+Show the genre, cast, abstract, and user's rating of searching movie
+Enable the user leave their rating on searching movie and calculate the average score
+Add the comment functionality to let users leave their comments on searching movies
+
+#### For Leaving Comments Page
+Implement the type-in box for users to leave some comments on movies
+Update the submitted comments in database and show comments on Movie Info page
+
+
+
+
+
 implemented the actor, comment, write comment page\
 embellished all the pages previously created\
 redesigned some pages\
