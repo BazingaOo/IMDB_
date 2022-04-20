@@ -14,10 +14,16 @@ Backend unit test video - 90sec max
 [Link to Sprint4 deliverables](https://github.com/BazingaOo/IMDB_Clone.git) Note: The whole project is in the frontend and backend folders.
 # what we do
 ## front end
+### Adding more Details in HomePage
+For aesthetic design of our homepage, we refill the picture size to 
+make movie posters showing like IMax screen. \
+Moreover, we find more suitable-size pictures as our Top-Movies' covers.
+
+### For 
 implemented the actor, comment, write comment page\
 embellished all the pages previously created\
 redesigned some pages\
-cypress test for login\
+cypress test for login
 
 ## back end
 ### For Comment model
