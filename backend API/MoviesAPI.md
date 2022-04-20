@@ -5,7 +5,7 @@ parameter  | discription
  msg  | hint message 
  code  | status code 
  token | token content
- res | result class
+ movie | result class
  
 ## AddNewMovies
 Administrators can add new movies in the system.  
