@@ -37,6 +37,23 @@ INSERT INTO `cast` VALUES (2, 'zhang', 'PHD', NULL);
 INSERT INTO `cast` VALUES (3, 'test', 'She is a good actress.', 'Tom.png');
 INSERT INTO `cast` VALUES (4, 'Leonardo DiCaprio', 'One of the most famous actor', 'leonardo.png');
 INSERT INTO `cast` VALUES (5, 'Brie Larson', 'Brie Larson has built an impressive career as an acclaimed television actress, rising feature film star and emerging recording artist.', 'brie-larson.png');
+INSERT INTO `cast` VALUES (6, 'Joaquin Phoenix', 'Joaquin Phoenix was born Joaquin Rafael Bottom in San Juan, Puerto Rico, to Arlyn (Dunetz) and John Bottom, and is the middle child in a brood of five.', 'Joaquin.jpg');
+INSERT INTO `cast` VALUES (7, 'Tim Robbins', 'Born in West Covina, California, but raised in New York City, Tim Robbins is the son of former The Highwaymen singer Gil Robbins and actress Mary Robbins (née Bledsoe).', 'Tim.jpg');
+INSERT INTO `cast` VALUES (8, 'Tom Hanks', 'OThomas Jeffrey Hanks was born in Concord, California, to Janet Marylyn (Frager), a hospital worker, and Amos Mefford Hanks, an itinerant cook.', 'tom.jpg');
+INSERT INTO `cast` VALUES (9, 'Chadwick Boseman', 'Chadwick Boseman was an American actor. He is known for his portrayal of TChalla  Black Panther in the Marvel Cinematic Universe from 2016 to 2019, particularly in Black Panther (2018), and for his starring roles as several pioneering Americans, Jackie Robinson in 42 (2013), James Brown in Get on Up (2014), and Thurgood Marshall in Marshall (2017).', 'chad.jpg');
+INSERT INTO `cast` VALUES (10, 'Jamie Foxx', 'Jamie Foxx is an American actor, singer and comedian. He won an Academy Award for Best Actor, BAFTA Award for Best Actor in a Leading Role, and Golden Globe Award for Best Actor in a Musical or Comedy, for his work in the biographical film Ray (2004).', 'jamie.jpg');
+INSERT INTO `cast` VALUES (11, 'Emilia Jones', 'Emilia is best known for playing the lead role of Ruby Rossi in CODA which premiered at Sundance Film Festival in 2021 and won more awards than any film in Sundance history.', 'emilia.jpg');
+INSERT INTO `cast` VALUES (12, 'Matthew McConaughey', 'American actor and producer Matthew David McConaughey was born in Uvalde, Texas. ', 'Matthew.jpg');
+INSERT INTO `cast` VALUES (13, 'Uma Thurman', 'Uma Karuna Thurman was born in Boston, Massachusetts, into a highly unorthodox and internationally-minded family.', 'Uma.jpg');
+INSERT INTO `cast` VALUES (14, 'Liam Neeson', 'Liam Neeson was born on June 7, 1952 in Ballymena, Northern Ireland, to Katherine (Brown), a cook, and Bernard Neeson, a school caretaker. He was raised in a Catholic household. ', 'liam.jpg');
+INSERT INTO `cast` VALUES (15, 'Tom Holland', 'Thomas Stanley Holland was born in Kingston-upon-Thames, Surrey, to Nicola Elizabeth (Frost), a photographer, and Dominic Holland (Dominic Anthony Holland), who is a comedian and author.', 'TomHolland.jpg');
+INSERT INTO `cast` VALUES (16, 'Christian Bale', 'Christian Charles Philip Bale was born in Pembrokeshire, Wales, UK on January 30, 1974, to English parents Jennifer "Jenny" (James) and David Bale.', 'bale.jpg');
+INSERT INTO `cast` VALUES (17, 'Marlon Brando', 'Marlon Brando is widely considered the greatest movie actor of all time, rivaled only by the more theatrically oriented Laurence Olivier in terms of esteem. ', 'marlon.jpg');
+INSERT INTO `cast` VALUES (18, 'Elijah Wood', 'Elijah Wood is an American actor best known for portraying Frodo Baggins in Peter Jackson blockbuster Lord of the Rings film trilogy.', 'Elijah.jpg');
+INSERT INTO `cast` VALUES (19, 'Chris Hemsworth', 'Christopher Hemsworth was born on August 11, 1983 in Melbourne, Victoria, Australia to Leonie Hemsworth (née van Os), an English teacher & Craig Hemsworth, a social-services counselor.', 'Chris.jpg');
+
+
+
 
 -- ----------------------------
 -- Table structure for genre
@@ -109,6 +126,15 @@ CREATE TABLE `movie_cast`  (
 INSERT INTO `movie_cast` VALUES (1, 1);
 INSERT INTO `movie_cast` VALUES (2, 1);
 INSERT INTO `movie_cast` VALUES (3, 5);
+INSERT INTO `movie_cast` VALUES (3, 5);
+INSERT INTO `movie_cast` VALUES (3, 5);
+INSERT INTO `movie_cast` VALUES (3, 5);
+INSERT INTO `movie_cast` VALUES (3, 5);
+INSERT INTO `movie_cast` VALUES (3, 5);
+INSERT INTO `movie_cast` VALUES (3, 5);
+INSERT INTO `movie_cast` VALUES (3, 5);
+INSERT INTO `movie_cast` VALUES (3, 5);
+
 
 -- ----------------------------
 -- Table structure for movie_genre
