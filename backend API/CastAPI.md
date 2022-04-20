@@ -73,7 +73,7 @@ If update Cast success
 ```   
 The result class will be same as the cast struct.
 
-### SearchCastByName
+## SearchCastByName
 search cast by a specific cast name.  
 **Method**:POST   
 **URL**:http://localhost:8000/admin/cast/SearchCast  
@@ -82,6 +82,95 @@ If search cast error
 ```
 {
   "message": "not found the Cast",
+  "code":    404,
+}
+```  
+If search cast success
+```
+{
+ "message": "search cast success",
+ "code":    200,
+ "cast":   res,
+}
+``` 
+The result class will be same as the cast struct.
+
+## SearchCastById
+search cast by a specific cast id.  
+**Method**:POST   
+**URL**:http://localhost:8000/user/cast/searchCastById  
+**Auth required**: do not need token   
+If search cast error   
+```
+{
+  "message": "not found the Cast",
+  "code":    404,
+}
+```  
+If search cast success
+```
+{
+ "message": "search cast success",
+ "code":    200,
+ "cast":   res,
+}
+``` 
+The result class will be same as the cast struct.
+
+
+## SearchCastByMovieId
+search cast by a specific movie id.  
+**Method**:POST   
+**URL**:http://localhost:8000/user/cast/searchCastByMovieId  
+**Auth required**: do not need token   
+If search cast error   
+```
+{
+  "message": "not found the Cast",
+  "code":    404,
+}
+```  
+If search cast success
+```
+{
+ "message": "search cast success",
+ "code":    200,
+ "cast":   res,
+}
+``` 
+The result class will be same as the cast struct.
+
+## SearchRelativeMovieByCastId
+search relative movie by a specific cast id.  
+**Method**:POST   
+**URL**:http://localhost:8000/user/cast/searchCastByMovieId  
+**Auth required**: do not need token   
+If search cast error   
+```
+{
+  "message": "not found the movie",
+  "code":    404,
+}
+```  
+If search cast success
+```
+{
+ "message": "search cast success",
+ "code":    200,
+ "movie":   res,
+}
+``` 
+The result class will be same as the cast struct.
+
+## SearchCastByName
+search cast by a specific cast name.  
+**Method**:POST   
+**URL**:http://localhost:8000/user/cast/searchCastByName  
+**Auth required**: do not need token   
+If search cast error   
+```
+{
+  "message": "not found the movie",
   "code":    404,
 }
 ```  
