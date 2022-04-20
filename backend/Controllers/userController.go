@@ -113,18 +113,6 @@ func generateToken(c *gin.Context, user Models.User) {
 	return
 }
 
-// GetDataByTime 一个需要token认证的测试接口
-func GetDataByTime(c *gin.Context) {
-	claims := c.MustGet("claims").(*myjwt.CustomClaims)
-	if claims != nil {
-		c.JSON(http.StatusOK, gin.H{
-			"status": 0,
-			"msg":    "valid token",
-			"data":   claims,
-		})
-	}
-}
-
 //Update user profile
 
 func UpdateUserProfile(c *gin.Context) {

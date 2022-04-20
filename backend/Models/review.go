@@ -50,9 +50,22 @@ type reviewName struct {
 	Username       string
 }
 
-func ReadReviewByMovieId(Movie_id int) []reviewName {
+func CountNumOfReview(Movie_id int) int {
 	var review []reviewName
 	//Database.DB.Where("Movie_name Like ? , "%jin%").Find(&movies)
 	Database.DB.Raw("SELECT review.*, user.username FROM review INNER JOIN user ON review.user_id = user.user_id WHERE review.movie_id = ?", Movie_id).Scan(&review)
+	return len(review)
+}
+func ReadReviewByMovieId(Movie_id, pageNo, pageSize int) []reviewName {
+	var review []reviewName
+	//Database.DB.Where("Movie_name Like ? , "%jin%").Find(&movies)
+	Database.DB.Raw("SELECT review.*, user.username FROM review INNER JOIN user ON review.user_id = user.user_id WHERE review.movie_id = ? Limit ?,?", Movie_id, (pageNo-1)*pageSize, pageSize).Scan(&review)
 	return review
 }
+
+//func CountNumOfReview1(Movie_id int) int {
+//	var count int
+//	var review reviewName
+//	Database.DB.Raw("SELECT review.*, user.username FROM review INNER JOIN user ON review.user_id = user.user_id WHERE review.movie_id = ?", Movie_id).Scan(&review).Count(count)
+//	return count
+//}

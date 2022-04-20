@@ -55,20 +55,20 @@
         <el-table-column type="expand">
           <template v-slot="props">
             <el-form label-position="left" inline class="demo-table-expand">
-              <el-form-item label="Movie Name">
+              <!-- <el-form-item label="Movie Name">
                 <span>{{ props.row.MovieName }}</span>
-              </el-form-item>
+              </el-form-item> -->
               <el-form-item label="Actor Name">
-                <span @click="Click(props.row)">{{ props.row.CastName }}</span>
+                <span @click="Click(props.row)">{{ props.row.Cast_name }}</span>
               </el-form-item>
-              <el-form-item label="Grade">
+              <!-- <el-form-item label="Grade">
                 <span>{{ props.row.Grade }}</span>
-              </el-form-item>
-              <el-form-item label="Year">
+              </el-form-item> -->
+              <!-- <el-form-item label="Year">
                 <span>{{ props.row.Year }}</span>
-              </el-form-item>
+              </el-form-item> -->
               <el-form-item label="Description">
-                <span>{{ props.row.Description }}</span>
+                <span>{{ props.row.Cast_description }}</span>
               </el-form-item>
             </el-form>
           </template>
@@ -78,7 +78,7 @@
           <template v-slot="props">
             <div class="demo-image">
               <el-image style="width: 100px; height: 150px"
-                        :src="require('@/assets/'+props.row.CastImage)"
+                        :src="require('@/assets/'+props.row.Cast_image)"
                         fit="cover"/>
             </div> </template>
         </el-table-column>
@@ -86,15 +86,11 @@
           label="Actor Name"
           prop="CastName">
           <template v-slot="props">
-            <span @click="Click(props.row)">{{ props.row.CastName }}</span></template>
-        </el-table-column>
-        <el-table-column
-          label="Movie Name"
-          prop="MovieName">
+            <span @click="Click(props.row)">{{ props.row.Cast_name }}</span></template>
         </el-table-column>
         <el-table-column
           label="Description"
-          prop="CastDescription">
+          prop="Cast_description">
         </el-table-column>
       </el-table>
     </div>
@@ -122,7 +118,7 @@ export default {
   mounted() {
     this.fetchData()
     this.searchMovieByTitle()
-    this.searchMovieByName()
+    this.searchCastByName()
 
   },
   methods: {
@@ -134,10 +130,9 @@ export default {
       });
     },
     Click(row) {
-      console.log("!!:"+row.CastId);
       this.$router.push({
         path: 'Actors',
-        query: {SrCastId: row.CastId}
+        query: {SrCastId: row.Cast_id}
       });
     },
     fetchData() {
@@ -166,11 +161,11 @@ export default {
       )
       ;
     },
-    searchMovieByName() {
+    searchCastByName() {
       let params = {
         castName: this.searchInput,
       }
-      this.$axios.post("/api/user/movie/searchMovieByCast", this.$qs.stringify(params))
+      this.$axios.post("/api/user/cast/searchCastByName", this.$qs.stringify(params))
         .then(res => {
           if (res.data.code === 200) {
             this.nameTableData = res.data.movie

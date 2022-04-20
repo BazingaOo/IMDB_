@@ -1,7 +1,14 @@
 package Test
 
 import (
+	userController "backend/Controllers"
 	"backend/Models"
+	"github.com/gin-gonic/gin"
+	"github.com/stretchr/testify/assert"
+	"net/http"
+	"net/http/httptest"
+	"net/url"
+	"strings"
 	"testing"
 )
 
@@ -32,13 +39,21 @@ func TestUpdateProfile(t *testing.T) {
 }
 
 func TestSignUp(t *testing.T) {
-	var user = Models.User{User_id: 2, Username: "hhhh", Password: "123", User_type: 1, Gender: "s", Age: 2, Email: "123"}
-	//var review = Models.Review{Review_id: 2, Review_content: "lalalal", User_id: 11, Movie_id: 1}
-	if Models.SignUp(user) == 0 {
-		t.Error("result is wrong!")
-	} else {
-		t.Log("result is right")
+	router := gin.New()
+	customerGroup := router.Group("/user")
+	{
+		customerGroup.POST("/login", userController.LogIn) // when create sth
 	}
+
+	params := url.Values{}
+	params.Add("username", "qwe")
+	params.Add("password", "123")
+	para1 := params.Encode()
+	w := httptest.NewRecorder()
+	req, _ := http.NewRequest("POST", "/user/login", strings.NewReader(para1))
+	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, 200, w.Code)
 }
 
 func TestLogIn(t *testing.T) {

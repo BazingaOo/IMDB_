@@ -19,7 +19,6 @@ func SearchCastById(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    404,
 			"message": "error",
-			"cast":    res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
@@ -37,7 +36,6 @@ func SearchCastByMovieId(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    404,
 			"message": "error",
-			"cast":    res,
 		})
 	} else {
 		c.JSON(http.StatusOK, gin.H{
@@ -51,6 +49,23 @@ func SearchCastByMovieId(c *gin.Context) {
 func SearchRelativeMovieByCastId(c *gin.Context) {
 	var castId, _ = strconv.Atoi(c.PostForm("castId"))
 	res := Models.SearchRelativeMovieByCastId(castId)
+	if len(res) == 0 {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    404,
+			"message": "error",
+			"movie":   res,
+		})
+	} else {
+		c.JSON(http.StatusOK, gin.H{
+			"code":    200,
+			"message": "success",
+			"movie":   res,
+		})
+	}
+}
+func SearchCastByName(c *gin.Context) {
+	var castName = c.PostForm("castName")
+	res := Models.SearchCastByName(castName)
 	if len(res) == 0 {
 		c.JSON(http.StatusOK, gin.H{
 			"code":    404,

@@ -27,11 +27,11 @@ func DeleteCast(Cast_id int) int64 {
 	return result.RowsAffected
 }
 
-func SearchCast(castName string) []Cast {
-	var cast []Cast
+func SearchCastByName(castName string) []Cast {
+	var result []Cast
 	//Database.DB.First(&cast, castName)
-	Database.DB.Where("cast_name LIKE ?", "%"+castName+"%").Find(&cast)
-	return cast
+	Database.DB.Where("cast_name LIKE ?", "%"+castName+"%").Find(&result)
+	return result
 }
 
 //type Result struct {
