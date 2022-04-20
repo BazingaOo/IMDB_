@@ -131,4 +131,15 @@ delete success
    "userId":  userId,
 }
 ```
-
+## GenerateToken
+**Auth required**: Need token 
+generate success
+```
+{
+   "code":    200,
+		 "message": "login successfully",
+		 "status":  0,
+		 "user":    user,
+		 "token":   token,
+}
+```
