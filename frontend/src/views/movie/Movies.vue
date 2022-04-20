@@ -77,7 +77,7 @@
               </el-table-column>
             </el-table>
           </el-main>
-          <el-footer> Storyline </el-footer>
+
 
           <hgroup
             class="
