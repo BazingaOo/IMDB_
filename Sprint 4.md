@@ -12,8 +12,22 @@ Backend unit test video - 90sec max
 [Link to Project board](https://github.com/BazingaOo/IMDB_Clone/projects)
 
 [Link to Sprint4 deliverables](https://github.com/BazingaOo/IMDB_Clone.git) Note: The whole project is in the frontend and backend folders.
-# what we do
-## front end
+# What we do
+## Front-End
+
+###Abstract Summary
+implemented the actor, comment, write comment page\
+created actor information page\
+created movie information page\
+created comment page\
+implemented comment function\
+implemented rating function\
+implemented ralative movie function\
+embellished all the pages previously created\
+redesigned some pages\
+cypress test for login
+
+
 ### Adding more Details in HomePage
 For aesthetic design of our homepage, we refill the picture size to 
 make movie posters showing like IMax screen. \
@@ -26,30 +40,21 @@ Add the description of actors\
 Complete the searching function with added movies and actors in mysql database
 
 #### For Movie Information Page
-Show the genre, cast, abstract, and user's rating of searching movie
-Enable the user leave their rating on searching movie and calculate the average score
+Show the genre, cast, abstract, and user's rating of searching movie\
+Enable the user leave their rating on searching movie and calculate the average score\
 Add the comment functionality to let users leave their comments on searching movies
 
 #### For Leaving Comments Page
-Implement the type-in box for users to leave some comments on movies
+Implement the type-in box for users to leave some comments on movies\
 Update the submitted comments in database and show comments on Movie Info page
 
+#### For Actor Information Page
+Add description of the searched actor\
+Add the movie which is related to the searched actor and Add jump to the related movie info page
 
 
 
-
-implemented the actor, comment, write comment page\
-created actor information page\
-created movie information page\
-created comment page\
-implemented comment function\
-implemented rating function\
-implemented ralative movie function\
-embellished all the pages previously created\
-redesigned some pages\
-cypress test for login
-
-## back end
+## Back-End
 ### For Comment model
 basic CURD for comment    
 add a pagination to display comments for each movie  
