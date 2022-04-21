@@ -17,6 +17,8 @@ describe('login', () => {
         // 提交表单
         cy.get('button').click() //查找按钮，然后点击
 
-        cy.visit('#/UserContainer/HomePage')  //校验是否登录成功
+
+        cy.contains('blessedroll').click()
+        cy.contains('My profile').click()
     })
 })

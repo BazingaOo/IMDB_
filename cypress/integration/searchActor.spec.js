@@ -18,6 +18,5 @@ describe('actor', () => {
         // 查找按钮，然后点击
         cy.get('table')
             .contains('Hanks').click()
-        window.onerror = e => console.log(e);
     })
 })

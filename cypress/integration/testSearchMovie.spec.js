@@ -14,6 +14,7 @@ describe('actor', () => {
 
         cy.get('table')
             .contains('Forrest').click()
+
     })
 
 
