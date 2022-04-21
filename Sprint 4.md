@@ -3,7 +3,7 @@ IMDB_Clone is a web application that we mimic the IMDB website. User could brows
 
 [Demo video functionality](https://youtu.be/X4Ci1AL6kNk)
 
-Cypress test video - 90sec max
+[Cypress Test video](https://youtu.be/QYS0ItnlMe0)
 
 [Backend unit test video](https://youtu.be/ZRYLe-DpBHs)  
 We saw the annoucement that do not link an outside webside, but these videos are more than 100M, github cannot allow us to upload. Sorry about that.
