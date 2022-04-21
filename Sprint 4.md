@@ -6,7 +6,7 @@ IMDB_Clone is a web application that we mimic the IMDB website. User could brows
 Cypress test video - 90sec max
 
 [Backend unit test video](https://youtu.be/ZRYLe-DpBHs)  
-We saw the annoucement that do not link an outside link, but these videos are more than 100M, so we can just upload on the YouTube. Sorry about that.
+We saw the annoucement that do not link an outside webside, but these videos are more than 100M, github cannot allow us to upload. Sorry about that.
 
 [Link to API Documentation](https://github.com/BazingaOo/IMDB_Clone/tree/main/backend%20API)  
 
