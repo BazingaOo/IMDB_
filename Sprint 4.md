@@ -13,18 +13,17 @@ We saw the annoucement that do not link an outside webside, but these videos are
 [Link to Project board](https://github.com/BazingaOo/IMDB_Clone/projects)
 
 [Link to Sprint4 deliverables](https://github.com/BazingaOo/IMDB_Clone.git) Note: The whole project is in the frontend and backend folders.
-# What we do
+# What we accomplished:
 ## Front-End
 
 Abstract Summary
 
-implemented the actor, comment, write comment page\
-created actor information page\
-created movie information page\
-created comment page\
-implemented comment function\
-implemented rating function\
-implemented ralative movie function\
+created the actor information page\
+created the movie information page\
+created the comment page\
+implemented the comment function\
+implemented the rating function\
+implemented the ralative movie function\
 embellished all the pages previously created\
 redesigned some pages\
 cypress test for login\
