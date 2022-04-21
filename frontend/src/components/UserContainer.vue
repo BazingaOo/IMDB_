@@ -28,7 +28,7 @@
         <el-menu-item>
           <span>
               <el-input placeholder="Search" prefix-icon="el-icon-search" v-model="searchInput"
-                        @keydown.enter.native="onSubmit" style=" width: 975px;"/>
+                        @keydown.enter.native="onSubmit" style=" width: 975px;" id="search" />
           </span>
         </el-menu-item>
 
