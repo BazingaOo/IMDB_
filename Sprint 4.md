@@ -27,7 +27,8 @@ implemented rating function\
 implemented ralative movie function\
 embellished all the pages previously created\
 redesigned some pages\
-cypress test for login
+cypress test for login\
+cypress test for searching actors\
 
 
 ### Adding more Details in HomePage
