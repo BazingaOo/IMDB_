@@ -33,7 +33,7 @@ The result class will be same as the review struct.
 ## DeleteReviews
 Users can delete reviews in the system.  
 **Method**:POST  
-**URL**:http://localhost:8000/movie/deleteReview  
+**URL**:http://localhost:8000/user/review/deleteReview  
 **Auth required**: Need token  
 If delete reviews error   
 ```
@@ -55,7 +55,7 @@ The result class will be same as the review struct.
 ## UpdateReviews
 Users can update thier own reviews in the system.  
 **Method**:POST   
-**URL**:http://localhost:8000/movie/updateReview  
+**URL**:http://localhost:8000/user/review/updateReview  
 **Auth required**: Need token   
 If update reviews error   
 ```
@@ -116,4 +116,17 @@ If select reviews success
  "review":  res,
 }
 ```   
-The result class will be same as the review struct.
+The result class will be shown as fllowing:
+
+Result Class
+parameter  | discription
+ ---- | ----- 
+ Review_id  | review id 
+ User_id  | user id 
+ MovieID  | movie id 
+ Review_content  | the content of this review that the users wrote 
+ Username | the username of users who wrote review for this movie before
+
+
+
+

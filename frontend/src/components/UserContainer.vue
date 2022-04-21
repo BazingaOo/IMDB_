@@ -1,7 +1,5 @@
 <template>
   <el-container>
-    <div :style="myStyle" id="wrapper">
-    </div>
         <!-- <el-image
           style="width: 315px; height: 110px"
           :src="require('@/assets/IMDB-CLone-FinalLogo.png')"
@@ -111,7 +109,6 @@ export default {
 
 <style>
 .el-container {
-
   color: #333;
   text-align: center;
   width: 100%;
@@ -145,7 +142,6 @@ export default {
 }
 
 .el-aside {
-;
   color: #333;
   text-align: center;
   line-height: 200px;

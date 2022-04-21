@@ -77,7 +77,7 @@ The result class will be same as the genre struct.
 ## SearchGenreName
 search genre by genre name.  
 **Method**:POST   
-**URL**:http://localhost:8000/user/cast/searchGenreName  
+**URL**:http://localhost:8000/user/genre/searchGenreName  
 **Auth required**: do not need token   
 If search genre error   
 ```

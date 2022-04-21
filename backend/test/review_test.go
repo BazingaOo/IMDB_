@@ -23,7 +23,7 @@ func TestAddReview(t *testing.T) {
 	}
 
 	params := url.Values{}
-	params.Add("userId", "1")
+	params.Add("userId", "")
 	params.Add("movieId", "3")
 	params.Add("reviewContent", "orz")
 	//params.Add("password", "123")
@@ -48,7 +48,7 @@ func TestUpdateReview(t *testing.T) {
 	}
 
 	params := url.Values{}
-	params.Add("userId", "1")
+	params.Add("userId", "2")
 	params.Add("movieId", "1")
 	params.Add("reviewContent", "QAQ")
 	//params.Add("password", "123")

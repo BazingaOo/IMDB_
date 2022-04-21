@@ -1,11 +1,12 @@
 # Description of IMDB
 IMDB_Clone is a web application that we mimic the IMDB website. User could browse and search movie and cast information and detail. Meanwhile, they can write a comment or rate the movie they like, but prerequisite is they need to login. We also provide a sign up function for users who like our website. For users who already login, they can update or delete their account. For Administrator, they can conduct the movie and cast data, such as add, update or delete data. For some inappropriate comments, admin could delete the commemt, even delete user account.
 
-Demo video functionality - 3min max
+[Demo video functionality](https://youtu.be/X4Ci1AL6kNk)
 
-Cypress test video - 90sec max
+[Cypress Test video](https://youtu.be/QYS0ItnlMe0)
 
-Backend unit test video - 90sec max
+[Backend unit test video](https://youtu.be/ZRYLe-DpBHs)  
+We saw the annoucement that do not link an outside webside, but these videos are more than 100M, github cannot allow us to upload. Sorry about that.
 
 [Link to API Documentation](https://github.com/BazingaOo/IMDB_Clone/tree/main/backend%20API)  
 
@@ -26,7 +27,9 @@ implemented rating function\
 implemented ralative movie function\
 embellished all the pages previously created\
 redesigned some pages\
-cypress test for login
+cypress test for login\
+cypress test for searching actors\
+cypress test for searching movies
 
 
 ### Adding more Details in HomePage

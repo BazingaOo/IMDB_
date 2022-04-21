@@ -5,7 +5,6 @@ import (
 	genreController "backend/Controllers"
 	movieController "backend/Controllers"
 	ratingController "backend/Controllers"
-	reviewController "backend/Controllers"
 	userController "backend/Controllers"
 	watchedListController "backend/Controllers"
 	jwt "backend/Middleware"
@@ -20,14 +19,14 @@ func Main() {
 	adminGroup := router.Group("/admin")
 	adminGroup.Use(jwt.JWTAuth())
 	{
-		adminGroup.POST("/addGenre", genreController.AddGenre)
-		adminGroup.POST("/updateGenre", genreController.UpdateGenre)
-		adminGroup.POST("/deleteGenre", genreController.DeleteGenre)
-		adminGroup.POST("/addMovie", movieController.AddMovie)
-		adminGroup.POST("/updateMovie", movieController.UpdateMovie)
-		adminGroup.DELETE("/deleteMovie", movieController.DeleteMovie)
-		adminGroup.POST("/addMovieGenre", movieController.AddMovieGenre)
-		adminGroup.POST("/addMovieCast", movieController.AddMovieCast)
+		adminGroup.POST("/addGenre", ratingController.AddGenre)
+		adminGroup.POST("/updateGenre", ratingController.UpdateGenre)
+		adminGroup.POST("/deleteGenre", ratingController.DeleteGenre)
+		adminGroup.POST("/addMovie", genreController.AddMovie)
+		adminGroup.POST("/updateMovie", genreController.UpdateMovie)
+		adminGroup.DELETE("/deleteMovie", genreController.DeleteMovie)
+		adminGroup.POST("/addMovieGenre", genreController.AddMovieGenre)
+		adminGroup.POST("/addMovieCast", genreController.AddMovieCast)
 	}
 
 	// User Router, put all customer router in this.
@@ -42,8 +41,8 @@ func Main() {
 			movieGroup.POST("/searchMovieByCast", movieController.SearchMovieByCast)
 			movieGroup.POST("/searchMovieByMovieId", movieController.SearchMovieByMovieId)
 			movieGroup.POST("/searchMovieWithGenre", genreController.SearchMovieWithGenre)
-			movieGroup.POST("/searchMovieByYear", movieController.SearchMovieByYear)
-			movieGroup.POST("/topMovie", movieController.TopMovie)
+			movieGroup.POST("/searchMovieByYear", genreController.SearchMovieByYear)
+			movieGroup.POST("/topMovie", genreController.TopMovie)
 		}
 		castGroup := router.Group("/user/cast")
 		{
@@ -55,11 +54,11 @@ func Main() {
 		}
 		reviewGroup := router.Group("/user/review")
 		{
-			reviewGroup.POST("/addReview", reviewController.AddReview)
-			reviewGroup.POST("/updateReview", reviewController.UpdateReview)
-			reviewGroup.POST("/deleteReview", reviewController.DeleteReview)
-			reviewGroup.POST("/readReview", reviewController.ReadReview)
-			reviewGroup.POST("/readReviewByMovieId", reviewController.ReadReviewByMovieId)
+			reviewGroup.POST("/addReview", movieController.AddReview)
+			reviewGroup.POST("/updateReview", movieController.UpdateReview)
+			reviewGroup.POST("/deleteReview", movieController.DeleteReview)
+			reviewGroup.POST("/readReview", movieController.ReadReview)
+			reviewGroup.POST("/readReviewByMovieId", movieController.ReadReviewByMovieId)
 		}
 		watchedListGroup := router.Group("/user/watchedList")
 		{
@@ -77,8 +76,8 @@ func Main() {
 		}
 		genreGroup := router.Group("/user/genre")
 		{
-			genreGroup.POST("/searchGenreName", genreController.SearchGenreName)
-			genreGroup.POST("/searchGenreByGenreName", genreController.SearchGenreByGenreName)
+			genreGroup.POST("/searchGenreName", ratingController.SearchGenreName)
+			genreGroup.POST("/searchGenreByGenreName", ratingController.SearchGenreByGenreName)
 		}
 	}
 	userGroup.Use(jwt.JWTAuth())
