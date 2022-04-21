@@ -29,6 +29,7 @@ embellished all the pages previously created\
 redesigned some pages\
 cypress test for login\
 cypress test for searching actors\
+cypress test for searching movies
 
 
 ### Adding more Details in HomePage
