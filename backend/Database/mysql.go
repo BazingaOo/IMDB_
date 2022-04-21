@@ -9,7 +9,7 @@ import (
 
 const (
 	userName = "root"
-	password = "GuoZiHan1998"
+	password = "1234"
 	dbName   = "IMDB"
 	host     = "localhost"
 	port     = "3306"
