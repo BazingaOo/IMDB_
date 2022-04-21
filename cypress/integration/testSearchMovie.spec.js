@@ -11,5 +11,10 @@ describe('actor', () => {
         cy.get('#search').type('{enter}')// 提交表单
         // 查找按钮，然后点击
         // cy.visit('#/UserContainer/HomePage')  //校验是否登录成功
+
+        cy.get('table')
+            .contains('Forrest').click()
     })
+
+
 })
